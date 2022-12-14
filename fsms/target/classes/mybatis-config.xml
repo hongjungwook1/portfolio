@@ -7,6 +7,9 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 		
+	<typeAliases>
+		<typeAlias type="com.spring.fsms.admin.member.dto.AdminDto"  alias="AdminDto"/>
+	</typeAliases>
 	
 
 </configuration>
