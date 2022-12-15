@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="goodsMapper">
+	<insert id="insertGoods" parameterType="goodsDto">
+		INSERT INTO GOODS (
+    		GOODS_NAME,
+			GOODS_CNT,
+  			DISCOUNT_RATE,
+   			PRICE,
+    		GOODS_FILE_NAME,
+    		REG_DATE,
+    		GOODS_INFO,
+    		GOODS_ORIGIN,
+    		GOODS_CATEGORY
+		)
+		values (
+			#{goodsName},
+			#{goodsCnt},
+			#{discountRate},
+			#{price},
+			#{goodsFileName},
+			NOW(),
+			#{goodsInfo},
+			#{goodsOrigin},
+			#{goodsCategory}
+		)
+	</insert>
+	
+	
+	
+</mapper>

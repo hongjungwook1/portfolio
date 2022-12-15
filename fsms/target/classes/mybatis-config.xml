@@ -9,6 +9,7 @@
 		
 	<typeAliases>
 		<typeAlias type="com.spring.fsms.admin.member.dto.AdminDto"  alias="AdminDto"/>
+		<typeAlias type="com.spring.fsms.goods.dto.GoodsDto" alias="GoodsDto"/>
 	</typeAliases>
 	
 
