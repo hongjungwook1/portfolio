@@ -18,12 +18,12 @@ public class AdminMemberController {
 	
 	@RequestMapping(value="/fsms/login" , method=RequestMethod.GET)
 	public ModelAndView adminLogin() throws Exception {
-		return new ModelAndView("admin/adminLogin");
+		return new ModelAndView("/admin/adminLogin");
 	}
 	
 	@RequestMapping(value="/fsms/login" , method=RequestMethod.POST)
 	public ModelAndView adminLogin(AdminDto adminDto) throws Exception {
-		return new ModelAndView("admin/adminMain");
+		return new ModelAndView("/admin/adminMain");
 	}
 	
 	

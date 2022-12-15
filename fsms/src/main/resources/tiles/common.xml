@@ -15,5 +15,15 @@
 		<put-attribute name="title" value="main"/>
 	</definition>
 	
+	<definition name="/admin/adminMain" extends="baselayout">
+		<put-attribute name="body"  value="/WEB-INF/views/admin/adminMain.jsp"/>
+		<put-attribute name="title"  value="adminMain"/>
+	</definition>
+	
+	<definition name="/admin/adminLogin" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminLogin.jsp" />
+		<put-attribute name="title" value="adminLogin"/>
+	</definition>
+	
 	
 </tiles-definitions>
