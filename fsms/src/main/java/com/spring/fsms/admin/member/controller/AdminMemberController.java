@@ -1,7 +1,5 @@
 package com.spring.fsms.admin.member.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,29 +26,6 @@ public class AdminMemberController {
 	public ModelAndView adminLogin(AdminDto adminDto) throws Exception {
 		return new ModelAndView("/admin/adminMain");
 	}
-	
-	@RequestMapping(value="/fsms/insertGoods" , method=RequestMethod.GET)
-	public ModelAndView insertGoods(HttpSession session) {
-		
-		ModelAndView mv = new ModelAndView();
-		
-		if (session == null) {
-			mv.setViewName("/admin/adminLogin");
-		}
-		else {
-			mv.setViewName("/admin/insertGoods");
-		}
-		
-		return mv;
-	}
-	
-	@RequestMapping(value="/fsms/insertGoods" , method=RequestMethod.POST)
-	public ModelAndView insertGoods(GoodsDto goodsDto) {
-		return new ModelAndView("/admin/adminMain");
-	}
-	
-	
-	
 	
 	
 }
