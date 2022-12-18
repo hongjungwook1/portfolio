@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>awdasdawdasd</title>
+<title></title>
 </head>
 <body>
     <!-- Hero Section Begin -->
@@ -19,11 +19,11 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
+                            <li><a href="${contextPath }/admin/insertGoods">상품 추가</a></li>
+                            <li><a href="${contextPath }/admin/goodsList">상품 리스트</a></li>
+                            <li><a href="#">상품 삭제</a></li>
+                            <li><a href="#">주문 내역</a></li>
+                            <li><a href="#"></a></li>
                             <li><a href="#">Butter & Eggs</a></li>
                             <li><a href="#">Fastfood</a></li>
                             <li><a href="#">Fresh Onion</a></li>

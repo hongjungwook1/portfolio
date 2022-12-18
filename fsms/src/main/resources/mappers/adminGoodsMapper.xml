@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="adminGoodsMapper">
-	<insert id="insertGoods" parameterType="goodsDto">
+	<insert id="insertGoods" parameterType="GoodsDto">
 		INSERT INTO GOODS (
     		GOODS_NAME,
 			GOODS_CNT,
@@ -26,5 +26,40 @@
 			#{goodsCategory}
 		)
 	</insert>
+	
+	<update id="updateGoods" parameterType="GoodsDto">
+		UPDATE
+				GOODS
+		SET
+				GOODS_NAME = #{goodsName},
+				GOODS_CNT = #{goodsCnt},
+  				DISCOUNT_RATE = #{discountRate},
+   				PRICE = #{price},
+    			GOODS_FILE_NAME = #{goodsFileName},
+    			GOODS_INFO = #{goodsInfo},
+    			GOODS_ORIGIN = #{goodsOrigin},
+    			GOODS_CATEGORY = #{goodsCategory}
+    	WHERE
+    			GOODS_CD = #{goodsCd}
+				
+	</update>
+	
+	<select id="selectGoodsList" resultType="GoodsDto" parameterType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS
+	</select>
+	
+	<select id="selectGetOneGoods" resultType="GoodsDto" parameterType="int">
+		SELECT
+				*
+		FROM
+				GOODS
+		WHERE
+				GOODS_CD = #{goodsCd}
+	</select>
+	
+	
 
 </mapper>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="center" style="padding-top: 100px">
-		<form action="${contextPath }/ " method="post" >
+		<form action="${contextPath }/admin/insertGoods " method="post" >
 			<div  align="center">
 				<h2>상품 추가하기</h2>
 				<br>
@@ -25,15 +25,19 @@
 				</tr>
 				<tr >
 					<td align="center">상품 수량</td>
-					<td><input type="number" name=goodsCnt size="70"/></td>
+					<td><input type="text" name=goodsCnt size="70"/></td>
 				</tr>
 				<tr>
 					<td align="center">할인율</td>
-					<td><input type="number" name="discountRate" size="70"/></td>
+					<td><input type="text" name="discountRate" size="70"/></td>
 				</tr>
 				<tr>
 					<td align="center">금액</td>
-					<td><input type="number" name="price" size="70"/></td>
+					<td><input type="text" name="price" size="70"/></td>
+				</tr>
+				<tr>
+					<td align="center">상품 파일명</td>
+					<td><input type="text" name="goodsFileName" size="70"/></td>
 				</tr>
 				<tr>
 					<td align="center">상품 분류</td>

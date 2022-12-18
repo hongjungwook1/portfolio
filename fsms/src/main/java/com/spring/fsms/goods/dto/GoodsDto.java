@@ -7,80 +7,77 @@ import org.springframework.stereotype.Component;
 @Component
 public class GoodsDto {
 	
-	private String GOODS_CD;
-	private	String GOODS_NAME;
-	private int GOODS_CNT;
-	private	int DISCOUNT_RATE;
-	private	int PRICE;
-	private	String GOODS_FILE_NAME;	
-	private	Date REG_DATE;
-	private	String GOODS_INFO; 	
-	private	String GOODS_ORIGIN;	
-	private	String GOODS_CATEGORY;
+	private String goodsCd;
+	private	String goodsName;
+	private int goodsCnt;
+	private	int discountRate;
+	private	int price;
+	private	String goodsFileName;	
+	private	Date regDate;
+	private	String goodsInfo; 	
+	private	String goodsOrigin;	
+	private	String goodsCategory;
 	
-	public String getGOODS_CD() {
-		return GOODS_CD;
+	public String getGoodsCd() {
+		return goodsCd;
 	}
-	public void setGOODS_CD(String gOODS_CD) {
-		GOODS_CD = gOODS_CD;
+	public void setGoodsCd(String goodsCd) {
+		this.goodsCd = goodsCd;
 	}
-	public String getGOODS_NAME() {
-		return GOODS_NAME;
+	public String getGoodsName() {
+		return goodsName;
 	}
-	public void setGOODS_NAME(String gOODS_NAME) {
-		GOODS_NAME = gOODS_NAME;
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
 	}
-	public int getGOODS_CNT() {
-		return GOODS_CNT;
+	public int getGoodsCnt() {
+		return goodsCnt;
 	}
-	public void setGOODS_CNT(int gOODS_CNT) {
-		GOODS_CNT = gOODS_CNT;
+	public void setGoodsCnt(int goodsCnt) {
+		this.goodsCnt = goodsCnt;
 	}
-	public int getDISCOUNT_RATE() {
-		return DISCOUNT_RATE;
+	public int getDiscountRate() {
+		return discountRate;
 	}
-	public void setDISCOUNT_RATE(int dISCOUNT_RATE) {
-		DISCOUNT_RATE = dISCOUNT_RATE;
+	public void setDiscountRate(int discountRate) {
+		this.discountRate = discountRate;
 	}
-	public int getPRICE() {
-		return PRICE;
+	public int getPrice() {
+		return price;
 	}
-	public void setPRICE(int pRICE) {
-		PRICE = pRICE;
+	public void setPrice(int price) {
+		this.price = price;
 	}
-	public String getGOODS_FILE_NAME() {
-		return GOODS_FILE_NAME;
+	public String getGoodsFileName() {
+		return goodsFileName;
 	}
-	public void setGOODS_FILE_NAME(String gOODS_FILE_NAME) {
-		GOODS_FILE_NAME = gOODS_FILE_NAME;
+	public void setGoodsFileName(String goodsFileName) {
+		this.goodsFileName = goodsFileName;
 	}
-	public Date getREG_DATE() {
-		return REG_DATE;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setREG_DATE(Date rEG_DATE) {
-		REG_DATE = rEG_DATE;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
-	public String getGOODS_INFO() {
-		return GOODS_INFO;
+	public String getGoodsInfo() {
+		return goodsInfo;
 	}
-	public void setGOODS_INFO(String gOODS_INFO) {
-		GOODS_INFO = gOODS_INFO;
+	public void setGoodsInfo(String goodsInfo) {
+		this.goodsInfo = goodsInfo;
 	}
-	public String getGOODS_ORIGIN() {
-		return GOODS_ORIGIN;
+	public String getGoodsOrigin() {
+		return goodsOrigin;
 	}
-	public void setGOODS_ORIGIN(String gOODS_ORIGIN) {
-		GOODS_ORIGIN = gOODS_ORIGIN;
+	public void setGoodsOrigin(String goodsOrigin) {
+		this.goodsOrigin = goodsOrigin;
 	}
-	public String getGOODS_CATEGORY() {
-		return GOODS_CATEGORY;
+	public String getGoodsCategory() {
+		return goodsCategory;
 	}
-	public void setGOODS_CATEGORY(String gOODS_CATEGORY) {
-		GOODS_CATEGORY = gOODS_CATEGORY;
+	public void setGoodsCategory(String goodsCategory) {
+		this.goodsCategory = goodsCategory;
 	}
-	
-	
-	
 	
 	
 	
