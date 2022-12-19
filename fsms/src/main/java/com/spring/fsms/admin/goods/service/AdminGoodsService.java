@@ -6,9 +6,14 @@ import com.spring.fsms.goods.dto.GoodsDto;
 
 public interface AdminGoodsService {
 	
-
-	public void addGoods(GoodsDto goodsDto);
-	public void modifyGoods(GoodsDto goodsDto);
-	public List<GoodsDto> getGoodsList();
-	public GoodsDto getOneGoods(int goodsCd);
+	public void addGoods(GoodsDto goodsDto) throws Exception;
+	public void modifyGoods(GoodsDto goodsDto)throws Exception ;
+	public List<GoodsDto> getGoodsList() throws Exception;
+	public GoodsDto getOneGoods(int goodsCd) throws Exception;
+	public void deleteGoods(GoodsDto goodsDto) throws Exception;
+	
+	// view  controller   serivce   dao    mapper
+	//  !                                     !
+	
+	
 }

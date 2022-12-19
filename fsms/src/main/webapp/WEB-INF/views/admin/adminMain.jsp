@@ -19,8 +19,8 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="${contextPath }/admin/insertGoods">상품 추가</a></li>
-                            <li><a href="${contextPath }/admin/goodsList">상품 리스트</a></li>
+                            <li><a href="${contextPath }/admin/goods/insertGoods">상품 추가</a></li>
+                            <li><a href="${contextPath }/admin/goods/goodsList">상품 리스트</a></li>
                             <li><a href="#">상품 삭제</a></li>
                             <li><a href="#">주문 내역</a></li>
                             <li><a href="#"></a></li>

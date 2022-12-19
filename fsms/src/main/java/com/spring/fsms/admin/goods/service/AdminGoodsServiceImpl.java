@@ -15,23 +15,28 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	private AdminGoodsDao adminGoodsDao;
 
 	@Override
-	public void addGoods(GoodsDto goodsDto) {
+	public void addGoods(GoodsDto goodsDto) throws Exception{
 		adminGoodsDao.insertGoods(goodsDto);
 	}
 
 	@Override
-	public void modifyGoods(GoodsDto goodsDto) {
+	public void modifyGoods(GoodsDto goodsDto) throws Exception{
 		adminGoodsDao.updateGoods(goodsDto);
 	}
 
 	@Override
-	public List<GoodsDto> getGoodsList() {
+	public List<GoodsDto> getGoodsList() throws Exception{
 		return adminGoodsDao.selectGetGoodsList();
 	}
 
 	@Override
-	public GoodsDto getOneGoods(int goodsCd) {
+	public GoodsDto getOneGoods(int goodsCd) throws Exception{
 		return adminGoodsDao.selectGetOneGoods(goodsCd);
+	}
+
+	@Override
+	public void deleteGoods(GoodsDto goodsDto) throws Exception{
+		adminGoodsDao.deleteGoods(goodsDto);
 	}
 
 

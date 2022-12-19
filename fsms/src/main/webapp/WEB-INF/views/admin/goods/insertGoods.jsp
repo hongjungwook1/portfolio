@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="center" style="padding-top: 100px">
-		<form action="${contextPath }/admin/insertGoods " method="post" >
+		<form action="${contextPath }/admin/goods/insertGoods " method="post" enctype="multipart/form-data">
 			<div  align="center">
 				<h2>상품 추가하기</h2>
 				<br>
@@ -19,6 +19,9 @@
 					<col width="20%">
 					<col width="80%">
 				</colgroup>
+				<tr>
+					<td>상품 이미지</td>
+				</tr>
 				<tr>
 					<td align="center">상품 이름</td>
 					<td><input type="text" name="goodsName" size="70"/></td>

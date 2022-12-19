@@ -60,6 +60,10 @@
 				GOODS_CD = #{goodsCd}
 	</select>
 	
+	<delete id="deleteGoods" parameterType="GoodsDto">
+		DELETE FROM GOODS WHERE GOODS_CD = #{goodsCd}
+	</delete>
+	
 	
 
 </mapper>

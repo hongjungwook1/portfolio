@@ -10,7 +10,7 @@
 <body>
 
 	<div align="center" style="padding-top: 100px">
-		<form action="${contextPath }/admin/updateGoods " method="post" >
+		<form action="${contextPath }/admin/goods/updateGoods " method="post" >
 			<div  align="center">
 				<h2>상품 수정하기</h2>
 				<br>

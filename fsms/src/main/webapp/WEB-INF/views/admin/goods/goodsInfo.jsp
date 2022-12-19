@@ -45,9 +45,9 @@
 			</tr>
 			<tr>
 				<td colspan="3">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/admin/updateGoods?goodsCd=${goodsDto.goodsCd }'">
-					<input type="button" value="삭제하기">
-					<input type="button" value="목록보기">
+					<input type="button" value="수정하기" onclick="location.href='${contextPath}/admin/goods/updateGoods?goodsCd=${goodsDto.goodsCd }'">
+					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/admin/goods/deleteGoods?goodsCd=${goodsDto.goodsCd }'">
+					<input type="button" value="목록보기" onclick="location.href='${contextPath}/admin/goods/goodsList'">
 				</td>
 			</tr>
 		</table>
