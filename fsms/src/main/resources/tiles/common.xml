@@ -25,5 +25,25 @@
 		<put-attribute name="title" value="adminLogin"/>
 	</definition>
 	
+	<definition name="/admin/goods/insertGoods" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/insertGoods.jsp" />
+		<put-attribute name="title" value="adminInsertGoods" />
+	</definition>
+	
+	<definition name="/admin/goods/goodsList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/goodsList.jsp" />
+		<put-attribute name="title" value="adminGoodsList" />
+	</definition>
+	
+	<definition name="/admin/goods/goodsInfo" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/goodsInfo" />
+		<put-attribute name="title" value="adminGoodsInfo" />
+	</definition>
+	
+	<definition name="/admin/goods/updateGoods" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/updateGoods" />
+		<put-attribute name="title" value="adminUpdateGoods" />
+	</definition>
+	
 	
 </tiles-definitions>

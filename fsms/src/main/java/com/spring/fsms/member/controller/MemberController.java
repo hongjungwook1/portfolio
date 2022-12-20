@@ -1,0 +1,89 @@
+package com.spring.fsms.member.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.fsms.member.dto.MemberDto;
+import com.spring.fsms.member.service.MemberService;
+
+@Controller
+@RequestMapping("/member")
+public class MemberController {
+
+	@Autowired
+	private MemberService memberService;
+	
+	@RequestMapping(value="/main" , method=RequestMethod.GET)
+	public ModelAndView main () {
+		return new ModelAndView("/member/main");
+	}
+	
+	
+	
+	@RequestMapping(value="/join" , method=RequestMethod.GET)
+	public ModelAndView join () throws Exception {
+		return new ModelAndView("/member/join");
+	}
+	
+	@RequestMapping(value="/join" , method=RequestMethod.POST)
+	public ResponseEntity<Object> join (MemberDto memberDto , HttpServletRequest request) throws Exception{
+		
+		memberService.addMember(memberDto);
+		System.out.println(memberDto);
+		
+		
+		String jsScript = "";
+		jsScript = "<script>";
+		jsScript += "alert('회원 가입을 축하합니다');";
+		jsScript += "location.href='" + request.getContextPath() + "/member/main'";
+		jsScript += "</script>";
+
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type", "text/html; charset=UTF-8");
+		
+		return new ResponseEntity<Object>(jsScript , header , HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="login" , method=RequestMethod.GET)
+	public ModelAndView login () throws Exception{
+		return new ModelAndView("/member/login");
+	}
+	
+	
+	@RequestMapping(value="login" , method=RequestMethod.POST)
+	public ResponseEntity<Object> login (MemberDto memberDto , HttpServletRequest request) throws Exception {
+		
+		String jsScript = "";
+		
+		if (memberService.loginMember(memberDto)) {
+			
+			jsScript = "<script>";
+			jsScript += "alert('로그인 되었습니다');";
+			jsScript += "location.href='" + request.getContextPath() + "/member/main'";
+			jsScript += "</script>";
+			
+		}
+		else {
+			
+			jsScript = "<script>";
+			jsScript += "alert('아이디 , 비밀번호 확인해주세요.');";
+			jsScript += "history.go(-1)";
+			jsScript += "</script>";
+		}
+		
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type", "text/html; charset=UTF-8");
+		
+		return new ResponseEntity<Object>(jsScript , header , HttpStatus.OK);
+	}
+	
+	
+}
