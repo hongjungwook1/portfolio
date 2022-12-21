@@ -10,8 +10,8 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/layout/footer.jsp"/>
 	</definition>
 	
-	<definition name="/main" extends="baselayout">
-		<put-attribute name="body"  value="/WEB-INF/views/main.jsp"/>
+	<definition name="/member/main" extends="baselayout">
+		<put-attribute name="body"  value="/WEB-INF/views/member/main.jsp"/>
 		<put-attribute name="title" value="main"/>
 	</definition>
 	

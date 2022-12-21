@@ -30,5 +30,9 @@ public class AdminDto {
 		this.adminJoinDt = adminJoinDt;
 	}
 	
+	@Override
+	public String toString() {
+		return "AdminDto [adminId=" + adminId + ", adminPw=" + adminPw + ", adminJoinDt=" + adminJoinDt + "]";
+	}
 	
 }

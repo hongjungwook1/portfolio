@@ -27,9 +27,9 @@
 				return false;
 			}
 			
-			if ("#emailstsYn" == null) {
+			if (!$("#emailstsYn").val().prop("checked" , false)) {
 				alert("이메일 수신 동의를 체크해주세요");
-				return false;
+				return ;
 			}
 		
 		});

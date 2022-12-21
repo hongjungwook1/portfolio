@@ -1,6 +1,7 @@
 package com.spring.fsms.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -37,8 +38,6 @@ public class MemberController {
 	public ResponseEntity<Object> join (MemberDto memberDto , HttpServletRequest request) throws Exception{
 		
 		memberService.addMember(memberDto);
-		System.out.println(memberDto);
-		
 		
 		String jsScript = "";
 		jsScript = "<script>";
@@ -64,6 +63,9 @@ public class MemberController {
 		String jsScript = "";
 		
 		if (memberService.loginMember(memberDto)) {
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("value", memberDto.getMemberId());
 			
 			jsScript = "<script>";
 			jsScript += "alert('로그인 되었습니다');";

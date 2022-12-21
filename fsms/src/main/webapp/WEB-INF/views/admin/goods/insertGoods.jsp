@@ -21,6 +21,8 @@
 				</colgroup>
 				<tr>
 					<td>상품 이미지</td>
+					<td><input type="file" name="goodsFileName" id="goodsFileName"></td>
+					
 				</tr>
 				<tr>
 					<td align="center">상품 이름</td>

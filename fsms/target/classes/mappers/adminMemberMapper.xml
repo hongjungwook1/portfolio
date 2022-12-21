@@ -3,15 +3,36 @@
 
 <mapper namespace="adminMember">
 
-	<select id="selectAdminLogin" resultType="AdminDto" parameterType="String">
+	<select id="selectAdminLogin" resultType="AdminDto" parameterType="AdminDto">
 		SELECT
 				*
 		FROM
-				FS_ADMIN
+				ADMIN
 		WHERE
 				ADMIN_ID = #{adminId} AND ADMIN_PW = #{adminPw}
 	</select>
+	
+	<select id="selectListMember" resultType="MemberDto" parameterType="MemberDto">
+		SELECT
+				*
+		FROM	
+				MEMBER
+	</select>
+	
+	<select id="selectOneMemberList" resultType="MemberDto" parameterType="String">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE
+		 		MEMBER_ID = #{memberId}
+	</select>
 
+	<delete id="deleteMember" parameterType="String"> 
+		DELETE FROM MEMBER WHERE MEMBER_ID = #{memberId}
+	</delete>
+
+	
 
 
 </mapper>
