@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 <script>
+	/*
 	$().ready(function () {
 		
 		$("#checkId").click(function () {
@@ -17,21 +19,72 @@
 			}
 		});
 		
+	
+	*/
 		
 		$("form").submit(function () {
 			
-			var smsstsYn = $("#smsstsYn").val();
+			//var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
+			//$["[name='dateBrith']"].val(dateBirth);
 			
-			if (!smsstsYn.checked()) {
-				alert("문자 수신 동의를 체크해주세요");
+			//var smsstsYn = $("#smsstsYn").val();
+			
+		//	if (smsstsYn.val().checked == false) {
+		//		alert("문자 수신 동의를 체크해주세요");
+		//		return false;
+		//	}
+			
+			
+		//	var emailstsYn = $('input[name="emailstsYn"]:checked').val();
+		//	
+		//	if (emailstsYn == null)  {
+		///		alert("asdjkawldjkal;awjkd");
+		//		return false;
+		//	}
+			
+			//if ($("#emailstsYn").val().prop("checked" , false)) {
+				//alert("이메일 수신 동의를 체크해주세요");
+				//return ;
+			//}
+		
+			//if ($("#emailstsYn").val().prop() != "Y" || $("#emailstsYn").val().prop() != "N") {
+			//	alert("문잠아ㅣㅓ모ㅜ지아ㅕ모ㅜㄴ이맏루");
+			//	return false;
+			//}
+			
+			
+			var memberId = $("#memberId");
+			if (memberId.val() == "") {
+				alert("아이디는 필수 값 입니다.");
+				memberId.focus();
 				return false;
 			}
 			
-			if (!$("#emailstsYn").val().prop("checked" , false)) {
-				alert("이메일 수신 동의를 체크해주세요");
-				return ;
+			var memberName = $("#memberName");
+			if (memberName.val() == "") {
+				alert("이름은 필수 값 입니다.");
+				memberName.focus();
+				return false;
 			}
-		
+			
+			var hp = $("#hp");
+			if (hp.val() == "") {
+				alert("핸드폰 번호는 필수 값 입니다.");
+				hp.focus();
+				return false;
+			}
+			
+			var email = $("#email");
+			if (email.val() == "") {
+				alert("이멩을 입력ㅎ세요");
+				email.focus();
+				return false;
+			}
+			
+			
+			
+			
+			
 		});
 		
 		
@@ -67,14 +120,14 @@
 				</tr>
 				<tr>
 					<td>생년월일
-						<select>
+						<select id="brithY">
 							<c:forEach begin="1950" end="2022" var="i">
 								<option selected="2022">
 									<c:out value="${i }" />
 								</option>
 							</c:forEach>
 						</select> 년
-						<select>
+						<select id="brithM">
 							<c:forEach begin="1" end="12" var="i">
 								<c:choose>
 									<c:when test="${i < 10 }">
@@ -90,7 +143,7 @@
 								</c:choose>
 							</c:forEach>
 						</select> 월
-						<select>
+						<select id="birthM">
 							<c:forEach begin="1" end="31" var="i">
 								<c:choose>
 									<c:when test="${i < 10 }">
@@ -106,6 +159,7 @@
 								</c:choose>
 							</c:forEach>
 						</select> 일
+						<input type="hidden" name="dateBirth">
 					</td>
 				</tr>
 				<tr>

@@ -24,6 +24,9 @@
 			</div>
 		</form>
 	</div>
+	<div align="center">
+		<p>아직 회원이 아니신가요? 바로 <a href="${contextPath }/member/join">회원가입</a>  하러 가기</p>
+	</div>
 	
 	
 </body>
