@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	@RequestMapping(value="/main" , method=RequestMethod.GET)
 	public ModelAndView main () {
 		return new ModelAndView("/member/main");
@@ -38,12 +42,14 @@ public class MemberController {
 	@RequestMapping(value="/join" , method=RequestMethod.POST)
 	public ResponseEntity<Object> join (MemberDto memberDto , HttpServletRequest request) throws Exception{
 		
+		memberDto.setPassword(bCryptPasswordEncoder.encode(memberDto.getPassword()));
+		
 		memberService.addMember(memberDto);
 		
 		String jsScript = "";
 		jsScript = "<script>";
 		jsScript += "alert('회원 가입 되었습니다.');";
-		jsScript += "location.href='" + request.getContextPath() + "/member/main'";
+		jsScript += "location.href='" + request.getContextPath() + "/';";
 		jsScript += "</script>";
 
 		HttpHeaders header = new HttpHeaders();
@@ -56,12 +62,6 @@ public class MemberController {
 	public ResponseEntity<String> overlapped (@RequestParam("memberId") String memberId) throws Exception {
 		return new ResponseEntity<String>(memberService.checkDuplicatedId(memberId) , HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
-	
 	
 	@RequestMapping(value="login" , method=RequestMethod.GET)
 	public ModelAndView login () throws Exception{
@@ -99,6 +99,28 @@ public class MemberController {
 		
 		return new ResponseEntity<Object>(jsScript , header , HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/logout" , method=RequestMethod.GET)
+	public ResponseEntity<Object> logout (HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		String jsScript = "<script>";
+			   jsScript += " alert('로그아웃 되었습니다.');";
+			   jsScript += "location.href='" + request.getContextPath() + "/';";
+			   jsScript += " </script>";
+			   
+	   HttpHeaders header = new HttpHeaders();
+	   header.add("Content-Type", "text/html; charset=utf-8");
+		
+	   return new ResponseEntity<Object>(jsScript, header, HttpStatus.OK);
+		
+	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="update" , method=RequestMethod.GET)
 	public ModelAndView update () {

@@ -79,7 +79,21 @@ public class GoodsDto {
 		this.goodsCategory = goodsCategory;
 	}
 	
-	
+	/*
+	 * CREATE TABLE GOODS (
+	GOODS_CD INT PRIMARY KEY AUTO_INCREMENT,
+    GOODS_NAME VARCHAR(500),
+	GOODS_CNT INT,
+    DISCOUNT_RATE INT,
+    PRICE INT,
+    GOODS_FILE_NAME VARCHAR(2000),
+    REG_DATE DATETIME,
+    GOODS_INFO VARCHAR(2000),
+    GOODS_ORIGIN VARCHAR(50),
+    GOODS_CATEGORY VARCHAR(100)
+);
+	 * 
+	 */
 	
 	
 	

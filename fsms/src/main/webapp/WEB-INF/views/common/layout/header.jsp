@@ -48,7 +48,7 @@
                             	</c:when>
                             	<c:otherwise>
 		                            <div class="header__top__right__auth">
-		                                <a href="#"><i class="fa fa-user"></i>logout</a>
+		                                <a href="${contextPath }/member/logout"><i class="fa fa-user"></i>logout</a>
 		                            </div>
                             	</c:otherwise>
                             </c:choose>

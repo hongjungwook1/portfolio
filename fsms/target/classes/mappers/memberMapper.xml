@@ -40,13 +40,13 @@
 		)
 	</insert>
 	
-	<select id="loginMember" parameterType="MemberDto" resultType="MemberDto">
+	<select id="loginMember" parameterType="String" resultType="MemberDto">
 		SELECT
 				*
 		FROM
 				MEMBER
 		WHERE 
-				MEMBER_ID = #{memberId} AND PASSWORD = #{password}
+				MEMBER_ID = #{memberId}
 	</select>
 
 
@@ -56,7 +56,7 @@
 		FROM
 				MEMBER
 		WHERE
-				MEMBER_ID = #{memberId}
+				MEMBER_ID = #{memberId} AND PASSWORD = #{password}
 	</select>
 	
 

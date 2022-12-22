@@ -1,5 +1,9 @@
 package com.spring.fsms.admin.goods.controller;
 
+import java.io.File;
+import java.util.Iterator;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,6 +32,10 @@ public class AdminGoodsController {
 	@Autowired
 	private GoodsDto goodsDto;
 	
+	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+	private final String SEPERATOR = "\\";
+	
+	
 	@RequestMapping(value="adminMain" , method=RequestMethod.GET)
 	public ModelAndView adminMain () throws Exception{
 		return new ModelAndView("/admin/adminMain");
@@ -42,6 +51,8 @@ public class AdminGoodsController {
 	@RequestMapping(value="/insertGoods" , method=RequestMethod.POST)
 	public ResponseEntity<Object> insertGoods(MultipartHttpServletRequest request) throws Exception{
 		
+		request.setCharacterEncoding("utf-8");
+		
 		GoodsDto goodsDto = new GoodsDto();
 		
 		goodsDto.setGoodsName(request.getParameter("goodsName"));
@@ -52,6 +63,20 @@ public class AdminGoodsController {
 		goodsDto.setGoodsOrigin(request.getParameter("goodsOrigin"));
 		goodsDto.setGoodsInfo(request.getParameter("goodsInfo"));
 		
+		Iterator<String> file = request.getFileNames();
+		if (file.hasNext()) {
+			
+			MultipartFile uploadFile = request.getFile(file.next());
+			
+			if (uploadFile.getOriginalFilename().isEmpty()) {
+				String uploadFileName = UUID.randomUUID() + "_" + uploadFile.getOriginalFilename();
+				File f = new File(CURR_IMAGE_REPO_PATH + SEPERATOR + uploadFileName);	
+				uploadFile.transferTo(f); 
+				goodsDto.setGoodsFileName(uploadFileName);
+			}
+			
+			
+		}
 		
 		adminGoodsService.addGoods(goodsDto);
 		

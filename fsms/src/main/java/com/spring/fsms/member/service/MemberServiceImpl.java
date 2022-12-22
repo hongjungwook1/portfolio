@@ -1,6 +1,7 @@
 package com.spring.fsms.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.spring.fsms.member.dao.MemberDao;
@@ -11,6 +12,9 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberDao memberDao;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
 	public void addMember(MemberDto memberDto) throws Exception {
@@ -21,10 +25,12 @@ public class MemberServiceImpl implements MemberService {
 	public boolean loginMember(MemberDto memberDto) throws Exception {
 		boolean isLogin = false;
 		
-		if (memberDao.loginMember(memberDto) != null) {
-			isLogin = true;
+		MemberDto checkExsistId = memberDao.loginMember(memberDto);
+		if (checkExsistId != null) {
+			if (bCryptPasswordEncoder.matches(memberDto.getPassword(), checkExsistId.getPassword())) {
+				isLogin = true;
+			}
 		}
-		
 		
 		return isLogin;
 	}
