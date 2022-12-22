@@ -6,5 +6,5 @@ public interface MemberService {
 	
 	public void addMember(MemberDto memberDto) throws Exception;
 	public boolean loginMember(MemberDto memberDto) throws Exception;
-
+	public String checkDuplicatedId (String memberId) throws Exception;
 }

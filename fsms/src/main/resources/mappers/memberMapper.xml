@@ -50,4 +50,14 @@
 	</select>
 
 
+	<select id="selectDuplicatedId" resultType="String" parameterType="String">
+		SELECT
+				MEMBER_ID
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+
 </mapper>

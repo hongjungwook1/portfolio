@@ -29,7 +29,7 @@
                             <li><a href="#">Fresh Onion</a></li>
                             <li><a href="#">Papayaya & Crisps</a></li>
                             <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
+                            <li><a href="${contextPath }/member/update">개인정보 수정</a></li>
                         </ul>
                     </div>
                 </div>

@@ -46,7 +46,8 @@ public class AdminMemberController {
 		if (adminMemberService.adminLogin(adminDto)) {
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("admin", adminDto.getAdminId());
+			session.setAttribute("adminId", adminDto.getAdminId());
+			session.setAttribute("role", "admin");
 			
 			jsScript += "<script>";
 			jsScript += "alert('관리자가 로그인 하였습니다.');";

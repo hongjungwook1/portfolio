@@ -4,53 +4,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 <script>
-	/*
+	
 	$().ready(function () {
+		
+		alert("adawdasd");
 		
 		$("#checkId").click(function () {
 			
-			var memberId = $("#memberId").val();
-			
-			if (memberId == '') {
-				alert("아이디를 입력하세요.");
-				return;
+			var memberId = $("#memberId");
+			if (memberId.val() == "") {
+				alert("아이디를 적어주세요");
+				memberId.focus();
 			}
+			/*
+			$.ajax({
+				type : "get",
+				url	 : "${contextPath}/member/checkDuplicatedId?memberId=" + memberId,
+				success : function (data) {
+					if (data == "duplicate") {
+						alert("사용 할 수 있는 아이디 입니다");
+					}
+					else {
+						alert("사용 할 수 없는 아이디 입니다");
+					}
+				}
+			});
+			*/
+
+
 		});
 		
 	
-	*/
+	
 		
 		$("form").submit(function () {
-			
-			//var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
-			//$["[name='dateBrith']"].val(dateBirth);
-			
-			//var smsstsYn = $("#smsstsYn").val();
-			
-		//	if (smsstsYn.val().checked == false) {
-		//		alert("문자 수신 동의를 체크해주세요");
-		//		return false;
-		//	}
-			
-			
-		//	var emailstsYn = $('input[name="emailstsYn"]:checked').val();
-		//	
-		//	if (emailstsYn == null)  {
-		///		alert("asdjkawldjkal;awjkd");
-		//		return false;
-		//	}
-			
-			//if ($("#emailstsYn").val().prop("checked" , false)) {
-				//alert("이메일 수신 동의를 체크해주세요");
-				//return ;
-			//}
-		
-			//if ($("#emailstsYn").val().prop() != "Y" || $("#emailstsYn").val().prop() != "N") {
-			//	alert("문잠아ㅣㅓ모ㅜ지아ㅕ모ㅜㄴ이맏루");
-			//	return false;
-			//}
 			
 			
 			var memberId = $("#memberId");
@@ -67,6 +56,10 @@
 				return false;
 			}
 			
+			// 비밀번호 8자리 이상 아니면 return false 보내기
+			
+			
+			
 			var hp = $("#hp");
 			if (hp.val() == "") {
 				alert("핸드폰 번호는 필수 값 입니다.");
@@ -74,14 +67,25 @@
 				return false;
 			}
 			
+			//if ($("#smsstsYn").val() != "Y" || $("#smsstsYn").val() != "N") {
+			//	alert("핸드폰 문자 수신 동의 여부 체크 해주세요.");
+			//	return false;
+			//}
+			
 			var email = $("#email");
 			if (email.val() == "") {
-				alert("이멩을 입력ㅎ세요");
+				alert("이메일을 입력하세요.");
 				email.focus();
 				return false;
 			}
 			
+			//if ($("#emailstsYn").val() != "Y" || $("#emailstsYn").val() != "N") {
+			//	alert("이메일 수신 동의 여부 체크 해주세요.");
+			//	return false;
+			//}
 			
+			var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
+			$["[name='dateBrith']"].val(dateBirth);
 			
 			
 			
@@ -90,6 +94,7 @@
 		
 	});
 </script>
+
 <meta charset="UTF-8">
 <title>join</title>
 </head>

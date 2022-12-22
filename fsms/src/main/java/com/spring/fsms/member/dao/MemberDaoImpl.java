@@ -22,5 +22,11 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.selectOne("memberMapper.loginMember" , memberDto);
 	}
 
+	@Override
+	public String selectDuplicatedId(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectDuplicatedId" , memberId);
+	}
+
+
 	
 }

@@ -37,9 +37,21 @@
                                     <li><a href="#">English</a></li>
                                 </ul>
                             </div>
-                            <div class="header__top__right__auth">
-                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
-                            </div>
+                            <c:choose>
+                            	<c:when test="${sessionScope.memberId eq null } ">
+		                            <div class="header__top__right__auth">
+		                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
+		                            </div>
+		                            <div class="header__top__right__auth">
+		                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
+		                            </div>
+                            	</c:when>
+                            	<c:otherwise>
+		                            <div class="header__top__right__auth">
+		                                <a href="#"><i class="fa fa-user"></i>logout</a>
+		                            </div>
+                            	</c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>

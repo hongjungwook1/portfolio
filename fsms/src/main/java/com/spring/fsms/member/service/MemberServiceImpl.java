@@ -28,4 +28,17 @@ public class MemberServiceImpl implements MemberService {
 		
 		return isLogin;
 	}
+
+	@Override
+	public String checkDuplicatedId(String memberId) throws Exception {
+		
+		if (memberDao.selectDuplicatedId(memberId) == null) return "duplicate";
+		else												return "notduplicate";
+		
+	}
+
+	
+	
+	
+	
 }

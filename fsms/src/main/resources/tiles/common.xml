@@ -36,12 +36,12 @@
 	</definition>
 	
 	<definition name="/admin/goods/goodsInfo" extends="baselayout">
-		<put-attribute name="body" value="/WEB-INF/views/admin/goods/goodsInfo" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/goodsInfo.jsp" />
 		<put-attribute name="title" value="adminGoodsInfo" />
 	</definition>
 	
 	<definition name="/admin/goods/updateGoods" extends="baselayout">
-		<put-attribute name="body" value="/WEB-INF/views/admin/goods/updateGoods" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/updateGoods.jsp" />
 		<put-attribute name="title" value="adminUpdateGoods" />
 	</definition>
 	
