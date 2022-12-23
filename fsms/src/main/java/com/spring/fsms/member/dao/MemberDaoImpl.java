@@ -27,6 +27,23 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.selectOne("memberMapper.selectDuplicatedId" , memberId);
 	}
 
+	@Override
+	public String selectOneValidateUserCheck(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectOneValidateUserCheck" ,memberId);
+	}
+
+	@Override
+	public MemberDto selectGetOneMember(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectGetOneMember" , memberId);
+	}
+
+	@Override
+	public void updateMember(MemberDto memberDto) throws Exception {
+		System.out.println(memberDto);
+		sqlSession.update("memberMapper.updateMember" , memberDto);
+	}
+
+
 
 	
 }

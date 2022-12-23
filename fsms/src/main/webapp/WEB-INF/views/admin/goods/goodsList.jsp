@@ -20,7 +20,7 @@
 			</tr>
 			<c:forEach var="goodsDto" items="${goodsList }">
 				<tr>
-					<td>${goodsDto.goodsCd }</td>					
+					<td>${goodsDto.goodsCd }</td>	
 					<td><a href="${contextPath }/admin/goods/goodsInfo?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsName }</a></td>					
 					<td>${goodsDto.price }</td>					
 					<td>${goodsDto.goodsOrigin }</td>					

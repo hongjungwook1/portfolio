@@ -35,6 +35,9 @@ public class AdminGoodsController {
 	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
 	private final String SEPERATOR = "\\";
 	
+	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
+	//private final String SEPERATOR = "//";
+	
 	
 	@RequestMapping(value="adminMain" , method=RequestMethod.GET)
 	public ModelAndView adminMain () throws Exception{
@@ -68,7 +71,7 @@ public class AdminGoodsController {
 			
 			MultipartFile uploadFile = request.getFile(file.next());
 			
-			if (uploadFile.getOriginalFilename().isEmpty()) {
+			if (!uploadFile.getOriginalFilename().isEmpty()) {
 				String uploadFileName = UUID.randomUUID() + "_" + uploadFile.getOriginalFilename();
 				File f = new File(CURR_IMAGE_REPO_PATH + SEPERATOR + uploadFileName);	
 				uploadFile.transferTo(f); 

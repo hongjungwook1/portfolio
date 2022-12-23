@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<td align="center">상품 파일명</td>
-					<td><input type="text" name="goodsFileName" size="70" value="${goodsDto.goodsFileName }"/></td>
+					<td><input type="file" name="goodsFileName" size="70" value="${goodsDto.goodsFileName }"/></td>
 				</tr>
 				<tr>
 					<td align="center">상품 분류</td>

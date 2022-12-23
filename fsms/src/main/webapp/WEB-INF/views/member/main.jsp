@@ -16,21 +16,40 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="${contextPath }/member/update">개인정보 수정</a></li>
-                        </ul>
+	                            <span>All departments</span>
+	                        </div>
+	                        <c:choose>
+	                        	<c:when test="${sessionScope.memberId eq null }">
+			                        <ul>
+			                            <li><a href="${contextPath }/member/join">회원가입</a></li>
+			                            <li><a href="${contextPath }/member/login">로그인</a></li>
+			                            <li><a href="#">Fruit & Nut Gifts</a></li>
+			                            <li><a href="#">Fresh Berries</a></li>
+			                            <li><a href="#">Ocean Foods</a></li>
+			                            <li><a href="#">Butter & Eggs</a></li>
+			                            <li><a href="#">Fastfood</a></li>
+			                            <li><a href="#">Fresh Onion</a></li>
+			                            <li><a href="#">Papayaya & Crisps</a></li>
+			                            <li><a href="#">Oatmeal</a></li>
+			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">개인정보 수정</a></li>
+			                        </ul>
+	                        	</c:when>
+	                        	<c:otherwise>
+			                        <ul>
+			                            <li><a href="#">Fresh Meat</a></li>
+			                            <li><a href="#">Vegetables</a></li>
+			                            <li><a href="#">Fruit & Nut Gifts</a></li>
+			                            <li><a href="#">Fresh Berries</a></li>
+			                            <li><a href="#">Ocean Foods</a></li>
+			                            <li><a href="#">Butter & Eggs</a></li>
+			                            <li><a href="#">Fastfood</a></li>
+			                            <li><a href="#">Fresh Onion</a></li>
+			                            <li><a href="#">Papayaya & Crisps</a></li>
+			                            <li><a href="${contextPath }/member/delete?memberId=${sessionScope.memberId}">회원 탈퇴</a></li>
+			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">개인정보 수정</a></li>
+			                        </ul>
+	                        	</c:otherwise>
+	                        </c:choose>
                     </div>
                 </div>
                 <div class="col-lg-9">

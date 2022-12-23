@@ -78,22 +78,13 @@ public class GoodsDto {
 	public void setGoodsCategory(String goodsCategory) {
 		this.goodsCategory = goodsCategory;
 	}
-	
-	/*
-	 * CREATE TABLE GOODS (
-	GOODS_CD INT PRIMARY KEY AUTO_INCREMENT,
-    GOODS_NAME VARCHAR(500),
-	GOODS_CNT INT,
-    DISCOUNT_RATE INT,
-    PRICE INT,
-    GOODS_FILE_NAME VARCHAR(2000),
-    REG_DATE DATETIME,
-    GOODS_INFO VARCHAR(2000),
-    GOODS_ORIGIN VARCHAR(50),
-    GOODS_CATEGORY VARCHAR(100)
-);
-	 * 
-	 */
+	@Override
+	public String toString() {
+		return "GoodsDto [goodsCd=" + goodsCd + ", goodsName=" + goodsName + ", goodsCnt=" + goodsCnt
+				+ ", discountRate=" + discountRate + ", price=" + price + ", goodsFileName=" + goodsFileName
+				+ ", regDate=" + regDate + ", goodsInfo=" + goodsInfo + ", goodsOrigin=" + goodsOrigin
+				+ ", goodsCategory=" + goodsCategory + "]";
+	}
 	
 	
 	

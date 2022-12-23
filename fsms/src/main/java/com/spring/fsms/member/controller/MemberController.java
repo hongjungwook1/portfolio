@@ -118,43 +118,53 @@ public class MemberController {
 		
 	}
 	
-	
-	
-	
-	
 	@RequestMapping(value="update" , method=RequestMethod.GET)
-	public ModelAndView update () {
-		return new ModelAndView("/member/memberUpdate");
+	public ModelAndView update (@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		session.getAttribute(memberId);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/member/memberUpdate");
+		mv.addObject("memberDto", memberService.getOneMember(memberId));
+		return mv;
 	}
 	
-//	@RequestMapping(value="update" , method=RequestMethod.POST)
-//	public ResponseEntity<Object> update (@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
-//		
-//		String jsScript = "";
-//		
-//		if (memberService.modifyMember(memberId)) {
-//			
-//			jsScript += "<script>";
-//			jsScript += "alert('수정 되었습니다.');";
-//			jsScript += "location.href='" + request.getContextPath() + "/member/main';";
-//			jsScript += "</script>";
-//			
-//		}
-//		else {
-//			
-//			jsScript += "<script>";
-//			jsScript += "alert('아이디 , 비밀번호 확인바랍니다.');";
-//			jsScript += "history.go(-1);";
-//			jsScript += "</script>";
-//		}
-//		
-//		HttpHeaders header = new HttpHeaders();
-//		header.add("Content-Type", "text/html; charset=UTF-8");
-//		
-//		return new ResponseEntity<Object>(jsScript , header , HttpStatus.OK);
-//	}
-//	
-//	
-//	
+	
+	
+	@RequestMapping(value="/update" , method=RequestMethod.POST)
+	public ResponseEntity<Object> update(MemberDto memberDto , HttpServletRequest request) throws Exception {
+		
+		memberService.updateMember(memberDto);
+		
+		String jsScript = "";
+				jsScript += "<script>";
+				jsScript += " alert('개인 정보가 수정 되었습니다.');";
+				jsScript += "location.href='" + request.getContextPath() + "/';";
+				jsScript += " </script>";
+		
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type", "text/html; charset=utf-8");
+			
+		return new ResponseEntity<Object>(jsScript, header, HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value="delete" , method=RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		session.getAttribute(memberId);
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/member/delete");
+		mv.addObject("memberDto", memberService.getOneMember(memberId));
+		
+		return mv;
+		
+	}
+	
+	
 	
 }

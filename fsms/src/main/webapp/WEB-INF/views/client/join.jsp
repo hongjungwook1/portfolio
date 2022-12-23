@@ -9,8 +9,6 @@
 	
 	$().ready(function () {
 		
-		alert("adawdasd");
-		
 		$("#checkId").click(function () {
 			
 			var memberId = $("#memberId");

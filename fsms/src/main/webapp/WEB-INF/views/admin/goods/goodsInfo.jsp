@@ -28,7 +28,7 @@
 				<td>${goodsDto.price }</td>
 			</tr>
 			<tr>
-				<td>상품 파일명</td>
+				<td>상품 이미지 파일명</td>
 				<td>${goodsDto.goodsFileName }</td>
 			</tr>
 			<tr>

@@ -30,7 +30,7 @@
                             </div>
                             <div class="header__top__right__language">
                                 <img src="img/language.png" alt="">
-                                <div>English</div>
+                                <div>English${sessionScope.memberId}</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
                                     <li><a href="#">Spanis</a></li>
@@ -38,10 +38,7 @@
                                 </ul>
                             </div>
                             <c:choose>
-                            	<c:when test="${sessionScope.memberId eq null } ">
-		                            <div class="header__top__right__auth">
-		                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
-		                            </div>
+                            	<c:when test="${sessionScope.memberId eq null }">
 		                            <div class="header__top__right__auth">
 		                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
 		                            </div>

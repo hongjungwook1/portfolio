@@ -56,8 +56,37 @@
 		FROM
 				MEMBER
 		WHERE
-				MEMBER_ID = #{memberId} AND PASSWORD = #{password}
+				MEMBER_ID = #{memberId} 
 	</select>
+	
+	<select id="selectOneValidateUserCheck" resultType="MemberDto" parameterType="MemberDto">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberID} AND PASSWORD = #{password}
+	</select>
+	
+	<select id="selectGetOneMember" resultType="MemberDto" parameterType="MemberDto">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE 
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<update id="updateMember" parameterType="MemberDto">
+		UPDATE
+				MEMBER
+		SET 
+				HP 	  = #{hp},
+				EMAIL = #{email}
+		WHERE
+				MEMBER_ID = #{memberId}
+	</update>
+	
 	
 
 </mapper>

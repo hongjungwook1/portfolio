@@ -22,7 +22,6 @@
 				<tr>
 					<td>상품 이미지</td>
 					<td><input type="file" name="goodsFileName" id="goodsFileName"></td>
-					
 				</tr>
 				<tr>
 					<td align="center">상품 이름</td>
@@ -39,10 +38,6 @@
 				<tr>
 					<td align="center">금액</td>
 					<td><input type="text" name="price" size="70"/></td>
-				</tr>
-				<tr>
-					<td align="center">상품 파일명</td>
-					<td><input type="text" name="goodsFileName" size="70"/></td>
 				</tr>
 				<tr>
 					<td align="center">상품 분류</td>
