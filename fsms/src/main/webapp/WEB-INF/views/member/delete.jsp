@@ -36,7 +36,7 @@
 <body>
 
 	<div align="center">
-		<form action="${contextPath }/member/delete" method="post">
+		<form action="${contextPath }/member/delete?memberId=${memberDto.memberId}" method="post">
 			<table border="1">
 				<tr>
 					<td>아이디</td>

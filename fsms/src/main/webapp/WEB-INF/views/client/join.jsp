@@ -9,32 +9,35 @@
 	
 	$().ready(function () {
 		
+		
+		/*
 		$("#checkId").click(function () {
 			
 			var memberId = $("#memberId");
-			if (memberId.val() == "") {
+			if (memberId.val() == '') {
 				alert("아이디를 적어주세요");
 				memberId.focus();
 			}
-			/*
-			$.ajax({
-				type : "get",
-				url	 : "${contextPath}/member/checkDuplicatedId?memberId=" + memberId,
-				success : function (data) {
-					if (data == "duplicate") {
-						alert("사용 할 수 있는 아이디 입니다");
-					}
-					else {
-						alert("사용 할 수 없는 아이디 입니다");
-					}
-				}
-			});
-			*/
+			
+			 $.ajax({
+		            type:'post',
+		            url:'${contextPath}/member/checkDuplicatedId',
+		            success:function(data){  
+		            	if (data == "N") {
+		            		alert("사용가능한 아이디 입니다.");
+		            	}
+		            	else {
+		            		alert("사용awdasdawd가능한 아이디 입니다.");
+		            	}
+		            },
+		        });
+			
 
 
 		});
 		
 	
+		*/
 	
 		
 		$("form").submit(function () {
@@ -54,8 +57,24 @@
 				return false;
 			}
 			
-			// 비밀번호 8자리 이상 아니면 return false 보내기
+			var pwd = $("#password");
+			if (pwd.val() == "") {
+				alert("비밀번호를 적어주세요.");
+				pwd.focus();
+			}
+	
+			if (pwd.val().length < 8) {
+				alert("최소 비밀번호는 8자리 입니다.");
+				pwd.focus();
+				return false;
+			}
 			
+			var checkPwd = $("#checkPassword");
+			if (pwd.val() != checkPwd.val()) {
+				alert("비밀번호가 일치하지 않습니다.");
+				checkPwd.focus();
+				return false;
+			}
 			
 			
 			var hp = $("#hp");
@@ -65,11 +84,6 @@
 				return false;
 			}
 			
-			//if ($("#smsstsYn").val() != "Y" || $("#smsstsYn").val() != "N") {
-			//	alert("핸드폰 문자 수신 동의 여부 체크 해주세요.");
-			//	return false;
-			//}
-			
 			var email = $("#email");
 			if (email.val() == "") {
 				alert("이메일을 입력하세요.");
@@ -77,19 +91,12 @@
 				return false;
 			}
 			
-			//if ($("#emailstsYn").val() != "Y" || $("#emailstsYn").val() != "N") {
-			//	alert("이메일 수신 동의 여부 체크 해주세요.");
-			//	return false;
-			//}
-			
 			var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
 			$["[name='dateBrith']"].val(dateBirth);
 			
-			
-			
 		});
 		
-		
+		 
 	});
 </script>
 
@@ -146,7 +153,7 @@
 								</c:choose>
 							</c:forEach>
 						</select> 월
-						<select id="birthM">
+						<select id="birthD">
 							<c:forEach begin="1" end="31" var="i">
 								<c:choose>
 									<c:when test="${i < 10 }">
@@ -170,7 +177,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>문자 수신 동의 : <input type="radio" name="smsstsYn" id="smsstsYn" value="Y"> 동의
+					<td>문자 수신 동의 : <input type="radio" name="smsstsYn" id="smsstsYn" value="Y" checked> 동의
 										 <input type="radio" name="smsstsYn" id="smsstsYn" value="N"> 비동의
 					</td>
 				</tr>
@@ -179,7 +186,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>이메일 수신 동의 :  <input type="radio" name="emailstsYn" id="emailstsYn" value="Y"> 동의
+					<td>이메일 수신 동의 :  <input type="radio" name="emailstsYn" id="emailstsYn" value="Y" checked> 동의
 											<input type="radio" name="emailstsYn" id="emailstsYn" value="N"> 비동의
 					</td>
 				</tr>

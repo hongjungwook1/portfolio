@@ -118,8 +118,6 @@ public class AdminGoodsController {
 	}
 	
 	
-	
-	
 	@RequestMapping(value="/updateGoods" , method=RequestMethod.GET)
 	public ModelAndView updateGoods(@RequestParam("goodsCd") int goodsCd) throws Exception {
 		ModelAndView mv = new ModelAndView();

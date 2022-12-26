@@ -23,7 +23,7 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public String selectDuplicatedId(String memberId) throws Exception {
+	public int selectDuplicatedId(String memberId) throws Exception {
 		return sqlSession.selectOne("memberMapper.selectDuplicatedId" , memberId);
 	}
 
@@ -41,6 +41,11 @@ public class MemberDaoImpl implements MemberDao {
 	public void updateMember(MemberDto memberDto) throws Exception {
 		System.out.println(memberDto);
 		sqlSession.update("memberMapper.updateMember" , memberDto);
+	}
+
+	@Override
+	public void deleteMember(String memberId) throws Exception {
+		sqlSession.delete("memberMapper.deleteMember" ,memberId);
 	}
 
 

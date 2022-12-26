@@ -23,7 +23,7 @@
 					<td>${goodsDto.goodsCd }</td>	
 					<td><a href="${contextPath }/admin/goods/goodsInfo?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsName }</a></td>					
 					<td>${goodsDto.price }</td>					
-					<td>${goodsDto.goodsOrigin }</td>					
+					<td>${goodsDto.goodsOrigin }</td>
 					<td>${goodsDto.goodsInfo }</td>					
 					<td>${goodsDto.goodsCategory }</td>					
 				</tr>

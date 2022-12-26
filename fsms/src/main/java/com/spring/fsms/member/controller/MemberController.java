@@ -58,9 +58,17 @@ public class MemberController {
 		return new ResponseEntity<Object>(jsScript , header , HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/checkDuplicatedId" , method=RequestMethod.GET)
-	public ResponseEntity<String> overlapped (@RequestParam("memberId") String memberId) throws Exception {
-		return new ResponseEntity<String>(memberService.checkDuplicatedId(memberId) , HttpStatus.OK);
+	@RequestMapping(value="/checkDuplicatedId" , method=RequestMethod.POST)
+	public String overlapped (@RequestParam("memberId") String memberId) throws Exception {
+		String result = "N";
+		
+		int checkId = memberService.checkDuplicatedId(memberId);
+		
+		if (checkId == 1) {
+			result = "Y";
+		}
+		
+		return result;
 	}
 	
 	@RequestMapping(value="login" , method=RequestMethod.GET)
@@ -162,6 +170,29 @@ public class MemberController {
 		mv.addObject("memberDto", memberService.getOneMember(memberId));
 		
 		return mv;
+		
+	}
+	
+	@RequestMapping(value="delete" , method=RequestMethod.POST)
+	public ResponseEntity<Object> deleteMember(@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		memberService.deleteMember(memberId);
+		
+		String jsScript = "";
+		jsScript += "<script>";
+		jsScript += " alert('탈퇴 되었습니다.');";
+		jsScript += "location.href='" + request.getContextPath() + "/';";
+		jsScript += " </script>";
+
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type", "text/html; charset=utf-8");
+			
+		return new ResponseEntity<Object>(jsScript, header, HttpStatus.OK);
+		
+		
 		
 	}
 	

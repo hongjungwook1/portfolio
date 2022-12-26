@@ -16,6 +16,7 @@
 				<td>회원 아이디 </td>
 				<td>회원 이름 </td>
 				<td>회원 전화번호 </td>
+				<td>회원 생년월일</td>
 				<td>회원 이메일 </td>
 				<td>회원 포인트 </td>
 				<td>회원 가입일 </td>
@@ -25,6 +26,7 @@
 					<td><a href="${contextPath }/admin/memberInfo?memberId=${memberDto.memberId}">${memberDto.memberId }</a></td>
 					<td>${memberDto.memberName }</td>
 					<td>${memberDto.hp }</td>
+					<td>${memberDto.dateBirth }</td>
 					<td>${memberDto.email }</td>
 					<td>${memberDto.point }</td>
 					<td><fmt:formatDate value="${memberDto.joinDt }" pattern="yyyy-MM-dd"></fmt:formatDate></td>

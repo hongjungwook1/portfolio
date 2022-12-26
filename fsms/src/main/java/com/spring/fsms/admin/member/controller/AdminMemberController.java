@@ -69,20 +69,11 @@ public class AdminMemberController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping(value="/memberList" , method=RequestMethod.GET)
 	public ModelAndView memberList() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/member/memberList");
+		mv.setViewName("/admin/member/memberList");
 		mv.addObject("memberList", adminMemberService.getMemberList());
 		return mv;
 	}
@@ -91,25 +82,27 @@ public class AdminMemberController {
 	public ModelAndView memberInfo (@RequestParam("memberId") String memberId) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/member/memberInfo");
+		mv.setViewName("/admin/member/memberInfo");
 		mv.addObject("memberDto", adminMemberService.getOneMemberList(memberId));
 		
 		return mv;
 	}
 	
 	@RequestMapping(value="/memberDelete" , method=RequestMethod.GET)
-	public ModelAndView memberDelete() {
+	public ModelAndView memberDelete(@RequestParam("memberId") String memberId ) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/member/memberDelete");
-		mv.addObject("memberDto");
+		mv.setViewName("/admin/member/memberDelete");
+		mv.addObject("memberDto" , adminMemberService.getOneMemberList(memberId));
 		return mv;
 		
 	}
 	
 	@RequestMapping(value="/memberDelete" , method=RequestMethod.POST)
 	public ResponseEntity<Object> memberDelete(@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
-
+		
+		System.out.println("회원아이디 : "+memberDto.getMemberId());
+		
 		adminMemberService.removeMember(memberId);
 		
 		String jsScript ="";

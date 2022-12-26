@@ -36,10 +36,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String checkDuplicatedId(String memberId) throws Exception {
+	public int checkDuplicatedId(String memberId) throws Exception {
+		int result = 0;
 		
-		if (memberDao.selectDuplicatedId(memberId) == null) return "duplicate";
-		else												return "notduplicate";
+		result = memberDao.selectDuplicatedId(memberId);
+		return result;
 		
 	}
 
@@ -64,6 +65,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void updateMember(MemberDto memberDto) throws Exception {
 		memberDao.updateMember(memberDto);
+	}
+
+	@Override
+	public void deleteMember(String memberId) throws Exception {
+		memberDao.deleteMember(memberId);
 	}
 
 
