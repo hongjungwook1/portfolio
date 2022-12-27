@@ -28,6 +28,9 @@
 					<td>${goodsDto.goodsCategory }</td>					
 				</tr>
 			</c:forEach>
+			<tr align="center">
+				<td colspan="6"><a href="${contextPath }/admin/adminMain"><input type="button" value="메인화면으로"></a></td>
+			</tr>
 		</table>
 	</div>
 

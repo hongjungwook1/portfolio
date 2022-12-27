@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.fsms.admin.goods.service.AdminGoodsService;
 import com.spring.fsms.admin.member.dto.AdminDto;
 import com.spring.fsms.admin.member.service.AdminMemberService;
 import com.spring.fsms.member.dto.MemberDto;
@@ -25,11 +26,18 @@ public class AdminMemberController {
 	private AdminMemberService adminMemberService;
 	
 	@Autowired
+	private AdminGoodsService adminGoodsService;
+	
+	@Autowired
 	private MemberDto memberDto;
 	
 	@RequestMapping(value="/adminMain" , method=RequestMethod.GET)
-	public ModelAndView adminMain () {
-		return new ModelAndView("/admin/adminMain");
+	public ModelAndView adminMain () throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/admin/adminMain");
+		mv.addObject("goodsList" , adminGoodsService.getGoodsList());
+		return mv;
 	}
 	
 	

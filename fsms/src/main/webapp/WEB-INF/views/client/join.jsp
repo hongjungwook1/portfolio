@@ -9,8 +9,6 @@
 	
 	$().ready(function () {
 		
-		
-		/*
 		$("#checkId").click(function () {
 			
 			var memberId = $("#memberId");
@@ -19,9 +17,11 @@
 				memberId.focus();
 			}
 			
+			
 			 $.ajax({
 		            type:'post',
 		            url:'${contextPath}/member/checkDuplicatedId',
+		            data : {"memberId" : memberId.val()},
 		            success:function(data){  
 		            	if (data == "N") {
 		            		alert("사용가능한 아이디 입니다.");
@@ -29,15 +29,13 @@
 		            	else {
 		            		alert("사용awdasdawd가능한 아이디 입니다.");
 		            	}
-		            },
+		            }
 		        });
-			
-
 
 		});
 		
 	
-		*/
+		
 	
 		
 		$("form").submit(function () {

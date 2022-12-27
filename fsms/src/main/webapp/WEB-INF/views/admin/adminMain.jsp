@@ -73,11 +73,13 @@
         <div class="container">
             <div class="row">
                 <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/cat-1.jpg">
-                            <h5><a href="${contextPath }/">소고기</a></h5>
-                        </div>
-                    </div>
+                    <c:forEach var="goodsDto" items="${goodsList }" varStatus="i" >
+	                    <div class="col-lg-3">
+	                    	<div>
+	                    		<img src="${contextPath }/">
+	                    	</div>
+	                    </div>
+                    </c:forEach>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/cat-2.jpg">
                             <h5><a href="#">Dried Fruit</a></h5>

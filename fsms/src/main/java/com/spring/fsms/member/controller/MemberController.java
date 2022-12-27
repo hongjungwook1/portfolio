@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.fsms.member.dto.MemberDto;
@@ -59,7 +60,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/checkDuplicatedId" , method=RequestMethod.POST)
+	@ResponseBody
 	public String overlapped (@RequestParam("memberId") String memberId) throws Exception {
+		
 		String result = "N";
 		
 		int checkId = memberService.checkDuplicatedId(memberId);
@@ -67,7 +70,7 @@ public class MemberController {
 		if (checkId == 1) {
 			result = "Y";
 		}
-		
+	
 		return result;
 	}
 	

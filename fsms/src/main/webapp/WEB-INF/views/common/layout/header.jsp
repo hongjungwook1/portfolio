@@ -28,15 +28,30 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English${sessionScope.memberId}</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
+                            <c:choose>
+                            	<c:when test="${sessionScope.memberId eq null }">
+                            		 <div class="header__top__right__language">
+		                                <img src="img/language.png" alt="">
+		                                <div>회원가입</div>
+		                                <span class="arrow_carrot-down"></span>
+		                                <ul>
+		                                    <li><a href="">회원가입</a></li>
+		                                    <li><a href="">로그인</a></li>
+		                                </ul>
+		                            </div>
+                            	</c:when>
+                            	<c:otherwise>
+		                            <div class="header__top__right__language">
+		                                <img src="img/language.png" alt="">
+		                                <div>${memberId }님 환영합니다</div>
+		                                <span class="arrow_carrot-down"></span>
+		                                <ul>
+		                                    <li><a href="${contextPath }/member/memberUpdate?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
+		                                    <li><a href="${contextPath }/member/logout">로그 아웃</a></li>
+		                                </ul>
+		                            </div>
+                            	</c:otherwise>
+                            </c:choose>
                             <c:choose>
                             	<c:when test="${sessionScope.memberId eq null }">
 		                            <div class="header__top__right__auth">

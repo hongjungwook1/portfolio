@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.fsms.admin.goods.service.AdminGoodsService;
 import com.spring.fsms.goods.dto.GoodsDto;
+import com.spring.fsms.goods.service.GoodsService;
 
 @Controller
 @RequestMapping("/admin/goods")
@@ -30,7 +31,7 @@ public class AdminGoodsController {
 	private AdminGoodsService adminGoodsService;
 	
 	@Autowired
-	private GoodsDto goodsDto;
+	private GoodsService goodsService;
 	
 	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
 	private final String SEPERATOR = "\\";
@@ -129,22 +130,50 @@ public class AdminGoodsController {
 	}
 	
 	@RequestMapping(value="/updateGoods" , method=RequestMethod.POST)
-	public ResponseEntity<Object> updateGoods(GoodsDto goodsDto , HttpServletRequest request) throws Exception {
+	public ResponseEntity<Object> adminUpdateGoods(MultipartHttpServletRequest request) throws Exception {
 		
+		request.setCharacterEncoding("utf-8");
+		
+		GoodsDto goodsDto = new GoodsDto();
+		
+		goodsDto.setGoodsName(request.getParameter("goodsName"));
+		goodsDto.setGoodsCnt(Integer.parseInt(request.getParameter("goodsCnt")));
+		goodsDto.setDiscountRate(Integer.parseInt(request.getParameter("discountRate")));
+		goodsDto.setPrice(Integer.parseInt(request.getParameter("price")));
+		goodsDto.setGoodsCategory(request.getParameter("goodsCategory"));
+		goodsDto.setGoodsOrigin(request.getParameter("goodsOrigin"));
+		goodsDto.setGoodsInfo(request.getParameter("goodsInfo"));
+		
+		Iterator<String> file = request.getFileNames();
+		if (file.hasNext()) {
+			
+			MultipartFile uploadFile = request.getFile(file.next());
+			
+			if (!uploadFile.getOriginalFilename().isEmpty()) {
+				String uploadFileName = UUID.randomUUID() + "_" + uploadFile.getOriginalFilename();
+				File f = new File(CURR_IMAGE_REPO_PATH + SEPERATOR + uploadFileName);	
+				uploadFile.transferTo(f); 
+				goodsDto.setGoodsFileName(uploadFileName);
+				
+				new File(CURR_IMAGE_REPO_PATH + SEPERATOR + adminGoodsService.getOneGoods(Integer.parseInt(request.getParameter("goodsCd"))).getGoodsFileName()).delete();
+			}
+			
+			
+		}
 		
 		adminGoodsService.modifyGoods(goodsDto);
 		
-		
 		String jsScript = "";
 		jsScript += "<script>";
-		jsScript += "alert('상품을 수정하였습니다.');";
-		jsScript += "location.href='" + request.getContextPath() + "/admin/goods/adminMain';";
+		jsScript += "alert('상품이 수정 되었습니다.');";
+		jsScript += "location.href='"  + request.getContextPath() + "/admin/adminMain';";
 		jsScript += "</script>";
 		
 		HttpHeaders header = new HttpHeaders();
 		header.add("Content-Type", "text/html; charset=UTF-8");
 		
 		return new ResponseEntity<Object>(jsScript , header , HttpStatus.OK);
+		
 	}
 	
 	
