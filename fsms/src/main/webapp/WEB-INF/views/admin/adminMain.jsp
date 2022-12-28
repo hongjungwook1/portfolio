@@ -94,8 +94,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/cat-5.jpg">
-                            <h5><a href="#">drink fruits</a></h5>
+                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/오리메인.jpg">
+                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">Duck Meat</a></h5>
                         </div>
                     </div>
                 </div>

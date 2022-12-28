@@ -35,8 +35,8 @@
 		                                <div>회원가입</div>
 		                                <span class="arrow_carrot-down"></span>
 		                                <ul>
-		                                    <li><a href="">회원가입</a></li>
-		                                    <li><a href="">로그인</a></li>
+		                                    <li><a href="${contextPath }/member/join">회원가입</a></li>
+		                                    <li><a href="${contextPath }/member/login">로그인</a></li>
 		                                </ul>
 		                            </div>
                             	</c:when>
@@ -46,7 +46,7 @@
 		                                <div>${memberId }님 환영합니다</div>
 		                                <span class="arrow_carrot-down"></span>
 		                                <ul>
-		                                    <li><a href="${contextPath }/member/memberUpdate?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
+		                                    <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
 		                                    <li><a href="${contextPath }/member/logout">로그 아웃</a></li>
 		                                </ul>
 		                            </div>
