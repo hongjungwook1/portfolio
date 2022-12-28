@@ -45,5 +45,10 @@
 		<put-attribute name="title" value="adminUpdateGoods" />
 	</definition>
 	
+	<definition name="/goods/goodsMain" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/goods/goodsMain.jsp"/>
+		<put-attribute name="title" value="goodsMain"/>
+	</definition>
+	
 	
 </tiles-definitions>

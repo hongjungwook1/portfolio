@@ -3,6 +3,19 @@
 
 <mapper namespace="goodsMapper">
 		
-	
+	<select id="selectListGoods" parameterType="GoodsDto" resultType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS
+		<where>
+			<if test='!goodsCategory.equals("all")'>
+				GOODS_CATEGORY = #{goodsCategory}
+			</if>
+			<if test='goodsCategory.equals("all")'>
+				GOODS_CATEGORY IN ('beef' , 'lamb');
+			</if>
+		</where>				
+	</select>
 	
 </mapper>

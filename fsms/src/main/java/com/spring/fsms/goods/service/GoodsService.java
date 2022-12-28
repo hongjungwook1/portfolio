@@ -1,5 +1,12 @@
 package com.spring.fsms.goods.service;
 
-public interface GoodsService {
+import java.util.List;
+import java.util.Map;
 
+import com.spring.fsms.goods.dto.GoodsDto;
+
+public interface GoodsService {
+	
+	public List<GoodsDto> getGoodsList(Map<String,String> goodsList) throws Exception;
+	
 }

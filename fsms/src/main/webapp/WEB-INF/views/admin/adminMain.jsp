@@ -75,22 +75,22 @@
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/한우-모듬.jpg">
-                            <h5><a href="#">Beef</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=beef">Beef</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/양고기-모듬.jpg">
-                            <h5><a href="#">Lamb</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">Lamb</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/cat-3.jpg">
-                            <h5><a href="#">Vegetables</a></h5>
+                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/돼지고기메인.jpg">
+                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=pork">Pork</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/cat-4.jpg">
-                            <h5><a href="#">drink fruits</a></h5>
+                        <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/닭메인.jpg">
+                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">Chicken</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">

@@ -27,7 +27,7 @@
 		            		alert("사용가능한 아이디 입니다.");
 		            	}
 		            	else {
-		            		alert("사용awdasdawd가능한 아이디 입니다.");
+		            		alert("사용 불가능한 아이디 입니다.");
 		            	}
 		            }
 		        });
@@ -122,7 +122,7 @@
 					<td>비밀번호 확인 : <input type="password" id="checkPassword" placeholder="비밀번호를 한번 더 적어주세요."></td>
 				</tr>
 				<tr>
-					<td>성별 :  <input type="radio" name="gender" value="M"> 남자
+					<td>성별 :  <input type="radio" name="gender" value="M" checked> 남자
 								<input type="radio" name="gender" value="F"> 여자
 					</td>
 				</tr>
