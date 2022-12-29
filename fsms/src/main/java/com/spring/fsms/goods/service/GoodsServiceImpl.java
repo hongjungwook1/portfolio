@@ -19,5 +19,10 @@ public class GoodsServiceImpl implements GoodsService {
 	public List<GoodsDto> getGoodsList(Map<String, String> goodsList) throws Exception {
 		return goodsDao.selectGoodsList(goodsList);
 	}
+
+	@Override
+	public GoodsDto getOneGoods(int goodsCd) throws Exception {
+		return goodsDao.selectGetOneGoods(goodsCd);
+	}
 	
 }

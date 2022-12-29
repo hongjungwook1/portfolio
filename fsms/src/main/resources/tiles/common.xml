@@ -50,5 +50,11 @@
 		<put-attribute name="title" value="goodsList"/>
 	</definition>
 	
+	<definition name="/goods/goodsDetails" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/goods/goodsDetails.jsp"/>
+		<put-attribute name="title" value="goodsDetail" />
+	</definition>
+	
+	
 	
 </tiles-definitions>

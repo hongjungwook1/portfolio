@@ -19,8 +19,8 @@ public class MorderController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(value="/orderGoods" , method=RequestMethod.GET)
-	public ModelAndView orderGoods() {
+	@RequestMapping(value="/orderMain" , method=RequestMethod.GET)
+	public ModelAndView orderMain() {
 		return null;
 		
 	}

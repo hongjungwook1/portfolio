@@ -13,9 +13,22 @@
 				GOODS_CATEGORY = #{goodsCategory}
 			</if>
 			<if test='goodsCategory.equals("all")'>
-				GOODS_CATEGORY IN ('beef' , 'lamb');
+				GOODS_CATEGORY IN ('beef' , 'lamb' , 'pork' , 'chicken' , 'duckMeat');
 			</if>
 		</where>				
 	</select>
+	
+	
+	<select id="selectGetOneGoods" parameterType="int" resultType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS
+		WHERE
+				GOODS_CD = #{goodsCd}
+	
+	
+	</select>
+	
 	
 </mapper>

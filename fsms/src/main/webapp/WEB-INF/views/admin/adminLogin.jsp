@@ -9,7 +9,7 @@
 </head>
 <body>
  <!-- Breadcrumb Begin -->
- <h2>asdawdasdawdasdawd</h2>
+ <h2>관리자 로그인</h2>
     <div class="breadcrumb-option">
         <div class="container">
             <div class="row">

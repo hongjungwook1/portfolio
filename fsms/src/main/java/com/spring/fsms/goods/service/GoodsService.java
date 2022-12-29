@@ -8,5 +8,6 @@ import com.spring.fsms.goods.dto.GoodsDto;
 public interface GoodsService {
 	
 	public List<GoodsDto> getGoodsList(Map<String,String> goodsList) throws Exception;
+	public GoodsDto getOneGoods(int goodsCd) throws Exception;
 	
 }

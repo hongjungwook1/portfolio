@@ -25,11 +25,11 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	
-	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
-	private final String SEPERATOR = "\\";											// window
+	//private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+	//private final String SEPERATOR = "\\";											// window
 
-	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
-	//private final String SEPERATOR = "/";											// linux
+	private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
+	private final String SEPERATOR = "/";											// linux
 	
 	
 	
@@ -45,7 +45,15 @@ public class GoodsController {
 		
 		mv.setViewName("/goods/goodsList");
 		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
-		System.out.println(goodsListMap);
+		return mv;
+	}
+	
+	@RequestMapping(value="/goodsDetails" , method=RequestMethod.GET)
+	public ModelAndView goodsDetails(@RequestParam("goodsCd") int goodsCd) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/goods/goodsDetails");
+		mv.addObject("goodsDto", goodsService.getOneGoods(goodsCd));
 		return mv;
 	}
 	

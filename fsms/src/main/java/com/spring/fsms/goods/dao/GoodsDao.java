@@ -8,5 +8,6 @@ import com.spring.fsms.goods.dto.GoodsDto;
 public interface GoodsDao {
 
 	public List<GoodsDto> selectGoodsList (Map<String,String> goodsList) throws Exception;
+	public GoodsDto selectGetOneGoods(int goodsCd) throws Exception;
 	
 }
