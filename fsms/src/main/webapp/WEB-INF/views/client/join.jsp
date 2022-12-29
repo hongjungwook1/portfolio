@@ -90,7 +90,7 @@
 			}
 			
 			var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
-			$["[name='dateBrith']"].val(dateBirth);
+			$["[name='dateBirth']"].val(dateBirth);
 			
 		});
 		

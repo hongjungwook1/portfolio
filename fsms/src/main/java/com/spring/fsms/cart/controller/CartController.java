@@ -27,7 +27,7 @@ public class CartController {
 	
 	@RequestMapping(value="/addCart" , method=RequestMethod.GET)
 	@ResponseBody
-	public String addCart(@RequestParam("goodsCd") int goodsCd , @RequestParam("cartQty") int cartQty ,  HttpServletRequest request) {
+	public String addCart(@RequestParam("goodsCd") int goodsCd , @RequestParam("cartQty") int cartQty ,  HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
 		String memberId = (String) session.getAttribute("memberId");
@@ -37,9 +37,10 @@ public class CartController {
 		cartDto.setGoodsCd(goodsCd);
 		cartDto.setCartQty(cartQty);
 		
+		cartService.addCart(cartDto);
+		String result = "duple";
 		
-		
-		return null;
+		return result;
 		
 	}
 	

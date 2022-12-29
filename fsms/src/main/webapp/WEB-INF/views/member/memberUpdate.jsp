@@ -30,12 +30,21 @@
 				</tr>
 				<tr>
 					<td>문자 수신 동의</td>
-					<td><input type="radio" name="smsstsYn" value="${memberDto.smsstsYn }" > 동의
-						<input type="radio" name="smsstsYn" value="${memberDto.smsstsYn }" > 비동의</td>
+					<td>
+						<input type="radio" name="smsstsYn" value="Y" <c:if test="${memberDto.smsstsYn eq 'Y'}">checked</c:if>> 동의
+						<input type="radio" name="smsstsYn" value="N" <c:if test="${memberDto.smsstsYn eq 'N'}">checked</c:if>> 비동의
+					</td>
 				</tr>
 				<tr>
 					<td>이메일</td>
 					<td><input type="email" name="email" value="${memberDto.email }"></td>
+				</tr>
+				<tr>
+					<td>이메일 수신 동의</td>
+					<td>
+						<input type="radio" name="emailstsYn" value="Y" <c:if test="${memberDto.emailstsYn eq 'Y'}">checked</c:if>> 동의
+						<input type="radio" name="emailstsYn" value="N" <c:if test="${memberDto.emailstsYn eq 'N'}">checked</c:if>> 비동의
+					</td>
 				</tr>
 				<tr>
 					<td>포인트</td>

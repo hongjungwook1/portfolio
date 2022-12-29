@@ -9,4 +9,9 @@ public class CartDaoImpl implements CartDao {
 
 	@Autowired
 	private SqlSession sqlSession;
+
+	@Override
+	public void insertCart(CartDao cartDao) throws Exception {
+		sqlSession.insert("cartMapper.insertCart" , cartDao);
+	}
 }
