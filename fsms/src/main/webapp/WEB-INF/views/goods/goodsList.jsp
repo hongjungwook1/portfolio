@@ -399,10 +399,12 @@
                     <div class="row">
                     	<c:choose>
                     		<c:when test="${empty goodsList}">
-                    			등록 된 상품이 없습니다
+                    			<div class="product__item">
+	                    			<h3>등록된 상품이 없습니다.</h3>
+	                            </div>
                     		</c:when>
                     		<c:otherwise>
-                    			<c:forEach var="goodsDto" items="${goodsList }" varStatus="i">
+                    			<c:forEach var="goodsDto" items="${goodsList }">
 			                        <div class="col-lg-4 col-md-6 col-sm-6">
 			                            <div class="product__item">
 			                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">

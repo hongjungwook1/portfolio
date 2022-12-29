@@ -43,8 +43,9 @@ public class GoodsController {
 	public ModelAndView goodsList(@RequestParam Map<String,String> goodsListMap) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/goods/goodsMain");
+		mv.setViewName("/goods/goodsList");
 		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
+		System.out.println(goodsListMap);
 		return mv;
 	}
 	
