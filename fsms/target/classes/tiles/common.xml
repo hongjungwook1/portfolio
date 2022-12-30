@@ -55,6 +55,10 @@
 		<put-attribute name="title" value="goodsDetail" />
 	</definition>
 	
+	<definition name="/client/cart/myCartList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/client/cart/myCartList.jsp"/>
+		<put-attribute name="title" value="MyCartList" />
+	</definition>
 	
 	
 </tiles-definitions>

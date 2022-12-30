@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.fsms.cart.dto.CartDto;
 import com.spring.fsms.cart.service.CartService;
 import com.spring.fsms.goods.dto.GoodsDto;
+import com.spring.fsms.member.service.MemberService;
 
 @Controller
 @RequestMapping("/cart")
@@ -22,7 +24,21 @@ public class CartController {
 	private CartService cartService;
 	
 	@Autowired
-	private GoodsDto goodsDto;
+	private MemberService memberService;
+	
+	@RequestMapping(value="myCartList" , method=RequestMethod.GET)
+	public ModelAndView cartMain(HttpServletRequest request) throws Exception {
+		
+		HttpSession session = request.getSession();
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/client/cart/myCartList");
+		
+		String memberId = (String)session.getAttribute("memberId");
+		mv.addObject("myCartList", cartService.getMyCartList(memberId));
+		return mv;
+	}
 	
 	
 	@RequestMapping(value="/addCart" , method=RequestMethod.GET)
@@ -37,8 +53,11 @@ public class CartController {
 		cartDto.setGoodsCd(goodsCd);
 		cartDto.setCartQty(cartQty);
 		
-		cartService.addCart(cartDto);
 		String result = "duple";
+		if (!cartService.checkDuplicatedCart(cartDto)) {
+			cartService.addCart(cartDto);
+			result = "notDuple";
+		}
 		
 		return result;
 		

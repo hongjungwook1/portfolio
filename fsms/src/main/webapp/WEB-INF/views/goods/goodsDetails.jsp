@@ -2,9 +2,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="sessionId" value="${sessionScope.memberId }"/>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+<script>
+	
+	function processToCart(goodsCd) {
+		
+		if ("${sessionId == null}" == "true") {
+			alert("로그인 후 가능합니다.");
+			location.href="${contextPath}/member/login";
+		}
+		else {
+			
+			$.ajax({
+				
+				url : "${contextPath}/cart/addCart",
+				method : "get",
+				data : {"goodsCd" : goodsCd , "cartQty" : $("#cartQty").val()},
+				success : function (result) {
+					
+					if (result == 'duple') {
+						alert("이미 추가된 상품 입니다.");
+					}
+					else {
+						alert("장바구니에 추가 되었습니다.");
+					}
+				}
+				
+			})
+		}
+		
+	}
+	
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -66,13 +99,12 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" value="1" id="cartQty" name="cartQty">
                                 </div>
                             </div>
                         </div>
-                        <a href="${contextPath }/cart/addCart?goodsCd=${goodDto.goodsCd}" class="primary-btn">ADD TO CARD</a>
+                        <a href="javascript:processToCart(${goodsDto.goodsCd })" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <input type="hidden" name="goodsCd" value="${goodsDto.goodsCd }">
                         <ul>
                         	<c:choose>
                         		<c:when test="!${goodsDto.goodsCnt }">

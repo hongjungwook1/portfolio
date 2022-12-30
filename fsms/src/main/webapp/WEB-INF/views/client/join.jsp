@@ -128,14 +128,14 @@
 				</tr>
 				<tr>
 					<td>생년월일
-						<select id="brithY">
+						<select id="birthY">
 							<c:forEach begin="1950" end="2022" var="i">
 								<option selected="2022">
 									<c:out value="${i }" />
 								</option>
 							</c:forEach>
 						</select> 년
-						<select id="brithM">
+						<select id="birthM">
 							<c:forEach begin="1" end="12" var="i">
 								<c:choose>
 									<c:when test="${i < 10 }">

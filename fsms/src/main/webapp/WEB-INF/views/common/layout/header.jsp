@@ -48,6 +48,7 @@
 		                                <ul>
 		                                    <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
 		                                    <li><a href="${contextPath }/member/logout">로그 아웃</a></li>
+		                                    <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">내 장바구니</a></li>
 		                                </ul>
 		                            </div>
                             	</c:otherwise>
