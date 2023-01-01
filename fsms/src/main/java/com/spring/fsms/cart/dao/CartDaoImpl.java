@@ -29,4 +29,9 @@ public class CartDaoImpl implements CartDao {
 	public List<Map<String, Object>> selectListMyCart(String memberId) throws Exception {
 		return sqlSession.selectList("cartMapper.selectListMyCart" , memberId);
 	}
+
+	@Override
+	public int selectMyCartCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("cartMapper.selectMyCartCnt" , memberId);
+	}
 }

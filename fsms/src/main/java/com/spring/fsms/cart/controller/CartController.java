@@ -26,19 +26,21 @@ public class CartController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(value="myCartList" , method=RequestMethod.GET)
-	public ModelAndView cartMain(HttpServletRequest request) throws Exception {
+	@RequestMapping(value="/myCartList" , method=RequestMethod.GET)
+	public ModelAndView myCartList(HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
 		
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/client/cart/myCartList");
-		
 		String memberId = (String)session.getAttribute("memberId");
+		mv.setViewName("/client/cart/myCartList");
 		mv.addObject("myCartList", cartService.getMyCartList(memberId));
+		
 		return mv;
 	}
+	
+	
 	
 	
 	@RequestMapping(value="/addCart" , method=RequestMethod.GET)
@@ -56,14 +58,13 @@ public class CartController {
 		String result = "duple";
 		if (!cartService.checkDuplicatedCart(cartDto)) {
 			cartService.addCart(cartDto);
+			session.setAttribute("myCartCnt", cartService.getMyCartCnt(memberId));
 			result = "notDuple";
 		}
 		
 		return result;
 		
 	}
-	
-	
 	
 	
 	

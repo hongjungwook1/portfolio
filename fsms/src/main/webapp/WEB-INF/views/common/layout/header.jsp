@@ -28,43 +28,71 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
+                            
                             <c:choose>
-                            	<c:when test="${sessionScope.memberId eq null }">
-                            		 <div class="header__top__right__language">
+                            	<c:when test="${sessionScope.adminId eq 'fsadmin' }">
+                            		<div class="header__top__right__language">
 		                                <img src="img/language.png" alt="">
-		                                <div>회원가입</div>
+		                                <div>관리자 로그인 중</div>
 		                                <span class="arrow_carrot-down"></span>
 		                                <ul>
-		                                    <li><a href="${contextPath }/member/join">회원가입</a></li>
-		                                    <li><a href="${contextPath }/member/login">로그인</a></li>
+		                                    <li><a href="#">회원 정보 보기</a></li>
+		                                    <li><a href="#">상품 정보 보기</a></li>
 		                                </ul>
-		                            </div>
+                        		  	 </div>
+                            		<div class="header__top__right__auth">
+                               			 <a href="${contextPath }/member/logout"><i class="fa fa-user"></i>logout</a>
+                    			    </div>
                             	</c:when>
                             	<c:otherwise>
-		                            <div class="header__top__right__language">
-		                                <img src="img/language.png" alt="">
-		                                <div>${memberId }님 환영합니다</div>
-		                                <span class="arrow_carrot-down"></span>
-		                                <ul>
-		                                    <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
-		                                    <li><a href="${contextPath }/member/logout">로그 아웃</a></li>
-		                                    <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">내 장바구니</a></li>
-		                                </ul>
-		                            </div>
+                            		<c:choose>
+										<c:when test="${sessionScope.memberId eq null }">
+										 <div class="header__top__right__language">
+											<img src="img/language.png" alt="">
+											<div>회원가입</div>
+											<span class="arrow_carrot-down"></span>
+											<ul>
+												<li><a href="${contextPath }/member/join">회원가입</a></li>
+												<li><a href="${contextPath }/member/login">로그인</a></li>
+											</ul>
+										</div>
+										<div class="header__top__right__auth">
+			                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
+			                            </div>
+										</c:when>
+										<c:otherwise>
+										<div class="header__top__right__language">
+											<img src="img/language.png" alt="">
+											<div>${memberId }님 환영합니다</div>
+											<span class="arrow_carrot-down"></span>
+											<ul>
+												<li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
+												<li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">내 장바구니</a></li>
+											</ul>
+										</div>
+										<div class="header__top__right__auth">
+			                                <a href="${contextPath }/member/logout"><i class="fa fa-user"></i>Logout</a>
+			                            </div>
+										</c:otherwise>
+									</c:choose>
                             	</c:otherwise>
                             </c:choose>
-                            <c:choose>
-                            	<c:when test="${sessionScope.memberId eq null }">
-		                            <div class="header__top__right__auth">
-		                                <a href="${contextPath }/member/login"><i class="fa fa-user"></i> Login</a>
-		                            </div>
-                            	</c:when>
-                            	<c:otherwise>
-		                            <div class="header__top__right__auth">
-		                                <a href="${contextPath }/member/logout"><i class="fa fa-user"></i>logout</a>
-		                            </div>
-                            	</c:otherwise>
-                            </c:choose>
+                            
+                            <!-- 
+                             <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                             -->
+                             
                         </div>
                     </div>
                 </div>
@@ -80,8 +108,8 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
+                            <li class="active"><a href="${contextPath }/">Home</a></li>
+                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
@@ -99,7 +127,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="${contextPath }/cart/myCartList"><i class="fa fa-shopping-bag"></i> <span>33</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>

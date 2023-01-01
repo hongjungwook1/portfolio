@@ -12,6 +12,7 @@ public class CartDto {
 	private	int cartQty;
 	private	String memberId;
 	private	Date cartDate;
+	
 	public int getCartCd() {
 		return cartCd;
 	}

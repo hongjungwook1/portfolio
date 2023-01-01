@@ -34,9 +34,9 @@
 		<result column="CART_QTY"			property="cartQty"/>
 		<result column="CART_DATE" 			property="cartDate"/>
 		<result column="GOODS_CD" 			property="goodsCd"/>
-		<result column="GOODS_NM" 			property="goodsNm"/>
+		<result column="GOODS_NAME" 		property="goodsName"/>
 		<result column="PRICE" 				property="price"/>
-		<result column="DISCOUNTRATE" 		property="discountRate"/>
+		<result column="DISCOUNT_RATE" 		property="discountRate"/>
 		<result column="GOODS_INFO"			property="goodsInfo"/>
 		<result column="GOODS_ORIGIN" 		property="goodsOrigin"/>
 		<result column="GOODS_CATEGORY" 	property="goodsCategory"/>
@@ -45,10 +45,19 @@
 	
 	<select id="selectListMyCart" parameterType="String" resultMap="cartMap">
 		SELECT
-				C.CART_CD		AS CART_CD,
-				C.MEMBER_ID 	AS MEMBER_ID,
-				C.CART_QTY		AS CART_QTY,
-				C.CART_DATE		AS CART_DATE
+				C.CART_CD			AS CART_CD,
+				C.MEMBER_ID 		AS MEMBER_ID,
+				C.CART_QTY			AS CART_QTY,
+				C.CART_DATE			AS CART_DATE,
+				G.GOODS_CD			AS GOODS_CD,
+				G.GOODS_NAME		AS GOODS_NAME,
+				G.PRICE				AS PRICE,
+				G.DISCOUNT_RATE		AS DISCOUNT_RATE,
+				G.GOODS_INFO		AS GOODS_INFO,
+				G.GOODS_ORIGIN		AS GOODS_ORIGIN,
+				G.GOODS_CATEGORY	AS GOODS_CATEGORY,
+				G.GOODS_FILE_NAME	AS GOODS_FILE_NAME
+				
 		FROM
 				CART C
 	INNER JOIN GOODS G
@@ -59,6 +68,15 @@
 				C.CART_DATE DESC
 	</select>
 
+
+	<select id="selectMyCartCnt" parameterType="String" resultType="int">
+		SELECT
+				COUNT(*)
+		FROM
+				CART
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
 	
 
 </mapper>

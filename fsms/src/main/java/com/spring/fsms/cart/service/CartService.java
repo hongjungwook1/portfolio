@@ -10,4 +10,5 @@ public interface CartService {
 	public void addCart(CartDto cartDto) throws Exception;
 	public boolean checkDuplicatedCart(CartDto cartDto) throws Exception;
 	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception;
+	public int getMyCartCnt (String memberId)throws Exception;
 }

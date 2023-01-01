@@ -9,6 +9,13 @@
 </head>
 <body>
 	
+	<c:if test="${sessionScope.memberId eq null }">
+		<script>
+			alert("로그인 후 이용 가능합니다.");
+			location.href="${contextPath}/member/login";
+		</script>
+	</c:if>
+	
 	<div align="center">
 		<form action="${contextPath }/member/update" method="post">
 			<table border="1">
@@ -55,7 +62,7 @@
 						<input type="hidden" value="${memberDto.memberId }" name="memberId"> 
 						<input type="submit" value="수정하기">
 						<input type="reset" value="다시쓰기">
-						<input type="button" value="뒤로가기"> 
+						<a href="${contextPath }/"><input type="button" value="뒤로가기"></a> 
 					</td>
 				</tr>
 			</table>		

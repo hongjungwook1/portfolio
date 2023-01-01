@@ -30,7 +30,7 @@
 			                            <li><a href="#">Fastfood</a></li>
 			                            <li><a href="#">Fresh Onion</a></li>
 			                            <li><a href="#">Papayaya & Crisps</a></li>
-			                            <li><a href="#">Oatmeal</a></li>
+			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">장바구니</a></li>
 			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">개인정보 수정</a></li>
 			                        </ul>
 	                        	</c:when>
@@ -41,7 +41,7 @@
 			                            <li><a href="#">Fruit & Nut Gifts</a></li>
 			                            <li><a href="#">Fresh Berries</a></li>
 			                            <li><a href="#">Ocean Foods</a></li>
-			                            <li><a href="#">Butter & Eggs</a></li>
+		                                <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">장바구니</a></li>
 			                            <li><a href="#">Fastfood</a></li>
 			                            <li><a href="#">Fresh Onion</a></li>
 			                            <li><a href="#">Papayaya & Crisps</a></li>
@@ -74,12 +74,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/321.jpg">
                         <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
+                            <span>FRUIT MEAT</span>
+                            <h2>Food Stuffs <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <a href="${contextPath }/goods/goodsList?goodsCategory=all" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
                 </div>
@@ -144,6 +144,10 @@
                 </div>
             </div>
             <div class="row featured__filter">
+            
+            
+            
+            <!-- 
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="${contextPath }/resources/bootstrap/img/featured/feature-1.jpg">
@@ -159,6 +163,12 @@
                         </div>
                     </div>
                 </div>
+                
+             -->
+                
+                
+                
+                
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="${contextPath }/resources/bootstrap/img/featured/feature-2.jpg">
