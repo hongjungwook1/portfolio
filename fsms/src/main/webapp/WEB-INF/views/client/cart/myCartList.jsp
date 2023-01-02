@@ -5,7 +5,82 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 <script>
+	
+	$().ready(function () {
+		
+		getTotalPrice();
+		total();
+		
+		$("[name='cartCd']").change(function() {
+			getTotalPrice();	
+		});
+
+	});
+
+
+
+	function getTotalPrice() {
+		
+		var totalPrice = 0;
+		$("[name='cartCd']:checked").each(function () {
+			
+			var tempCartCd = $(this).val();
+			totalPrice += Number($("#price" + tempCartCd).val()) * Number($("#cartQty" + tempCartCd).val());
+			
+		});
+		
+		$("#totalPrice").html(totalPrice);
+		
+	}
+	
+	/*
+	domEx22번 레퍼런스
+	function total() {
+		
+		var total = 0;
+		$("#cartQty${myCart.cartCd }").click(function () {
+		
+			var tampCartCd = $(this).val();
+			total += Number($("#price" + tempCartCd).val()) * Number($("#cartQty" + tempCartCd).val());
+		});
+		
+		$("#total").html(total);
+	}
+	
+	*/
+	
+	
+	function selectAllCart() {
+		
+		if ($("#selectAllCart").prop("checked")) {
+			$("[name='cartCd']").prop("checked" , true);
+		}			
+		else {
+			$("[name='cartCd']").prop("checked" , false);
+		}
+		
+	}	
+	
+	function modifyCart(cartCd) {
+		$.ajax({
+			type : "get",
+			url	 : "${contextPath}/cart/modifyCart",
+			data : {
+				"cartCd" 	: cartCd,
+				"cartQty"	: $("#cartQty" + cartCd).val()
+			},
+			success:function() {
+				getTotalPrice();
+				total();
+			},
+			error:function(error) {
+				console.log(error);
+			}
+		});
+	}
+	
 	
 	
 	
@@ -48,8 +123,16 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
                         <table>
+                        	<colgroup>
+                        		<col width="8%">
+                        		<col width="25%">
+                        		<col width="15%">
+                        		<col width="22%">
+                        		<col width="30%">
+                        	</colgroup>
                             <thead>
                                 <tr>
+                                    <th>전체선택 <input type="checkbox" id="selectAllCart" onchange="selectAllCart()"></th>
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -72,9 +155,10 @@
                             	
                             	<c:forEach var="myCart" items="${myCartList }">
                                 <tr>
+                                	<td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
                                     <td class="shoping__cart__item">
-                                        <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="50" height="50">
-                                        <a href="${contectPath }/goods/goodsDetail?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>
+                                        <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="85" height="85">
+                                        <a href="${contextPath }/goods/goodsDetails?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>
                                     </td>
                                     <td class="shoping__cart__price">
                                       <div class="product__price" >
@@ -85,14 +169,14 @@
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" id="cartQty" value="${myCart.cartQty }">
+                                            <div class="pro-qty" onmouseleave="modifyCart(${myCart.cartCd })">
+                                                <input type="text" id="cartQty${myCart.cartCd }" value="${myCart.cartQty }">
                                             </div>
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                   	<div class="product__total" >
-                                   		 <p><fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}" pattern="0"/></p>
+                                   	<div class="product__total" id="total">
+                                   		 <p><fmt:formatNumber value="${(myCart.price -  (myCart.price * (myCart.discountRate / 100))) * myCart.cartQty }"/></p>
                                   	</div>
                                     </td>
                                     <td class="shoping__cart__item__close">
@@ -152,10 +236,9 @@
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
+                            <li>Total <span id="totalPrice"></span></li>
                         </ul>
-                        <a href="#" class="primary-btn">결 제 하 기</a>
+                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

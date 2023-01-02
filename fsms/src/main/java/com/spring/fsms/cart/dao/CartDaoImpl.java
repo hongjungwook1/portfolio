@@ -34,4 +34,9 @@ public class CartDaoImpl implements CartDao {
 	public int selectMyCartCnt(String memberId) throws Exception {
 		return sqlSession.selectOne("cartMapper.selectMyCartCnt" , memberId);
 	}
+
+	@Override
+	public void updateCartQty(Map<String, Object> updateMap) throws Exception {
+		sqlSession.update("cartMapper.updateCartQty" , updateMap);
+	}
 }

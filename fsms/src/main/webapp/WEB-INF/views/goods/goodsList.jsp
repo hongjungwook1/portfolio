@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -348,8 +349,8 @@
 			                                    </ul>
 			                                </div>
 			                                <div class="product__item__text">
-			                                    <h6><a href="#">${goodsDto.goodsName}</a></h6>
-			                                    <h5>${goodsDto.price}</h5>
+			                                    <h6><a href="${contextPath }/goods/goodsDetails?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsName}</a></h6>
+			                                   <h5><fmt:formatNumber value="${goodsDto.price }"/></h5>
 			                                </div>
 			                            </div>
 			                        </div>
@@ -357,6 +358,25 @@
                     		</c:otherwise>
                     	</c:choose>
                     	
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         <div class="col-lg-4 col-md-6 col-sm-6">

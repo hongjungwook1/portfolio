@@ -40,5 +40,10 @@ public class CartServiceImpl implements CartService {
 	public int getMyCartCnt(String memberId) throws Exception {
 		return cartDao.selectMyCartCnt(memberId);
 	}
+
+	@Override
+	public void modifyCartQty(Map<String, Object> updateMap) throws Exception {
+		cartDao.updateCartQty(updateMap);
+	}
 	
 }

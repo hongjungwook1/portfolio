@@ -78,5 +78,15 @@
 				MEMBER_ID = #{memberId}
 	</select>
 	
-
+	<update id="updateCartQty" parameterType="hashMap">
+		UPDATE
+				CART
+		SET
+				CART_QTY = #{cartQty}
+		WHERE
+				CART_CD = #{cartCd}
+	</update>	
+	
+	
+	
 </mapper>

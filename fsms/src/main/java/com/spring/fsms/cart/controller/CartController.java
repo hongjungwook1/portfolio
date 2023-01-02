@@ -1,9 +1,13 @@
 package com.spring.fsms.cart.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,6 +69,19 @@ public class CartController {
 		return result;
 		
 	}
+	
+	
+	
+	
+	@RequestMapping(value="/modifyCart" , method=RequestMethod.GET)
+	public ResponseEntity<Object> modifyCart(@RequestParam Map<String,Object> updateMap) throws Exception {
+		cartService.modifyCartQty(updateMap);
+		return new ResponseEntity<Object>(HttpStatus.OK);
+		
+		
+	}
+	
+	
 	
 	
 	
