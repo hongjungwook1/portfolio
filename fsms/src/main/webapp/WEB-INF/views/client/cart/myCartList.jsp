@@ -40,7 +40,7 @@
 	function total() {
 		
 		var total = 0;
-		$("#cartQty${myCart.cartCd }").click(function () {
+		$("#cartQty" + cartCd ).click(function () {
 		
 			var tampCartCd = $(this).val();
 			total += Number($("#price" + tempCartCd).val()) * Number($("#cartQty" + tempCartCd).val());
@@ -79,6 +79,55 @@
 				console.log(error);
 			}
 		});
+	}
+	
+	function removeCart() {
+		
+		var cartCdList = "";
+		if (confirm("정말로 삭제하시겠습니까?")) {
+			
+			$("#remove").click(function(){
+				cartCdList += $(this).val() + ",";
+			});
+			location.href = "${contextPath}/cart/removeCart?cartCdList=" + cartCdList;
+		}
+		
+	}
+	
+	
+	
+	function processOrderCart() {
+		
+		var cartCdList = "";
+		var goodsCdList = "";
+		var cartGoodsQtyList = "";
+		
+		$("[name='cartCd']:checked").each(function () {
+			
+			var cartCd = (this).val();
+			var goodsCd = $("#goodCd" + cartCd).val();
+			var cartGoodsQty = $("#cartQty" + cartCd).val();
+			
+			cartCdList += cartCd + ",";
+			goodsCdList += goodsCd + ",";
+			cartGoodsQtyList += cartGoodsQty + ",";
+			
+		});
+		
+		
+		if (goodsCdList == "") {
+			alert("주문 목록이 없습니다.");
+			return false;
+		}
+		
+		var url = "${contextPath}/morder/morderCartGoods";
+			url += "?goodsCdList=" + goodsCdList;
+			url += "?cartGoodsQtyList=" + cartGoodsQtyList;
+			url += "?cartCdList=" + cartCdList;
+			
+		locaion.href = url;
+		
+		
 	}
 	
 	
@@ -143,8 +192,8 @@
                             <tbody>
                             	<c:choose>
                             		<c:when test="${empty myCartList}">
-                            			<tr align="center">
-                            				<td>장바구니가 비어 있습니다!</td>
+                            			<tr align="center" >
+                            				<td colspan="5">장바구니가 비어 있습니다!</td>
                             			</tr>
                             		</c:when>
                             		<c:otherwise>
@@ -180,33 +229,10 @@
                                   	</div>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
+                                        <a href="javascript:removeCart();"><span class="icon_close" id="remove"></span></a>
                                     </td>
                                 </tr>
                                 </c:forEach>
-                                
-							  <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
                                 
                             </tbody>
                         </table>
@@ -238,7 +264,7 @@
                         <ul>
                             <li>Total <span id="totalPrice"></span></li>
                         </ul>
-                        <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="javascript:processOrderCart()" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

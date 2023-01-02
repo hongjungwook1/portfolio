@@ -39,4 +39,14 @@ public class CartDaoImpl implements CartDao {
 	public void updateCartQty(Map<String, Object> updateMap) throws Exception {
 		sqlSession.update("cartMapper.updateCartQty" , updateMap);
 	}
+
+	@Override
+	public void deleteCart(int [] deleteCartCdList) throws Exception {
+		sqlSession.delete("cartMapper.deleteCart" , deleteCartCdList);
+	}
+	
+	
+	
+	
+	
 }

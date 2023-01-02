@@ -25,4 +25,12 @@ public class MorderController {
 		
 	}
 	
+	@RequestMapping(value="/mOrderCartGoods" , method=RequestMethod.GET)
+	public ModelAndView mOrderCartGoods () {
+		ModelAndView mv = new ModelAndView();
+		return mv;
+	}
+	
+	
+	
 }

@@ -45,5 +45,10 @@ public class CartServiceImpl implements CartService {
 	public void modifyCartQty(Map<String, Object> updateMap) throws Exception {
 		cartDao.updateCartQty(updateMap);
 	}
+
+	@Override
+	public void removeCart(int[] deleteCartCdList) throws Exception {
+		cartDao.deleteCart(deleteCartCdList);
+	}
 	
 }

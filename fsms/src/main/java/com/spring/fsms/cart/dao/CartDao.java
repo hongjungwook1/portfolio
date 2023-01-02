@@ -12,5 +12,6 @@ public interface CartDao {
 	public List<Map<String,Object>> selectListMyCart(String memberId) throws Exception;
 	public int selectMyCartCnt (String memberId) throws Exception;
 	public void updateCartQty(Map<String, Object> updateMap) throws Exception;
+	public void deleteCart(int[] deleteCartCdList) throws Exception;
 	
 }

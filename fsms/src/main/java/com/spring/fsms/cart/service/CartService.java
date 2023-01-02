@@ -12,4 +12,6 @@ public interface CartService {
 	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception;
 	public int getMyCartCnt (String memberId) throws Exception;
 	public void modifyCartQty(Map<String,Object> updateMap) throws Exception;
+	public void removeCart(int [] deleteCartCdList) throws Exception;
+	
 }
