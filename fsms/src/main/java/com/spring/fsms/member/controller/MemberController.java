@@ -129,7 +129,7 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value="update" , method=RequestMethod.GET)
+	@RequestMapping(value="/update" , method=RequestMethod.GET)
 	public ModelAndView update (@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();

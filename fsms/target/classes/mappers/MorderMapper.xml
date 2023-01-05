@@ -4,4 +4,33 @@
 <mapper namespace="MorderMapper">
 	
 	
+	<select id="selectOneGetOrder" resultType="MemberDto" parameterType="String">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="selectListGetGoodsByCart" resultType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS G
+		    JOIN CART C
+		    	   ON G.GOODS_CD = C.GOODS_CD
+		    	  AND G.GOODS_CD IN
+		    	  		<foreach collection="array" item="goodsCd" separator="," open="(" close=")">
+		    	  			${goodsCd}
+		    	  		</foreach>  
+		ORDER BY
+				C.CART_DATE DESC
+	</select>
+	
+	
+	
+	
+	
+	
 </mapper>

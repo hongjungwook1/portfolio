@@ -100,9 +100,170 @@
 
 <meta charset="UTF-8">
 <title>join</title>
+
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style.css" type="text/css">
+
 </head>
 <body>
+
+    <section class="checkout spad">
+        <div class="container">
+            <div class="row">
+            </div>
+            <div class="checkout__form">
+              <h2>회 원 가 입</h2>
+              	<p>
+				<form action="${contextPath }/member/join" method="post">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>아이디<span>*</span></p>
+                                    <input type="text" name="memberId" id="memberId" style="width: 60%;" placeholder="아이디를 적어주세요.">
+                                    <input type="button" id="checkId" value="중복 확인" style="width: 30%;">
+                                </div>
+                            </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>비밀번호<span>*</span></p>
+                                     <input type="password" name="password" id="password" placeholder="비밀번호를 적어주세요.">
+                                 </div>
+                             </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>비밀번호 확인<span>*</span></p>
+                                     <input type="password" id="checkPassword" placeholder="비밀번호를 한번 더 적어주세요.">
+                                 </div>
+                             </div>
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>이름<span>*</span></p>
+                                    <input type="text" name="memberName" id="memberName" placeholder="이름을 적어주세요.">
+                                </div>
+                            </div>
+                             <div class="row">
+	                            <div class="col-lg-6">
+	                               <div class="checkout__order__widget">
+	                                    <p>성별 <span style="color:red;">*</span></p>
+	                                    남 &nbsp;<input type="radio" name="gender" value="M"> &emsp;
+	                                    여 &nbsp;<input type="radio" name="gender" value="F">
+	                                </div>
+	                            </div>
+	                            <div class="col-lg-6">
+	                                <div class="checkout__input">
+	                                    <p>생년월일 <span>*</span></p>
+	                                    <select id="birthY">
+	                                    	<c:forEach var="i" begin="0" end="2022" >
+	                                    		<option>${2022 - i}</option>
+	                                    	</c:forEach>
+	                                    </select>년 
+	                                    <select id="birthM">
+	                                    	<c:forEach var="i" begin="1" end="12" >
+	                                    		<c:choose>
+		                                    		<c:when test="${i < 10 }">
+			                                    		<option>0${i}</option>
+		                                    		</c:when>
+		                                    		<c:otherwise>
+			                                    		<option>${i}</option>
+		                                    		</c:otherwise>
+	                                    		</c:choose>
+	                                    	</c:forEach>
+	                                    </select>월
+	                                    <select id="birthD">
+	                                    	<c:forEach var="i" begin="1" end="31" >
+	                                    		<c:choose>
+		                                    		<c:when test="${i < 10 }">
+			                                    		<option>0${i}</option>
+		                                    		</c:when>
+		                                    		<c:otherwise>
+			                                    		<option>${i}</option>
+		                                    		</c:otherwise>
+	                                    		</c:choose>
+	                                    	</c:forEach>
+	                                    </select>일	
+	                                    <input type="hidden" name="dateBirth"/>
+	                                </div>
+	                            </div>
+                            </div>
+                            <br>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>핸드폰 번호<span>*</span></p>
+                                     <input type="text" name="hp" id="hp" placeholder="- 포함 핸드폰 번호를 적어주세요.">
+                                 </div>
+                             </div>
+                              <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <div class="checkout__order__widget">
+                                     <p>문자 수신 동의<span>*</span></p>
+                                     <input type="radio" name="smsstsYn" id="smsstsYn" value="Y" checked> 동의
+									 <input type="radio" name="smsstsYn" id="smsstsYn" value="N"> 비동의
+                                 </div>
+                             </div>
+                             <br>
+                         	 <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>이메일<span>*</span></p>
+                                     <input type="email" name="email" id="email" placeholder="이메일을 적어주세요.">
+                                 </div>
+                             </div>
+                              <div class="col-lg-6 col-md-6 col-sm-6">
+                                 <div class="checkout__order__widget">
+                                     <p>이메일 수신 동의<span>*</span></p>
+                                     <input type="radio" name="emailstsYn" id="emailstsYn" value="Y" checked> 동의
+									 <input type="radio" name="emailstsYn" id="emailstsYn" value="N"> 비동의
+                                 </div>
+                             </div>
+                             <br>
+                            
+                            
+                            
+                              <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>우편번호 <span>*</span></p>
+                                    <input type="text" id="zipcode" name="zipcode" style="width: 20%;">
+                                    <input type="button" value="검색" onclick="execDaumPostcode();" style="width: 10%; padding-left: 0">
+                                </div>
+                                <div class="checkout__input">
+                                    <p>도로명 주소 <span>*</span></p>
+                                    <input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소를 입력하세요.">
+                                </div>
+                                <div class="checkout__input">
+                                    <p>지번 주소 <span>*</span></p>
+                                    <input type="text" id="jibunAddress" name="jibunAddress" placeholder="지번주소를 입력하세요.">
+                                </div>
+                                <div class="checkout__input">
+                                    <p>나머지 주소 <span>*</span></p>
+                                    <input type="text" id="namujiAddress" name="namujiAddress" placeholder="나머지주소를 입력하세요.">
+                                </div>
+                            </div>
+                             <div align="center">
+	                        	<button type="submit" class="site-btn"><span class="icon_plus"></span> 가입</button>
+	                        </div>
+	                        <p><div align="center">
+								이미 회원이시라면
+								<a href="${contextPath }/member/login">로그인</a> 하러가기
+							</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+
+
+
+
 	
+	
+	<!-- 
 	<div align="center">
 		<h2>회 원 가 입</h2>
 		<form action="${contextPath }/member/join" method="post">
@@ -214,5 +375,9 @@
 			</div>
 		</form>
 	</div>
+	 -->
+	 
+	 
+	 
 </body>
 </html>

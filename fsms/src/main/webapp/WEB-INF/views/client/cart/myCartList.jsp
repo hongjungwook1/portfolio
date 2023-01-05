@@ -11,7 +11,7 @@
 	$().ready(function () {
 		
 		getTotalPrice();
-		total();
+		//total();
 		
 		$("[name='cartCd']").change(function() {
 			getTotalPrice();	
@@ -73,7 +73,7 @@
 			},
 			success:function() {
 				getTotalPrice();
-				total();
+				//total();
 			},
 			error:function(error) {
 				console.log(error);
@@ -104,13 +104,13 @@
 		
 		$("[name='cartCd']:checked").each(function () {
 			
-			var cartCd = (this).val();
-			var goodsCd = $("#goodCd" + cartCd).val();
+			var cartCd = $(this).val();
+			var goodsCd = $("#goodsCd" + cartCd).val();
 			var cartGoodsQty = $("#cartQty" + cartCd).val();
 			
-			cartCdList += cartCd + ",";
 			goodsCdList += goodsCd + ",";
 			cartGoodsQtyList += cartGoodsQty + ",";
+			cartCdList += cartCd + ",";
 			
 		});
 		
@@ -120,12 +120,12 @@
 			return false;
 		}
 		
-		var url = "${contextPath}/morder/morderCartGoods";
+		var url = "${contextPath}/morder/mOrderCartGoods";
 			url += "?goodsCdList=" + goodsCdList;
-			url += "?cartGoodsQtyList=" + cartGoodsQtyList;
-			url += "?cartCdList=" + cartCdList;
+			url += "&cartGoodsQtyList=" + cartGoodsQtyList;
+			url += "&cartCdList=" + cartCdList;
 			
-		locaion.href = url;
+			location.href = url;
 		
 		
 	}
@@ -208,6 +208,7 @@
                                     <td class="shoping__cart__item">
                                         <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="85" height="85">
                                         <a href="${contextPath }/goods/goodsDetails?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>
+                                        <input type="hidden" id="goodsCd${myCart.cartCd }" value="${myCart.goodsCd }"/>
                                     </td>
                                     <td class="shoping__cart__price">
                                       <div class="product__price" >
