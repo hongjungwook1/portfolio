@@ -1,5 +1,8 @@
 package com.spring.fsms.member.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.spring.fsms.member.dto.MemberDto;
 
 public interface MemberDao {
@@ -11,4 +14,7 @@ public interface MemberDao {
 	public String selectOneValidateUserCheck(String memberId) throws Exception;
 	public void updateMember(MemberDto memberDto) throws Exception;
 	public void deleteMember(String memberId) throws Exception;
+	public List<Map<String, Object>> selectListMyOrder (String memberId) throws Exception;
+	public Map<String, Object> selectOneGetMyOrder (Map<String, Object> orderDetailMap) throws Exception;
+	 
 }

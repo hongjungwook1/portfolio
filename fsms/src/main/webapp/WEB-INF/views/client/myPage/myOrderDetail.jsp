@@ -5,67 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-<script>
-	
-	$().ready(function () {
-		
-		
-		var totalPrice = 0;
-		var orderGoodsQtyList = "${orderGoodsQtyList}".split(",");
-		
-		for (var i = 0; i < orderGoodsQtyList.length; i++) {
-			
-			$("#qty" + i).text(orderGoodsQtyList[i] + " 개");
-			
-			var price = Number($("#price"+i).val());
-			var discountRate = Number($("#discountRate"+i).val());
-			var orderGoodsQty = Number($("#orderGoodsQty"+i).val());
-		
-			
-			totalPrice += (price - parseInt(price * (discountRate / 100))) * orderGoodsQty;
-		
-		}
-		
-		$("#totalPrice").html(totalPrice);
-		
-		if ($("#totalPrice") >=  Number(30000)) {
-			$("#deliveryPrice").html(0);
-		}
-		else {
-			$("#deliveryPrice").html(3000 + "원");
-		}
-		
-		
-	});
-	
-	
-	function setPayMethod() {
-		
-		var method = $("[name='mOrderPayMethod']").val;
-		
-		if (method == 'card') {
-			$("#mOrderCardPayMonth,#mOrderCardCompanyName").show();
-			$("#mOrderPayOrdererHp").hide();
-		}
-		else {
-			$("#mOrderCardPayMonth,#mOrderCardCompanyName").hide();
-			$("#mOrderPayOrdererHp").show();
-		}
-		
-	}
-	
-	
-	
-	
-</script>
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<!-- Breadcrumb Section Begin -->
+
+
+
+<!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -101,13 +49,13 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>주문자 성함<span>*</span></p>
-                                        <input type="text" name="mOrderName" value="${orderer.memberName }">
+                                        <input type="text" name="mOrderName" value="${myOrder.mOrderName }" disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>주문자 연락처<span>*</span></p>
-                                        <input type="text" name="mOrderHp" value="${orderer.hp }">
+                                        <input type="text" name="mOrderHp" value="${myOrder.mOrderHp }" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -115,102 +63,87 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>받는분 성함<span>*</span></p>
-                                        <input type="text" name="mOrderReceiverName">
+                                        <input type="text" name="mOrderReceiverName" value="${myOrder.mOrderReceiverName }" disabled>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>받는분 연락처<span>*</span></p>
-                                        <input type="text" name="mOrderReceiverHp">
+                                        <input type="text" name="mOrderReceiverHp" value="${myOrder.mOrderReceiverHp }" disabled>
                                     </div>
                                 </div>
                             </div>
-                            <br>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="checkout__order__widget">
-	                                     <p>배송방법 <span>*</span></p>
-	                                     <input type="radio" name="mOrderDeliveryMethod" value="normal" checked> 일반배송 &emsp; 
-										 <input type="radio" name="mOrderDeliveryMethod" value="rocket"> 로켓배송 &emsp;
+                                    <div class="checkout__input">
+	                                     <p>배송 방법 <span>*</span></p>
+	                                     <input type="text" name="mOrderDeliveryMethod" value="${myOrder.mOrderDeliveryMethod }" disabled>
 	                                </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="checkout__order__widget">
-	                                    <p>지불방법 <span>*</span></p>
-	                                    <select name="mOrderPayMethod" onchange="setPayMethod()">
-	                                    	<option value="card">카드결제</option>
-	                                    	<option value="phone">휴대폰결제</option>
-	                                    </select>
+                                    <div class="checkout__input">
+	                                    <p>지불 방법 <span>*</span></p>
+										<input type="text" name="mOrderPayMethod" value="${myOrder.mOrderPayMethod }" disabled>
 	                                </div>
                                 </div>
                             </div> 
-                         <br>
-                          <div class="row">
-                            <div class="col-lg-6" id="mOrderCardCompanyName" >
-                              <div class="checkout__order__widget">
-                                 <p>카드회사 <span>*</span></p>
-	                               <select name="mOrderCardCompanyName">
-									<option value="삼성">삼성</option>
-									<option value="하나SK">하나SK</option>
-									<option value="현대">현대</option>
-									<option value="KB">KB</option>
-									<option value="신한">신한</option>
-									<option value="롯데">롯데</option>
-									<option value="BC">BC</option>
-									<option value="시티">시티</option>
-									<option value="NH농협">NH농협</option>
-							   </select>
-                              </div>
-                            </div>
-                               <div class="col-lg-6" id="mOrderCardPayMonth">
-									<div class="checkout__order__widget">
-										<p>할부개월 <span>*</span></p>
-											<select name="mOrderCardPayMonth">
-											<option value="0">일시불</option>                                    
-											<option value="1">1개월</option>                                    
-											<option value="2">2개월</option>                                    
-											<option value="3">3개월</option>                                    
-											<option value="4">4개월</option>                                    
-											<option value="5">5개월</option>                                    
-											<option value="6">6개월</option>                                    
-											</select>
+                         <c:choose>
+                         	<c:when test="${myOrder.mOrderPayMethod eq 'card'}">
+                         		 <div class="row">
+		                            <div class="col-lg-6" id="mOrderCardCompanyName" >
+		                              <div class="checkout__input">
+		                                 <p>카드 회사 <span>*</span></p>
+		                               		<input type="text" name="mOrderCardCompanyName" value="${myOrder.mOrderCardCompanyName }" disabled>
+		                              </div>
+		                            </div>
+		                               <div class="col-lg-6" id="mOrderCardPayMonth">
+											<div class="checkout__input">
+												<p>할부개월 <span>*</span></p>
+													<c:choose>
+														<c:when test="${myOrder.mOrderCardPayMonth == 0 }">
+															<input type="text" name="mOrderCardPayMonth" value="일시불" disabled>
+														</c:when>
+														<c:otherwise>
+															<input type="text" name="mOrderCardPayMonth" value="${myOrder.mOrderCardPayMonth } 개월" disabled>
+														</c:otherwise>
+													</c:choose>
+											</div>
 										</div>
-									</div>
-								</div> 
-				 			<div id="mOrderPayOrdererHp" class="checkout__input" style="display: none">
-                                <div class="checkout__input">
-                                    <p>결제 휴대폰 번호 <span>*</span></p>
-                                    <input type="text" name="mOrderPayOrdererHp" value="${orderer.hp }">
-                                </div>
-                            </div>
-								
-								<br>                          
-                               <div class="checkout__input">
+									</div> 
+                         	</c:when>
+                         	<c:otherwise>
+                        		<div id="mOrderPayOrdererHp" class="checkout__input" style="display: none">
+	                                <div class="checkout__input">
+	                                    <p>결제 휴대폰 번호 <span>*</span></p>
+	                                    <input type="text" name="mOrderPayOrdererHp" value="${myOrder.mOrderPayOrdererHp }">
+	                                </div>
+								</div>
+                         	</c:otherwise>
+                         </c:choose>
+                            <div class="checkout__input">
+                                <p>배송 상태 <span>*</span></p>
+                                <input type="text" name="mOrderDeliveryStatus" value="${myOrder.mOrderDeliveryStatus }" disabled>
+                           </div>
+                            <div class="checkout__input">
                                    <p>배송메세지 <span>*</span></p>
-                                   <input type="text" name="mOrderDeliveryMessage" placeholder="배송메세지를 입력하세요.">
+                                   <input type="text" name="mOrderDeliveryMessage" value="${myOrder.mOrderDeliveryMessage }" disabled>
                                </div>
-                              <div id="mOrderPayOrdererHp" class="col-lg-6 col-md-6 col-sm-6" style="display: none">
-                                <div class="checkout__form__input">
-                                    <p>결제 휴대폰 번호 <span>*</span></p>
-                                    <input type="text" name="mOrderPayOrdererHp" value="${orderer.hp }">
-                                </div>
-                            </div>
                             <div class="checkout__input">
                                  <p>우편번호 <span>*</span></p>
-                                 <input type="text" id="zipcode" name="mOrderZipcode" value="${orderer.zipCode }" style="width: 20%;">
-                                 <input type="button" value="주소 검색" onclick="execDaumPostcode();" style="width: 10%; padding-left: 0">
+                                 <input type="text" id="zipcode" name="mOrderZipcode" value="${myOrder.mOrderZipcode }" style="width: 20%;" disabled >
+                                 <input type="button" value="주소 검색" onclick="execDaumPostcode();" style="width: 10%; padding-left: 0" disabled >
                             </div>
                             <div class="checkout__input">
                                 <p>도로명 주소 <span>*</span></p>
-                                <input type="text" id="roadAddress" name="mOrderRoadAddress" value="${orderer.roadAddress }">
+                                <input type="text" id="roadAddress" name="mOrderRoadAddress" value="${myOrder.mOrderRoadAddress }">
                             </div>
                             <div class="checkout__input">
                                 <p>지번 주소 <span>*</span></p>
-                                <input type="text" id="jibunAddress" name="mOrderJibunAddress" value="${orderer.jibunAddress }">
+                                <input type="text" id="jibunAddress" name="mOrderJibunAddress" value="${myOrder.mOrderJibunAddress }">
                             </div>
                             <div class="checkout__input">
                                 <p>나머지 주소 <span>*</span></p>
-                                <input type="text" id="namujiAddress" name="mOrderNamujiAddress" value="${orderer.namujiAddress }">
+                                <input type="text" id="namujiAddress" name="mOrderNamujiAddress" value="${myOrder.mOrderNamujiAddress }">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -218,16 +151,12 @@
                                 <h4>Your Order</h4>
                                 <div class="checkout__order__products">Products <span>Total</span></div>
                                 <ul>
-                                	<c:forEach var="goodsDto" items="${goodsList }" varStatus="i">
-                                		<li>
-                                			${i.index + 1 }. ${goodsDto.goodsName }
-                                			<span id="qty${i.index }"></span>
-                                			<span><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100}"/>원 &emsp;</span>
-                                			<input type="hidden" id="price${i.index }" value="${goodsDto.price }">
-                                			<input type="hidden" id="discountRate${i.index }" value="${goodsDto.discountRate }">
-                                			<input type="hidden" id="orderGoodsQty${i.index }">
-                                		</li>
-                                	</c:forEach>
+                               		<li>
+                               			<span><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100}"/>원 &emsp;</span>
+                               			<input type="hidden" id="price${i.index }" value="${goodsDto.price }">
+                               			<input type="hidden" id="discountRate${i.index }" value="${goodsDto.discountRate }">
+                               			<input type="hidden" id="orderGoodsQty${i.index }">
+                               		</li>
                                 </ul>
                                 <input type="hidden" name="goodsCdList" value="${goodsCdList }">
                                 <input type="hidden" name="orderGoodsQtyList" value="${orderGoodsQtyList }">

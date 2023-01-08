@@ -197,43 +197,50 @@
                             			</tr>
                             		</c:when>
                             		<c:otherwise>
+                            		
+                            		
+                            		
+	                            		<c:forEach var="myCart" items="${myCartList }">
+			                                <tr>
+			                                	<td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
+			                                    <td class="shoping__cart__item">
+			                                        <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="85" height="85">
+			                                        <a href="${contextPath }/goods/goodsDetails?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>
+			                                        <input type="hidden" id="goodsCd${myCart.cartCd }" value="${myCart.goodsCd }"/>
+			                                    </td>
+			                                    <td class="shoping__cart__price">
+			                                      <div class="product__price" >
+			                                	 	 <span style="text-decoration: line-through; color: gray" ><fmt:formatNumber value="${myCart.price }"/></span><br>
+			                                   		 <fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
+													 <input type="hidden" id="price${myCart.cartCd }" value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}">			                                    
+			                                   	  </div>
+			                                    </td>
+			                                    <td class="shoping__cart__quantity">
+			                                        <div class="quantity">
+			                                            <div class="pro-qty" onmouseleave="modifyCart(${myCart.cartCd })">
+			                                                <input type="text" id="cartQty${myCart.cartCd }" value="${myCart.cartQty }">
+			                                            </div>
+			                                        </div>
+			                                    </td>
+			                                    <td class="shoping__cart__total">
+			                                   	<div class="product__total" id="total">
+			                                   		 <p><fmt:formatNumber value="${(myCart.price -  (myCart.price * (myCart.discountRate / 100))) * myCart.cartQty }"/></p>
+			                                  	</div>
+			                                    </td>
+			                                    <td class="shoping__cart__item__close">
+			                                        <a href="javascript:removeCart();"><span class="icon_close" id="remove"></span></a>
+			                                    </td>
+			                                </tr>
+		                                </c:forEach>
+		                                
+		                                
+		                                
                             		</c:otherwise>
                             	</c:choose>
                             	
                             	
                             	
-                            	<c:forEach var="myCart" items="${myCartList }">
-                                <tr>
-                                	<td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
-                                    <td class="shoping__cart__item">
-                                        <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="85" height="85">
-                                        <a href="${contextPath }/goods/goodsDetails?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>
-                                        <input type="hidden" id="goodsCd${myCart.cartCd }" value="${myCart.goodsCd }"/>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                      <div class="product__price" >
-                                	 	 <span style="text-decoration: line-through; color: gray" ><fmt:formatNumber value="${myCart.price }"/></span><br>
-                                   		 <fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
-										 <input type="hidden" id="price${myCart.cartCd }" value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}">			                                    
-                                   	  </div>
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty" onmouseleave="modifyCart(${myCart.cartCd })">
-                                                <input type="text" id="cartQty${myCart.cartCd }" value="${myCart.cartQty }">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                   	<div class="product__total" id="total">
-                                   		 <p><fmt:formatNumber value="${(myCart.price -  (myCart.price * (myCart.discountRate / 100))) * myCart.cartQty }"/></p>
-                                  	</div>
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <a href="javascript:removeCart();"><span class="icon_close" id="remove"></span></a>
-                                    </td>
-                                </tr>
-                                </c:forEach>
+                            	
                                 
                             </tbody>
                         </table>

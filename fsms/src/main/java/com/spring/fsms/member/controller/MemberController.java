@@ -1,5 +1,7 @@
 package com.spring.fsms.member.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -161,7 +163,7 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value="delete" , method=RequestMethod.GET)
+	@RequestMapping(value="/delete" , method=RequestMethod.GET)
 	public ModelAndView delete(@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
@@ -176,7 +178,7 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value="delete" , method=RequestMethod.POST)
+	@RequestMapping(value="/delete" , method=RequestMethod.POST)
 	public ResponseEntity<Object> deleteMember(@RequestParam("memberId") String memberId , HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
@@ -195,7 +197,31 @@ public class MemberController {
 			
 		return new ResponseEntity<Object>(jsScript, header, HttpStatus.OK);
 		
+	}
+	
+	@RequestMapping(value="/myOrderList" , method=RequestMethod.GET)
+	public ModelAndView myOrderList (HttpServletRequest request) throws Exception{
 		
+		HttpSession session = request.getSession();
+		String memberId = (String) session.getAttribute("memberId");
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/client/myPage/myOrderList");
+		mv.addObject("myOrderList", memberService.getMyOrderList(memberId));
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="/myOrderDetail" , method=RequestMethod.GET)
+	public ModelAndView myOrderDetail (@RequestParam Map<String, Object> orderDetailMap) throws Exception{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/client/myPage/myOrderDetail");
+		mv.addObject("myOrder", memberService.getMyOrderDetail(orderDetailMap));
+		
+		return mv;
 		
 	}
 	

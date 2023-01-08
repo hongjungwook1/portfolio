@@ -24,5 +24,11 @@ public class GoodsServiceImpl implements GoodsService {
 	public GoodsDto getOneGoods(int goodsCd) throws Exception {
 		return goodsDao.selectGetOneGoods(goodsCd);
 	}
+
+	@Override
+	public int getGoodCnt() throws Exception {
+		return goodsDao.selectGetGoodsCnt();
+	}
+
 	
 }

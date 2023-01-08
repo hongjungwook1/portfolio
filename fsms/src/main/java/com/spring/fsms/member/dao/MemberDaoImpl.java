@@ -1,5 +1,8 @@
 package com.spring.fsms.member.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -46,6 +49,16 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public void deleteMember(String memberId) throws Exception {
 		sqlSession.delete("memberMapper.deleteMember" ,memberId);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectListMyOrder(String memberId) throws Exception {
+		return sqlSession.selectList("memberMapper.selectListMyOrder" , memberId);
+	}
+
+	@Override
+	public Map<String, Object> selectOneGetMyOrder(Map<String, Object> orderDetailMap) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectOneGetMyOrder" , orderDetailMap );
 	}
 
 

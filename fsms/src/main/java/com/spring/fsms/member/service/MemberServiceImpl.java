@@ -1,5 +1,8 @@
 package com.spring.fsms.member.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -70,6 +73,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void deleteMember(String memberId) throws Exception {
 		memberDao.deleteMember(memberId);
+	}
+
+	@Override
+	public List<Map<String, Object>> getMyOrderList(String memberId) throws Exception {
+		return memberDao.selectListMyOrder(memberId);
+	}
+
+	@Override
+	public Map<String, Object> getMyOrderDetail(Map<String, Object> orderDetailMap) throws Exception {
+		return memberDao.selectOneGetMyOrder(orderDetailMap);
 	}
 
 

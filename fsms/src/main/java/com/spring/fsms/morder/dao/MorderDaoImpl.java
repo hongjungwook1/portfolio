@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.fsms.goods.dto.GoodsDto;
 import com.spring.fsms.member.dto.MemberDto;
+import com.spring.fsms.morder.dto.MorderDto;
 
 @Repository
 public class MorderDaoImpl implements MorderDao{
@@ -23,6 +24,16 @@ public class MorderDaoImpl implements MorderDao{
 	@Override
 	public List<GoodsDto> selectListGetGoodsByCart(int[] goodsCdList) throws Exception {
 		return sqlSession.selectList("MorderMapper.selectListGetGoodsByCart" , goodsCdList);
+	}
+
+	@Override
+	public void insertOrderByCart(List<MorderDto> orderList) throws Exception {
+		sqlSession.insert("MorderMapper.insertOrderByCart" , orderList);
+	}
+
+	@Override
+	public void deleteCartByOrder(int[] cartCdList) throws Exception {
+		sqlSession.delete("MorderMapper.deleteCartByOrder" , cartCdList);
 	}
 	
 	

@@ -92,5 +92,93 @@
 		DELETE FROM MEMBER WHERE MEMBER_ID = #{memberId}
 	</delete>
 	
+	<resultMap type="hashmap" id="myOrderListMap">
+		<result column="M_ORDER_CD" 			 property="orderCd"/>
+		<result column="MEMBER_ID" 				 property="memberId"/>
+		<result column="M_ORDER_GOODS_QTY"  	 property="mOrderGoodsQty"/>
+		<result column="M_ORDER_PAY_ORDER_TIME"  property="mOrderPayOrderTime"/>
+		<result column="GOODS_CD" 				 property="goodsCd"/>
+		<result column="GOODS_NAME"				 property="goodsName"/>
+		<result column="PRICE" 					 property="price"/>
+		<result column="DISCOUNT_RATE" 			 property="discountRate"/>
+		<result column="GOODS_FILE_NAME"  	 	 property="goodsFileName"/>
+	</resultMap>
+	
+	<select id="selectListMyOrder" resultMap="myOrderListMap" parameterType="String">
+		SELECT
+				O.M_ORDER_CD					AS M_ORDER_CD,
+				O.MEMBER_ID						AS MEMBER_ID,
+				O.M_ORDER_GOODS_QTY 			AS M_ORDER_GOODS_QTY,
+				O.M_ORDER_PAY_ORDER_TIME 		AS M_ORDER_PAY_ORDER_TIME,
+				G.GOODS_CD						AS GOODS_CD,
+				G.GOODS_NAME					AS GOODS_NAME,
+				G.PRICE							AS PRICE,
+				G.DISCOUNT_RATE					AS DISCOUNT_RATE,
+				G.GOODS_FILE_NAME				AS GOODS_FILE_NAME
+		FROM
+			 	M_ORDER O
+			 JOIN GOODS G
+				     ON O.GOODS_CD = G.GOODS_CD
+					AND O.MEMBER_ID = #{memberId}
+	</select>
+	
+	<resultMap type="hashmap" id="myOrderDetailMap">
+		<result column="M_ORDER_CD"					property="mOrderCd"/>
+		<result column="M_ORDER_GOODS_QTY" 			property="mOrderGoodsQty"/>
+		<result column="M_ORDER_NAME" 				property="mOrderName"/>
+		<result column="M_ORDER_HP" 				property="mOrderHp"/>
+		<result column="M_ORDER_RECEIVER_NAME" 		property="mOrderReceiverName"/>
+		<result column="M_ORDER_RECEIVER_HP" 		property="mOrderReceiverHp"/>
+		<result column="M_ORDER_DELIVERY_METHOD"	property="mOrderDeliveryMethod"/>
+		<result column="M_ORDER_PAYMETHOD" 			property="mOrderPayMethod"/>
+		<result column="M_ORDER_PAY_ORDERER_HP"		property="mOrderPayOrdererHp"/>
+		<result column="M_ORDER_CARD_COMPANY_NAME" 	property="mOrderCardCompanyName"/>
+		<result column="M_ORDER_CARD_PAY_MONTH" 	property="mOrderCardPayMonth"/>
+		<result column="M_ORDER_DELIVERY_MESSAGE" 	property="mOrderDeliveryMessage"/>
+		<result column="M_ORDER_DELIVERY_STATUS" 	property="mOrderDeliveryStatus"/>
+		<result column="M_ORDER_ZIPCODE" 			property="mOrderZipcode"/>
+		<result column="M_ORDER_ROAD_ADDRESS" 		property="mOrderRoadAddress"/>
+		<result column="M_ORDER_JIBUN_ADDRESS" 		property="mOrderJibunAddress"/>
+		<result column="M_ORDER_NAMUJI_ADDRESS" 	property="mOrderNamujiAddress"/>
+		<result column="M_ORDER_PAY_ORDER_TIME" 	property="mOrderPayOrderTime"/>
+		<result column="GOODS_CD" 					property="goodsCd"/>
+		<result column="GOODS_NAME" 				property="goodsName"/>
+		<result column="PRICE" 						property="price"/>
+		<result column="DISCOUNT_RATE" 				property="discountRate"/>
+	</resultMap>
+	
+	<select id="selectOneGetMyOrder" resultMap="myOrderDetailMap" parameterType="hashmap">
+		SELECT
+				O.M_ORDER_CD					AS  M_ORDER_CD,
+				O.M_ORDER_GOODS_QTY				AS	M_ORDER_GOODS_QTY,
+				O.M_ORDER_NAME					AS	M_ORDER_NAME,
+				O.M_ORDER_HP					AS	M_ORDER_HP,
+				O.M_ORDER_RECEIVER_NAME 		AS	M_ORDER_RECEIVER_NAME,
+				O.M_ORDER_RECEIVER_HP 			AS	M_ORDER_RECEIVER_HP,
+				O.M_ORDER_DELIVERY_METHOD		AS	M_ORDER_DELIVERY_METHOD,	
+				O.M_ORDER_PAYMETHOD 			AS	M_ORDER_PAYMETHOD,
+				O.M_ORDER_PAY_ORDERER_HP 		AS	M_ORDER_PAY_ORDERER_HP,
+				O.M_ORDER_CARD_COMPANY_NAME 	AS	M_ORDER_CARD_COMPANY_NAME,
+				O.M_ORDER_CARD_PAY_MONTH 		AS	M_ORDER_CARD_PAY_MONTH,
+				O.M_ORDER_DELIVERY_MESSAGE		AS	M_ORDER_DELIVERY_MESSAGE,
+				O.M_ORDER_DELIVERY_STATUS	 	AS	M_ORDER_DELIVERY_STATUS,	
+				O.M_ORDER_ZIPCODE 				AS	M_ORDER_ZIPCODE,
+				O.M_ORDER_ROAD_ADDRESS 			AS	M_ORDER_ROAD_ADDRESS,
+				O.M_ORDER_JIBUN_ADDRESS 		AS	M_ORDER_JIBUN_ADDRESS,
+				O.M_ORDER_NAMUJI_ADDRESS 		AS	M_ORDER_NAMUJI_ADDRESS,
+				O.M_ORDER_PAY_ORDER_TIME 		AS	M_ORDER_PAY_ORDER_TIME,
+				G.GOODS_CD						AS	GOODS_CD,
+				G.GOODS_NAME					AS	GOODS_NAME,
+				G.PRICE							AS	PRICE,
+				G.DISCOUNT_RATE					AS	DISCOUNT_RATE
+		FROM
+				M_ORDER O
+			JOIN MEMBER M
+					 ON M.MEMBER_ID = O.MEMBER_ID
+					AND M.MEMBER_ID = #{memberId}
+			 JOIN GOODS G
+			 		 ON G.GOODS_CD = O.GOODS_CD
+			 		AND O.M_ORDER_CD = #{orderCd}
+	</select>
 
 </mapper>

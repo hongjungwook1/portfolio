@@ -6,15 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>update</title>
-
-	<link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style.css" type="text/css">
 </head>
 <body>
 	
@@ -31,7 +22,7 @@
             <div class="row">
             </div>
             <div class="checkout__form">
-              <h2>회 원 가 입</h2>
+              <h2>개인 정보 수정</h2>
               	<p>
 				<form action="${contextPath }/member/update" method="post">
                     <div class="row">
@@ -56,7 +47,7 @@
                             </div>
                              <div class="row">
 	                            <div class="col-lg-6">
-	                               <div class="checkout__order__widget">
+									<div class="checkout__input">
 	                                    <p>성별 <span >*</span></p>
 	                                  	<input type="text" value="${memberDto.gender }" readonly>
 	                                </div>
@@ -147,12 +138,9 @@
                                 </div>
                             </div>
                              <div align="center">
-	                        	<button type="submit" class="site-btn"><span class="icon_plus"></span> 가입</button>
+	                        	<button type="submit" class="site-btn"><span class="icon_plus"></span>수정하기</button>
+	                        	<input type="hidden" value="${memberDto.memberId }" name="memberId">
 	                        </div>
-	                        <p><div align="center">
-								이미 회원이시라면
-								<a href="${contextPath }/member/login">로그인</a> 하러가기
-							</div>
                         </div>
                     </div>
                 </form>
@@ -160,91 +148,6 @@
         </div>
     </section>
     <!-- Checkout Section End -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div align="center">
-		<form action="${contextPath }/member/update" method="post">
-			<table border="1">
-				<tr>
-					<td>아이디</td>
-					<td>${memberDto.memberId }</td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td>${memberDto.memberName }</td>
-				</tr>
-				<tr>
-					<td>성별</td>
-					<td>${memberDto.gender }</td>
-				</tr>
-				<tr>
-					<td>전화번호</td>
-					<td><input type="text" name="hp" value="${memberDto.hp }"></td>
-				</tr>
-				<tr>
-					<td>문자 수신 동의</td>
-					<td>
-						<input type="radio" name="smsstsYn" value="Y" <c:if test="${memberDto.smsstsYn eq 'Y'}">checked</c:if>> 동의
-						<input type="radio" name="smsstsYn" value="N" <c:if test="${memberDto.smsstsYn eq 'N'}">checked</c:if>> 비동의
-					</td>
-				</tr>
-				<tr>
-					<td>이메일</td>
-					<td><input type="email" name="email" value="${memberDto.email }"></td>
-				</tr>
-				<tr>
-					<td>이메일 수신 동의</td>
-					<td>
-						<input type="radio" name="emailstsYn" value="Y" <c:if test="${memberDto.emailstsYn eq 'Y'}">checked</c:if>> 동의
-						<input type="radio" name="emailstsYn" value="N" <c:if test="${memberDto.emailstsYn eq 'N'}">checked</c:if>> 비동의
-					</td>
-				</tr>
-				<tr>
-					<td>포인트</td>
-					<td>${memberDto.point }</td>
-				</tr>
-				<tr align="center">
-					<td colspan="3">
-						<input type="hidden" value="${memberDto.memberId }" name="memberId"> 
-						<input type="submit" value="수정하기">
-						<input type="reset" value="다시쓰기">
-						<a href="${contextPath }/"><input type="button" value="뒤로가기"></a> 
-					</td>
-				</tr>
-			</table>		
-		</form>
-	</div>
 	
 </body>
 </html>

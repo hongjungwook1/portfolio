@@ -1,5 +1,8 @@
 package com.spring.fsms.member.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.spring.fsms.member.dto.MemberDto;
 
 public interface MemberService {
@@ -11,4 +14,7 @@ public interface MemberService {
 	public boolean modifyMember(String memberId) throws Exception;
 	public void updateMember(MemberDto memberDto) throws Exception;
 	public void deleteMember(String memberId) throws Exception;
+	public List<Map<String,Object>> getMyOrderList(String memberId) throws Exception;
+	public Map<String,Object> getMyOrderDetail(Map<String,Object> orderDetailMap) throws Exception;
+	
 }

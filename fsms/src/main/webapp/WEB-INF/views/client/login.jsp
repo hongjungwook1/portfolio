@@ -45,8 +45,8 @@
 								<button type="submit" class="site-btn"><span class="icon_plus"></span>로그인</button>
 							</div>
 	                        <p><div align="center">
-								이미 회원이시라면
-								<a href="${contextPath }/member/login">로그인</a> 하러가기
+								회원이 아니시라면 
+								<a href="${contextPath }/member/join">회원 가입</a> 하러가기
 							</div>
                         </div>
                     </div>

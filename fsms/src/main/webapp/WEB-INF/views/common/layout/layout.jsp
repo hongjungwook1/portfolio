@@ -27,6 +27,37 @@
     <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style.css" type="text/css">
     <script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script>
+		function execDaumPostcode() {
+		    new daum.Postcode({
+		        oncomplete: function(data) {
+		        	
+		            var fullRoadAddr = data.roadAddress;
+		            var extraRoadAddr = '';
+		
+		            if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                extraRoadAddr += data.bname;
+		            }
+		            if (data.buildingName !== '' && data.apartment === 'Y'){
+		               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		            }
+		            if (extraRoadAddr !== ''){
+		                extraRoadAddr = ' (' + extraRoadAddr + ')';
+		            }
+		            if (fullRoadAddr !== ''){
+		                fullRoadAddr += extraRoadAddr;
+		            }
+		
+		            document.getElementById('zipcode').value = data.zonecode; 
+		            document.getElementById('roadAddress').value = fullRoadAddr;
+		            document.getElementById('jibunAddress').value = data.jibunAddress;
+		
+		        }
+		    }).open();
+		}
+	</script>
+    
 </head>
 
 <body>

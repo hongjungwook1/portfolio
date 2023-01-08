@@ -40,9 +40,30 @@
 		<put-attribute name="title" value="adminGoodsInfo" />
 	</definition>
 	
+	
 	<definition name="/admin/goods/updateGoods" extends="baselayout">
 		<put-attribute name="body" value="/WEB-INF/views/admin/goods/updateGoods.jsp" />
 		<put-attribute name="title" value="adminUpdateGoods" />
+	</definition>
+	
+	<definition name="/client/join" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/client/join.jsp" />
+		<put-attribute name="title" value="Join" />
+	</definition>
+	
+	<definition name="/client/login" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/client/login.jsp" />
+		<put-attribute name="title" value="Login" />
+	</definition>
+	
+	<definition name="/member/memberUpdate" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/memberUpdate.jsp" />
+		<put-attribute name="title" value="MemberUpdate" />
+	</definition>
+	
+	<definition name="/member/delete" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/delete.jsp" />
+		<put-attribute name="title" value="MemberDelete" />
 	</definition>
 	
 	<definition name="/goods/goodsList" extends="baselayout">
@@ -64,6 +85,17 @@
 		<put-attribute name="body" value="/WEB-INF/views/client/order/orderCartGoods.jsp"/>
 		<put-attribute name="title" value="orderGoods" />
 	</definition>
+	
+	<definition name="/client/myPage/myOrderList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/client/myPage/myOrderList.jsp"/>
+		<put-attribute name="title" value="myOrderList" />
+	</definition>
+	
+	<definition name="/client/myPage/myOrderDetail" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/client/myPage/myOrderDetail.jsp"/>
+		<put-attribute name="title" value="myOrderDetail" />
+	</definition>
+	
 	
 	
 </tiles-definitions>

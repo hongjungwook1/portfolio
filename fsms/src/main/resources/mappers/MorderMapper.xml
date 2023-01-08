@@ -22,14 +22,69 @@
 		    	   ON G.GOODS_CD = C.GOODS_CD
 		    	  AND G.GOODS_CD IN
 		    	  		<foreach collection="array" item="goodsCd" separator="," open="(" close=")">
-		    	  			${goodsCd}
+		    	  			#{goodsCd}
 		    	  		</foreach>  
 		ORDER BY
 				C.CART_DATE DESC
 	</select>
 	
+	<insert id="insertOrderByCart">
+		INSERT INTO M_ORDER (
+			MEMBER_ID, 
+		    GOODS_CD, 					
+		    M_ORDER_GOODS_QTY,			
+			M_ORDER_NAME,		
+		    M_ORDER_HP,					
+		    M_ORDER_RECEIVER_NAME, 		
+		    M_ORDER_RECEIVER_HP,	
+		    M_ORDER_DELIVERY_METHOD,		
+		    M_ORDER_PAYMETHOD, 			
+			M_ORDER_PAY_ORDERER_HP, 		
+			M_ORDER_CARD_COMPANY_NAME, 
+			M_ORDER_CARD_PAY_MONTH, 		
+			M_ORDER_DELIVERY_MESSAGE, 	
+			M_ORDER_DELIVERY_STATUS,	 
+		    M_ORDER_ZIPCODE,
+			M_ORDER_ROAD_ADDRESS, 	
+			M_ORDER_JIBUN_ADDRESS,
+			M_ORDER_NAMUJI_ADDRESS,
+			M_ORDER_PAY_ORDER_TIME 		
+		)
+		VALUES 
+			<foreach collection="list" item="MorderDto" separator=",">
+			(
+				#{MorderDto.memberId},
+				#{MorderDto.goodsCd},
+				#{MorderDto.mOrderGoodsQty},
+				#{MorderDto.mOrderName},
+				#{MorderDto.mOrderHp},
+				#{MorderDto.mOrderReceiverName},
+				#{MorderDto.mOrderReceiverHp},
+				#{MorderDto.mOrderDeliveryMethod},
+				#{MorderDto.mOrderPayMethod},
+				#{MorderDto.mOrderPayOrdererHp},
+				#{MorderDto.mOrderCardCompanyName},
+				#{MorderDto.mOrderCardPayMonth},
+				#{MorderDto.mOrderDeliveryMessage},
+				'배송준비중',
+				#{MorderDto.mOrderZipcode},
+				#{MorderDto.mOrderRoadAddress},
+				#{MorderDto.mOrderJibunAddress},
+				#{MorderDto.mOrderNamujiAddress},
+				NOW()
+			)		
+			</foreach>
+	</insert>
 	
-	
+	<delete id="deleteCartByOrder">
+		DELETE FROM
+				CART
+		WHERE
+				CART_CD IN
+				<foreach collection="array" item="cartCd" separator="," open="(" close=")">
+					#{cartCd}
+				</foreach>
+	</delete>
 	
 	
 	

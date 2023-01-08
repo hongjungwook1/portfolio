@@ -44,7 +44,7 @@
 		                                <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">장바구니</a></li>
 			                            <li><a href="#">Fastfood</a></li>
 			                            <li><a href="#">Fresh Onion</a></li>
-			                            <li><a href="#">Papayaya & Crisps</a></li>
+			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">주문 내역</a></li>
 			                            <li><a href="${contextPath }/member/delete?memberId=${sessionScope.memberId}">회원 탈퇴</a></li>
 			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">개인정보 수정</a></li>
 			                        </ul>

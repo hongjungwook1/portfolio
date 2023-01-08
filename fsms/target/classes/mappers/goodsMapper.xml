@@ -26,8 +26,13 @@
 				GOODS
 		WHERE
 				GOODS_CD = #{goodsCd}
+	</select>
 	
-	
+	<select id="selectGetGoodsCnt" resultType="int" parameterType="int">
+		SELECT 
+				COUNT(*) 
+		FROM 
+				GOODS
 	</select>
 	
 	

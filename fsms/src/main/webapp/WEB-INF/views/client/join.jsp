@@ -4,6 +4,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script>
+		function execDaumPostcode() {
+		    new daum.Postcode({
+		        oncomplete: function(data) {
+		        	
+		            var fullRoadAddr = data.roadAddress;
+		            var extraRoadAddr = '';
+		
+		            if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                extraRoadAddr += data.bname;
+		            }
+		            if (data.buildingName !== '' && data.apartment === 'Y'){
+		               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		            }
+		            if (extraRoadAddr !== ''){
+		                extraRoadAddr = ' (' + extraRoadAddr + ')';
+		            }
+		            if (fullRoadAddr !== ''){
+		                fullRoadAddr += extraRoadAddr;
+		            }
+		
+		            document.getElementById('zipcode').value = data.zonecode; 
+		            document.getElementById('roadAddress').value = fullRoadAddr;
+		            document.getElementById('jibunAddress').value = data.jibunAddress;
+		
+		        }
+		    }).open();
+		}
+	</script>
+
+
+
 <script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 <script>
 	
@@ -24,7 +57,7 @@
 		            data : {"memberId" : memberId.val()},
 		            success:function(data){  
 		            	if (data == "N") {
-		            		alert("사용가능한 아이디 입니다.");
+		            		alert("사용 가능한 아이디 입니다.");
 		            	}
 		            	else {
 		            		alert("사용 불가능한 아이디 입니다.");
@@ -90,7 +123,7 @@
 			}
 			
 			var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
-			$["[name='dateBirth']"].val(dateBirth);
+			$("#dateBirth").val(dateBirth);
 			
 		});
 		
@@ -100,16 +133,6 @@
 
 <meta charset="UTF-8">
 <title>join</title>
-
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="${contextPath }/resources/bootstrap/css/style.css" type="text/css">
-
 </head>
 <body>
 
@@ -152,7 +175,7 @@
 	                            <div class="col-lg-6">
 	                               <div class="checkout__order__widget">
 	                                    <p>성별 <span style="color:red;">*</span></p>
-	                                    남 &nbsp;<input type="radio" name="gender" value="M"> &emsp;
+	                                    남 &nbsp;<input type="radio" name="gender" value="M" checked> &emsp;
 	                                    여 &nbsp;<input type="radio" name="gender" value="F">
 	                                </div>
 	                            </div>
@@ -188,7 +211,7 @@
 	                                    		</c:choose>
 	                                    	</c:forEach>
 	                                    </select>일	
-	                                    <input type="hidden" name="dateBirth"/>
+	                                    <input type="hidden" name="dateBirth" id="dateBirth"/>
 	                                </div>
 	                            </div>
                             </div>

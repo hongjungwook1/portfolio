@@ -24,5 +24,10 @@ public class GoodsDaoImpl implements GoodsDao {
 	public GoodsDto selectGetOneGoods(int goodsCd) throws Exception {
 		return sqlSession.selectOne("goodsMapper.selectGetOneGoods" , goodsCd);
 	}
+
+	@Override
+	public int selectGetGoodsCnt() throws Exception {
+		return sqlSession.selectOne("goodsMapper.selectGetGoodsCnt");
+	}
 	
 }

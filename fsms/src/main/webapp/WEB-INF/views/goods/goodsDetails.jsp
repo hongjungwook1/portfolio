@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <a href="javascript:processToCart(${goodsDto.goodsCd })" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <a href="#" class="primary-btn">ORDER NOW</a>
                         <ul>
                         	<c:choose>
                         		<c:when test="!${goodsDto.goodsCnt }">

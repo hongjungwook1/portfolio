@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.OutputStream;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.fsms.goods.dto.GoodsDto;
 import com.spring.fsms.goods.service.GoodsService;
 
 import net.coobird.thumbnailator.Thumbnails;
@@ -33,18 +36,14 @@ public class GoodsController {
 	
 	
 	
-	
-	@RequestMapping(value="/goodsMain" , method=RequestMethod.GET)
-	public ModelAndView goodsMain () {
-		return new ModelAndView("/goods/goodsMain");
-	}
-	
 	@RequestMapping(value="/goodsList" , method=RequestMethod.GET)
 	public ModelAndView goodsList(@RequestParam Map<String,String> goodsListMap) throws Exception {
+		
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("/goods/goodsList");
 		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
+		mv.addObject("goodsCnt", goodsService.getGoodCnt());
 		return mv;
 	}
 	
