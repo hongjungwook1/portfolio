@@ -20,9 +20,9 @@
 				GOODS G
 		    JOIN CART C
 		    	   ON G.GOODS_CD = C.GOODS_CD
-		    	  AND G.GOODS_CD IN
-		    	  		<foreach collection="array" item="goodsCd" separator="," open="(" close=")">
-		    	  			#{goodsCd}
+		    	  AND C.CART_CD IN
+		    	  		<foreach collection="array" item="cartCd" separator="," open="(" close=")">
+		    	  			#{cartCd}
 		    	  		</foreach>  
 		ORDER BY
 				C.CART_DATE DESC

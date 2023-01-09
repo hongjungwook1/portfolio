@@ -14,9 +14,10 @@
 		var totalPrice = 0;
 		var orderGoodsQtyList = "${orderGoodsQtyList}".split(",");
 		
-		for (var i = 0; i < orderGoodsQtyList.length; i++) {
+		for (var i = 0; i < orderGoodsQtyList.length -1; i++) {
 			
 			$("#qty" + i).text(orderGoodsQtyList[i] + " 개");
+			$("#orderGoodsQty"+i).val(orderGoodsQtyList[i] );
 			
 			var price = Number($("#price"+i).val());
 			var discountRate = Number($("#discountRate"+i).val());

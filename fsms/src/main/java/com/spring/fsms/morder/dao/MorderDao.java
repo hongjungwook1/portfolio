@@ -9,7 +9,7 @@ import com.spring.fsms.morder.dto.MorderDto;
 public interface MorderDao {
 	
 	public MemberDto selectOneGetOrder(String memberId) throws Exception;
-	public List<GoodsDto> selectListGetGoodsByCart (int[] goodsCdList) throws Exception;
+	public List<GoodsDto> selectListGetGoodsByCart (int[] cartCdList) throws Exception;
 	public void insertOrderByCart(List<MorderDto> orderList) throws Exception;
 	public void deleteCartByOrder(int[] cartCdList) throws Exception;
 }

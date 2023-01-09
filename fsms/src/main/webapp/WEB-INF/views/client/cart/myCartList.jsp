@@ -81,15 +81,12 @@
 		});
 	}
 	
-	function removeCart() {
+	function removeCart(cartCd) {
 		
 		var cartCdList = "";
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			
-			$("#remove").click(function(){
-				cartCdList += $(this).val() + ",";
-			});
-			location.href = "${contextPath}/cart/removeCart?cartCdList=" + cartCdList;
+			location.href = "${contextPath}/cart/removeCart?cartCd=" + cartCd;
 		}
 		
 	}
@@ -228,7 +225,7 @@
 			                                  	</div>
 			                                    </td>
 			                                    <td class="shoping__cart__item__close">
-			                                        <a href="javascript:removeCart();"><span class="icon_close" id="remove"></span></a>
+			                                        <a href="javascript:removeCart(${myCart.cartCd });"><span class="icon_close" id="remove"></span></a>
 			                                    </td>
 			                                </tr>
 		                                </c:forEach>

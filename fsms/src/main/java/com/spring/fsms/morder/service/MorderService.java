@@ -9,7 +9,7 @@ import com.spring.fsms.member.dto.MemberDto;
 public interface MorderService {
 
 	public MemberDto getOrderDetail (String memberId) throws Exception;
-	public List<GoodsDto> getGoodsListByCart(int [] goodsCdList) throws Exception;
+	public List<GoodsDto> getGoodsListByCart(int [] cartCdList) throws Exception;
 	public void addOrderByCart(Map<String,String> orderListMap) throws Exception;
 	
 }

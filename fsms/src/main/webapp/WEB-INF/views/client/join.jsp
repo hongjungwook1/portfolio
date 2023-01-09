@@ -122,8 +122,6 @@
 				return false;
 			}
 			
-			var dateBirth = $("#birthY").val() + "-" + $("#birthM").val() + "-" + $("#birthD").val(); 
-			$("#dateBirth").val(dateBirth);
 			
 		});
 		
@@ -138,14 +136,12 @@
 
     <section class="checkout spad">
         <div class="container">
-            <div class="row">
-            </div>
             <div class="checkout__form">
               <h2>회 원 가 입</h2>
               	<p>
 				<form action="${contextPath }/member/join" method="post">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
+					<div class="row">
+                        <div class="col-lg-8 ">
                             <div class="col-lg-12">
                                 <div class="checkout__input">
                                     <p>아이디<span>*</span></p>
@@ -171,49 +167,18 @@
                                     <input type="text" name="memberName" id="memberName" placeholder="이름을 적어주세요.">
                                 </div>
                             </div>
-                             <div class="row">
-	                            <div class="col-lg-6">
-	                               <div class="checkout__order__widget">
-	                                    <p>성별 <span style="color:red;">*</span></p>
-	                                    남 &nbsp;<input type="radio" name="gender" value="M" checked> &emsp;
-	                                    여 &nbsp;<input type="radio" name="gender" value="F">
-	                                </div>
-	                            </div>
-	                            <div class="col-lg-6">
-	                                <div class="checkout__input">
-	                                    <p>생년월일 <span>*</span></p>
-	                                    <select id="birthY">
-	                                    	<c:forEach var="i" begin="0" end="2022" >
-	                                    		<option>${2022 - i}</option>
-	                                    	</c:forEach>
-	                                    </select>년 
-	                                    <select id="birthM">
-	                                    	<c:forEach var="i" begin="1" end="12" >
-	                                    		<c:choose>
-		                                    		<c:when test="${i < 10 }">
-			                                    		<option>0${i}</option>
-		                                    		</c:when>
-		                                    		<c:otherwise>
-			                                    		<option>${i}</option>
-		                                    		</c:otherwise>
-	                                    		</c:choose>
-	                                    	</c:forEach>
-	                                    </select>월
-	                                    <select id="birthD">
-	                                    	<c:forEach var="i" begin="1" end="31" >
-	                                    		<c:choose>
-		                                    		<c:when test="${i < 10 }">
-			                                    		<option>0${i}</option>
-		                                    		</c:when>
-		                                    		<c:otherwise>
-			                                    		<option>${i}</option>
-		                                    		</c:otherwise>
-	                                    		</c:choose>
-	                                    	</c:forEach>
-	                                    </select>일	
-	                                    <input type="hidden" name="dateBirth" id="dateBirth"/>
-	                                </div>
-	                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                               <div class="checkout__order__widget">
+                                    <p>성별 <span style="color:red;">*</span></p>
+                                    남 &nbsp;<input type="radio" name="gender" value="M" checked> &emsp;
+                                    여 &nbsp;<input type="radio" name="gender" value="F">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__input">
+                                    <p>생년월일 <span>*</span></p>
+                                    <input type="date" name="dateBirth" id="dateBirth"/>
+                                </div>
                             </div>
                             <br>
                              <div class="col-lg-12">
@@ -272,12 +237,12 @@
 	                        <p><div align="center">
 								이미 회원이시라면
 								<a href="${contextPath }/member/login">로그인</a> 하러가기
-							</div>
-                        </div>
-                    </div>
+						</div>
+                     </div>
+		           </div>
                 </form>
             </div>
-        </div>
+           </div>
     </section>
     <!-- Checkout Section End -->
 
@@ -312,45 +277,35 @@
 				</tr>
 				<tr>
 					<td>생년월일
-						<select id="birthY">
-							<c:forEach begin="1950" end="2022" var="i">
-								<option selected="2022">
-									<c:out value="${i }" />
-								</option>
-							</c:forEach>
-						</select> 년
-						<select id="birthM">
-							<c:forEach begin="1" end="12" var="i">
-								<c:choose>
-									<c:when test="${i < 10 }">
-										<option>
-											<c:out value="0${i }" />
-										</option>
-									</c:when>
-									<c:otherwise>
-										<option>
-											<c:out value="${i }" />
-										</option>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-						</select> 월
-						<select id="birthD">
-							<c:forEach begin="1" end="31" var="i">
-								<c:choose>
-									<c:when test="${i < 10 }">
-										<option>
-											<c:out value="0${i }" />
-										</option>
-									</c:when>
-									<c:otherwise>
-										<option>
-											<c:out value="${i }" />
-										</option>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-						</select> 일
+						 <select id="birthY" >
+                                    	<c:forEach var="i" begin="0" end="2022" >
+                                    		<option>${2022 - i}</option>
+                                    	</c:forEach>
+                                    </select>년 
+                                    <select id="birthM">
+                                    	<c:forEach var="i" begin="1" end="12" >
+                                    		<c:choose>
+	                                    		<c:when test="${i < 10 }">
+		                                    		<option>0${i}</option>
+	                                    		</c:when>
+	                                    		<c:otherwise>
+		                                    		<option>${i}</option>
+	                                    		</c:otherwise>
+                                    		</c:choose>
+                                    	</c:forEach>
+                                    </select>월
+                                    <select id="birthD">
+                                    	<c:forEach var="i" begin="1" end="31" >
+                                    		<c:choose>
+	                                    		<c:when test="${i < 10 }">
+		                                    		<option>0${i}</option>
+	                                    		</c:when>
+	                                    		<c:otherwise>
+		                                    		<option>${i}</option>
+	                                    		</c:otherwise>
+                                    		</c:choose>
+                                    	</c:forEach>
+                                    </select>일	
 						<input type="hidden" name="dateBirth">
 					</td>
 				</tr>

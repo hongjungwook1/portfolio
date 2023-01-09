@@ -78,8 +78,11 @@ public class CartController {
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	
+	
+	
+	
 	@RequestMapping(value="/removeCart" , method=RequestMethod.GET)
-	public ResponseEntity<Object> removeCart(@RequestParam("cartCdList") String cartCdList , HttpServletRequest request) throws Exception {
+	public ResponseEntity<Object> removeCart(@RequestParam("cartCd") String cartCdList , HttpServletRequest request) throws Exception {
 		
 		String[] temp = cartCdList.split(",");
 		int[] deleteCartCdList = new int[temp.length];

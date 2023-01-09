@@ -22,8 +22,8 @@ public class MorderDaoImpl implements MorderDao{
 	}
 
 	@Override
-	public List<GoodsDto> selectListGetGoodsByCart(int[] goodsCdList) throws Exception {
-		return sqlSession.selectList("MorderMapper.selectListGetGoodsByCart" , goodsCdList);
+	public List<GoodsDto> selectListGetGoodsByCart(int[] cartCdList) throws Exception {
+		return sqlSession.selectList("MorderMapper.selectListGetGoodsByCart" , cartCdList);
 	}
 
 	@Override

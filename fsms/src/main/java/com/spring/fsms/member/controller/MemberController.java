@@ -1,5 +1,6 @@
 package com.spring.fsms.member.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -206,6 +207,10 @@ public class MemberController {
 		String memberId = (String) session.getAttribute("memberId");
 		
 		ModelAndView mv = new ModelAndView();
+		
+		List<Map<String, Object>> temp2 = memberService.getMyOrderList(memberId);
+		
+		
 		
 		mv.setViewName("/client/myPage/myOrderList");
 		mv.addObject("myOrderList", memberService.getMyOrderList(memberId));

@@ -26,8 +26,8 @@ public class MorderServiceImpl implements MorderService {
 	}
 
 	@Override
-	public List<GoodsDto> getGoodsListByCart(int[] goodsCdList) throws Exception {
-		return mOrderDao.selectListGetGoodsByCart(goodsCdList);
+	public List<GoodsDto> getGoodsListByCart(int[] cartCdList) throws Exception {
+		return mOrderDao.selectListGetGoodsByCart(cartCdList);
 	}
 	
 	@Override
