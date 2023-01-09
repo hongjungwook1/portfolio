@@ -85,6 +85,16 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectOneGetMyOrder(orderDetailMap);
 	}
 
+	@Override
+	public int getMyCartCnt(String memberId) throws Exception {
+		return memberDao.selectOneGetMyCartCnt(memberId);
+	}
+
+	@Override
+	public int getMyCartPrice(String memberId) throws Exception {
+		return memberDao.selectOneGetMyCartPrice(memberId);
+	}
+
 
 	
 	

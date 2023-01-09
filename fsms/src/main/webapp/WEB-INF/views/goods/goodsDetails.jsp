@@ -21,7 +21,7 @@
 				
 				url : "${contextPath}/cart/addCart",
 				method : "get",
-				data : {"goodsCd" : goodsCd , "cartQty" : $("#cartQty").val()},
+				data : {"goodsCd" : goodsCd , "cartQty" : $("#mOrderGoodsQty").val()},
 				success : function (result) {
 					
 					if (result == 'duple') {
@@ -36,6 +36,20 @@
 		}
 		
 	}
+	
+	function processToOrder(goodsCd) {
+		
+		if ("${sessionId == null}" == "true") {
+			alert("로그인 후 가능합니다.");
+			location.href="${contextPath}/member/login";
+		}
+		else {
+			location.href="${contextPath}/morder/orderGoods?goodsCd=" + goodsCd + "&mOrderGoodsQty=" + $("#mOrderGoodsQty").val();
+		}
+		
+	}
+	
+	
 	
 </script>
 <meta charset="UTF-8">
@@ -99,12 +113,12 @@
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1" id="cartQty" name="cartQty">
+                                    <input type="text" value="1" id="mOrderGoodsQty" name="mOrderGoodsQty">
                                 </div>
                             </div>
                         </div>
                         <a href="javascript:processToCart(${goodsDto.goodsCd })" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="primary-btn">ORDER NOW</a>
+                        <a href="javascript:processToOrder(${goodsDto.goodsCd })" class="primary-btn">ORDER NOW</a>
                         <ul>
                         	<c:choose>
                         		<c:when test="!${goodsDto.goodsCnt }">

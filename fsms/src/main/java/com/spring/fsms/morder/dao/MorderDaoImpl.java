@@ -1,6 +1,7 @@
 package com.spring.fsms.morder.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,11 @@ public class MorderDaoImpl implements MorderDao{
 	@Override
 	public void deleteCartByOrder(int[] cartCdList) throws Exception {
 		sqlSession.delete("MorderMapper.deleteCartByOrder" , cartCdList);
+	}
+
+	@Override
+	public void insertOrderGoods(Map<String, String> goodsList) throws Exception {
+		sqlSession.insert("MorderMapper.insertOrderGoods" , goodsList);
 	}
 	
 	

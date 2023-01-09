@@ -78,20 +78,6 @@
                             	</c:otherwise>
                             </c:choose>
                             
-                            <!-- 
-                             <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                            </div>
-                             -->
                              
                         </div>
                     </div>
@@ -148,11 +134,22 @@
                 
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="${contextPath }/cart/myCartList"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.cartCnt }</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                    	<c:choose>
+                    		<c:when test="${sessionScope.role == 'client' }">
+		                        <ul>
+	                             	<li><a href="#"><i class="fa fa-heart"></i> <span>${sessionS }</span></a></li>
+		                            <li><a href="${contextPath }/cart/myCartList"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.cartCnt }</span></a></li>
+		                        </ul>
+		                        <div class="header__cart__price">Order: <span>${sessionScope.orderCnt }</span></div>
+                    		</c:when>
+                    		<c:otherwise>
+		                        <ul>
+		                            <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
+		                            <li><a href="${contextPath }/cart/myCartList"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+		                        </ul>
+		                        <div class="header__cart__price">item: <span>0</span></div>
+                    		</c:otherwise>
+                    	</c:choose>
                     </div>
                 </div>
             </div>

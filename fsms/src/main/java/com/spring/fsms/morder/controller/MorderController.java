@@ -32,6 +32,21 @@ public class MorderController {
 		
 	}
 	
+	@RequestMapping(value="/orderGoods" , method=RequestMethod.GET)
+	public ModelAndView orderGoods (@RequestParam("goodsCd") String goodsCd,
+									@RequestParam("mOrderGoodsQty") String mOrderGoodsQty,
+									HttpServletRequest request) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/client/order/orderGoods");
+		
+		return mv;
+		
+		
+	}
+	
+	
+	
 	@RequestMapping(value="/mOrderCartGoods" , method=RequestMethod.GET)
 	public ModelAndView mOrderCartGoods (@RequestParam("goodsCdList") String goodsCds ,
 										@RequestParam("cartGoodsQtyList") String cartGoodsQtyList ,
@@ -52,12 +67,11 @@ public class MorderController {
 		HttpSession session = request.getSession();
 		String memberId = (String) session.getAttribute("memberId");
 		
-		List<GoodsDto> temp2 = mOrderService.getGoodsListByCart(cartCdList);
-		for (int i = 0; i < cartCdList.length; i++) {
-			System.out.println(temp2);
-		}
+//		List<GoodsDto> temp2 = mOrderService.getGoodsListByCart(cartCdList);
+//		for (int i = 0; i < cartCdList.length; i++) {
+//			System.out.println(temp2);
+//		}
 		
-				
 		
 		mv.addObject("orderer", mOrderService.getOrderDetail(memberId));
 		mv.addObject("goodsList", mOrderService.getGoodsListByCart(cartCdList));

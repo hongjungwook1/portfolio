@@ -61,6 +61,16 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlSession.selectOne("memberMapper.selectOneGetMyOrder" , orderDetailMap );
 	}
 
+	@Override
+	public int selectOneGetMyCartCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectGetMyCartCnt" , memberId);
+	}
+
+	@Override
+	public int selectOneGetMyCartPrice(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectGetMyCartPrice" , memberId);
+	}
+
 
 
 	

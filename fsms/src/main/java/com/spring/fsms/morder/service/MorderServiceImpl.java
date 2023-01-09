@@ -94,6 +94,12 @@ public class MorderServiceImpl implements MorderService {
 		mOrderDao.deleteCartByOrder(cartCdList);
 		
 	}
+
+	@Override
+	public void addOrder(Map<String, String> goodsList) throws Exception {
+		mOrderDao.insertOrderGoods(goodsList);
+	}
+
 	
 	
 	

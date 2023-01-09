@@ -93,6 +93,8 @@ public class MemberController {
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", memberDto.getMemberId());
 			session.setAttribute("role", "client");
+			session.setAttribute("cartCnt", memberService.getMyCartCnt(memberDto.getMemberId()));
+			session.setAttribute("orderCnt", memberService.getMyCartPrice(memberDto.getMemberId()));
 			
 			jsScript = "<script>";
 			jsScript += "alert('로그인 되었습니다');";
@@ -207,10 +209,6 @@ public class MemberController {
 		String memberId = (String) session.getAttribute("memberId");
 		
 		ModelAndView mv = new ModelAndView();
-		
-		List<Map<String, Object>> temp2 = memberService.getMyOrderList(memberId);
-		
-		
 		
 		mv.setViewName("/client/myPage/myOrderList");
 		mv.addObject("myOrderList", memberService.getMyOrderList(memberId));

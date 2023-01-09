@@ -86,6 +86,9 @@
 				</foreach>
 	</delete>
 	
+	<insert id="insertOrderGoods">
+	</insert>
+	
 	
 	
 </mapper>

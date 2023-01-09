@@ -180,5 +180,25 @@
 			 		 ON G.GOODS_CD = O.GOODS_CD
 			 		AND O.M_ORDER_CD = #{orderCd}
 	</select>
+	
+	
+	<select id="selectGetMyCartCnt" resultType="int">
+		SELECT
+				COUNT(*)
+		FROM
+				CART
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="selectGetMyCartPrice" resultType="int">
+		SELECT
+				COUNT(*)
+		FROM
+				M_ORDER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
 
 </mapper>
