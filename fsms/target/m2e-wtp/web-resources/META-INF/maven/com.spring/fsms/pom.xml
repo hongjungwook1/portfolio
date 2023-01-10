@@ -40,6 +40,19 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>	
 		
+		<dependency>
+		   <groupId>org.aspectj</groupId>
+		   <artifactId>aspectjweaver</artifactId>
+		   <version>1.6.11</version>
+		 </dependency>
+	
+	    <dependency>
+		  <groupId>org.springframework</groupId>
+		  <artifactId>spring-aop</artifactId>
+		  <version>${org.springframework-version}</version>
+	    </dependency>
+		
+		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -137,9 +150,6 @@
 	   		<artifactId>thumbnailator</artifactId> 
 	   		<version>0.4.8</version> 
 	    </dependency> 
-		
-		
-		
 		
 		<!-- 컨넥션 풀 라이브러리 -->
 		<dependency>

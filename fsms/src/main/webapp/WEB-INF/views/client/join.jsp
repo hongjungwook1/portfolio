@@ -174,6 +174,7 @@
                                     여 &nbsp;<input type="radio" name="gender" value="F">
                                 </div>
                             </div>
+                            <br>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__input">
                                     <p>생년월일 <span>*</span></p>

@@ -45,48 +45,17 @@
                                     <input type="text" value="${memberDto.memberName }" readonly>
                                 </div>
                             </div>
-                             <div class="row">
-	                            <div class="col-lg-6">
-									<div class="checkout__input">
-	                                    <p>성별 <span >*</span></p>
-	                                  	<input type="text" value="${memberDto.gender }" readonly>
-	                                </div>
-	                            </div>
-	                            <div class="col-lg-6">
-	                                <div class="checkout__input">
-	                                    <p>생년월일 <span>*</span></p>
-	                                    <select id="birthY">
-	                                    	<c:forEach var="i" begin="0" end="2022" >
-	                                    		<option>${2022 - i}</option>
-	                                    	</c:forEach>
-	                                    </select>년 
-	                                    <select id="birthM">
-	                                    	<c:forEach var="i" begin="1" end="12" >
-	                                    		<c:choose>
-		                                    		<c:when test="${i < 10 }">
-			                                    		<option>0${i}</option>
-		                                    		</c:when>
-		                                    		<c:otherwise>
-			                                    		<option>${i}</option>
-		                                    		</c:otherwise>
-	                                    		</c:choose>
-	                                    	</c:forEach>
-	                                    </select>월
-	                                    <select id="birthD">
-	                                    	<c:forEach var="i" begin="1" end="31" >
-	                                    		<c:choose>
-		                                    		<c:when test="${i < 10 }">
-			                                    		<option>0${i}</option>
-		                                    		</c:when>
-		                                    		<c:otherwise>
-			                                    		<option>${i}</option>
-		                                    		</c:otherwise>
-	                                    		</c:choose>
-	                                    	</c:forEach>
-	                                    </select>일	
-	                                    <input type="hidden" name="dateBirth"/>
-	                                </div>
-	                            </div>
+                            <div class="col-lg-6">
+								<div class="checkout__input">
+                                    <p>성별 <span >*</span></p>
+                                  	<input type="text" value="${memberDto.gender }" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                 <p>생년월일 <span>*</span></p>
+                                  	 <input type="date" name="dateBirth" id="dateBirth" value="${memberDto.dateBirth }"/>
+                                </div>
                             </div>
                             <br>
                              <div class="col-lg-12">

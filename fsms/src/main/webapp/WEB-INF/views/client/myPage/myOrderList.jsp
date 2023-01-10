@@ -86,8 +86,8 @@
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" id="mOrderGoodsQty${myOrder.mOrderCd }" value="${myOrder.mOrderGoodsQty }" disabled>
+                                            <div class="product__price" >
+                                                <input type="text" id="mOrderGoodsQty${myOrder.mOrderCd }" value="${myOrder.mOrderGoodsQty }개"  disabled>
                                             </div>
                                         </div>
                                     </td>
@@ -96,7 +96,8 @@
                                    		 <p><fmt:formatNumber value="${(myOrder.price -  (myOrder.price * (myOrder.discountRate / 100))) * myOrder.mOrderGoodsQty }"/>원</p>
                                   	</div>
                                     </td>
-                                    <td><td class="cart__total"><fmt:formatDate value="${myOrder.mOrderPayOrderTime }" pattern="yyyy-MM-dd"/> </td></td>
+                                    <td class="cart__total"><fmt:formatDate value="${myOrder.mOrderPayOrderTime }" pattern="yyyy-MM-dd"/> </td>
+                                    <td></td>
                                 </tr>																
                                 </c:forEach>
                                 

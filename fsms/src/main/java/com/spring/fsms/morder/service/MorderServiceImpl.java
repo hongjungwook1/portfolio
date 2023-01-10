@@ -31,6 +31,7 @@ public class MorderServiceImpl implements MorderService {
 	}
 	
 	@Override
+	@Transactional
 	public void addOrderByCart(Map<String, String> orderListMap) throws Exception {
 		
 		List<MorderDto> orderList = new ArrayList<MorderDto>();

@@ -28,11 +28,11 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	
-	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
-	private final String SEPERATOR = "\\";											// window
+	//private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+	//private final String SEPERATOR = "\\";											// window
 
-	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
-	//private final String SEPERATOR = "/";											// linux
+	private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
+	private final String SEPERATOR = "/";											// linux
 	
 	
 	
