@@ -11,7 +11,6 @@ public interface MemberService {
 	public boolean loginMember(MemberDto memberDto) throws Exception;
 	public int checkDuplicatedId (String memberId) throws Exception;
 	public MemberDto getOneMember (String memberId) throws Exception;
-	public boolean modifyMember(String memberId) throws Exception;
 	public void updateMember(MemberDto memberDto) throws Exception;
 	public void deleteMember(String memberId) throws Exception;
 	public List<Map<String,Object>> getMyOrderList(String memberId) throws Exception;

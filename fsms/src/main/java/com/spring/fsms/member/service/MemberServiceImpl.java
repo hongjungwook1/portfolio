@@ -48,18 +48,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean modifyMember(String memberId) throws Exception {
-		
-		boolean isModdify = false;
-		
-		if (memberDao.selectOneValidateUserCheck(memberId) != null) {
-			isModdify = true;
-		}
-		
-		return isModdify;
-	}
-
-	@Override
 	public MemberDto getOneMember(String memberId) throws Exception {
 		return memberDao.selectGetOneMember(memberId);
 		
