@@ -67,8 +67,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public int selectOneGetMyCartPrice(String memberId) throws Exception {
-		return sqlSession.selectOne("memberMapper.selectGetMyCartPrice" , memberId);
+	public int selectOneGetMyOrderCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("memberMapper.selectGetMyOrderCnt" , memberId);
 	}
 
 

@@ -38,8 +38,13 @@ public class MorderDaoImpl implements MorderDao{
 	}
 
 	@Override
-	public void insertOrderGoods(Map<String, String> goodsList) throws Exception {
-		sqlSession.insert("MorderMapper.insertOrderGoods" , goodsList);
+	public void insertOrderGoods(MorderDto mOrderDto) throws Exception {
+		sqlSession.insert("MorderMapper.insertOrderGoods" , mOrderDto);
+	}
+
+	@Override
+	public GoodsDto selectOneGoodsDetail(String goodsCd) throws Exception {
+		return sqlSession.selectOne("MorderMapper.selectOneGoodsDetail" , goodsCd);
 	}
 	
 	

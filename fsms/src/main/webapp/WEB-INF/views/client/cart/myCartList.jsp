@@ -195,8 +195,6 @@
                             		</c:when>
                             		<c:otherwise>
                             		
-                            		
-                            		
 	                            		<c:forEach var="myCart" items="${myCartList }">
 			                                <tr>
 			                                	<td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
@@ -230,15 +228,9 @@
 			                                </tr>
 		                                </c:forEach>
 		                                
-		                                
-		                                
                             		</c:otherwise>
                             	</c:choose>
                             	
-                            	
-                            	
-                            	
-                                
                             </tbody>
                         </table>
                     </div>
@@ -248,8 +240,6 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="${contextPath }/goods/goodsList?goodsCategory=all" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            Upadate Cart</a>
                     </div>
                 </div>
                 <div class="col-lg-6">

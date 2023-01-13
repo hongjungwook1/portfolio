@@ -33,12 +33,6 @@
                                     <input type="text" value="${memberDto.memberId }" readonly>
                                 </div>
                             </div>
-                             <div class="col-lg-12">
-                                 <div class="checkout__input">
-                                     <p>비밀번호<span>*</span></p>
-                                     <input type="password" name="password" id="password" placeholder="비밀번호를 적어주세요.">
-                                 </div>
-                             </div>
                             <div class="col-lg-12">
                                 <div class="checkout__input">
                                     <p>이름<span>*</span></p>
@@ -95,15 +89,15 @@
                                 </div>
                                 <div class="checkout__input">
                                     <p>도로명 주소 <span>*</span></p>
-                                    <input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소를 입력하세요.">
+                                    <input type="text" id="roadAddress" name="roadAddress" value="${memberDto.roadAddress }">
                                 </div>
                                 <div class="checkout__input">
                                     <p>지번 주소 <span>*</span></p>
-                                    <input type="text" id="jibunAddress" name="jibunAddress" placeholder="지번주소를 입력하세요.">
+                                    <input type="text" id="jibunAddress" name="jibunAddress" value="${memberDto.jibunAddress }">
                                 </div>
                                 <div class="checkout__input">
                                     <p>나머지 주소 <span>*</span></p>
-                                    <input type="text" id="namujiAddress" name="namujiAddress" placeholder="나머지주소를 입력하세요.">
+                                    <input type="text" id="namujiAddress" name="namujiAddress" value="${memberDto.namujiAddress }">
                                 </div>
                             </div>
                              <div align="center">

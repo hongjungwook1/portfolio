@@ -78,12 +78,38 @@
 	</select>
 	
 	<update id="updateMember" parameterType="MemberDto">
-		UPDATE
-				MEMBER
-		SET 
-				HP 	  = #{hp},
-				EMAIL = #{email}
-		WHERE
+		UPDATE 
+	   			MEMBER
+	   <set> 
+	      <if test='dateBirth != null and dateBirth != ""'>
+	        DATE_BIRTH = #{dateBirth},
+	      </if>
+	      <if test='hp != null and hp != ""'>
+	        HP = #{hp},
+	      </if>
+	      <if test='smsstsYn != null and smsstsYn != ""'>
+	        SMSSTS_YN = #{smsstsYn},
+	      </if>
+	      <if test='email != null and email != ""'>
+	        EMAIL = #{email},
+	      </if>
+	      <if test='emailstsYn != null and emailstsYn != ""'>
+	        EMAILSTS_YN = #{emailstsYn},
+	      </if>
+	      <if test='zipCode != null and zipCode != ""'>
+	        ZIPCODE = #{zipCode},
+	      </if>
+	      <if test='roadAddress != null and roadAddress != ""'>
+	        ROAD_ADDRESS = #{roadAddress},
+	      </if>
+	      <if test='jibunAddress != null and jibunAddress != ""'>
+	        JIBUN_ADDRESS = #{jibunAddress},
+	      </if>
+	      <if test='namujiAddress != null and namujiAddress != ""'>
+	        NAMUJI_ADDRESS = #{namujiAddress},
+	      </if>
+	    </set>
+		WHERE 
 				MEMBER_ID = #{memberId}
 	</update>
 	
@@ -191,7 +217,7 @@
 				MEMBER_ID = #{memberId}
 	</select>
 	
-	<select id="selectGetMyCartPrice" resultType="int">
+	<select id="selectGetMyOrderCnt" resultType="int">
 		SELECT
 				COUNT(*)
 		FROM

@@ -28,6 +28,17 @@
 				C.CART_DATE DESC
 	</select>
 	
+	<select id="selectOneGoodsDetail" resultType="GoodsDto" parameterType="String">
+		SELECT
+				*
+		FROM
+				GOODS
+		WHERE
+				GOODS_CD = #{goodsCd}
+	</select>
+	
+	
+	
 	<insert id="insertOrderByCart">
 		INSERT INTO M_ORDER (
 			MEMBER_ID, 
@@ -86,7 +97,50 @@
 				</foreach>
 	</delete>
 	
-	<insert id="insertOrderGoods">
+	<insert id="insertOrderGoods" parameterType="MorderDto">
+		INSERT INTO M_ORDER (
+		 	MEMBER_ID, 
+		    GOODS_CD, 					
+		    M_ORDER_GOODS_QTY,			
+			M_ORDER_NAME,		
+		    M_ORDER_HP,					
+		    M_ORDER_RECEIVER_NAME, 		
+		    M_ORDER_RECEIVER_HP,	
+		    M_ORDER_DELIVERY_METHOD,		
+		    M_ORDER_PAYMETHOD, 			
+			M_ORDER_PAY_ORDERER_HP, 		
+			M_ORDER_CARD_COMPANY_NAME, 
+			M_ORDER_CARD_PAY_MONTH, 		
+			M_ORDER_DELIVERY_MESSAGE, 	
+			M_ORDER_DELIVERY_STATUS,	 
+		    M_ORDER_ZIPCODE,
+			M_ORDER_ROAD_ADDRESS, 	
+			M_ORDER_JIBUN_ADDRESS,
+			M_ORDER_NAMUJI_ADDRESS,
+			M_ORDER_PAY_ORDER_TIME 		
+		)
+		VALUES (
+			#{memberId},
+			#{goodsCd},
+			#{mOrderGoodsQty},
+			#{mOrderName},
+			#{mOrderHp},
+			#{mOrderReceiverName},
+			#{mOrderReceiverHp},
+			#{mOrderDeliveryMethod},
+			#{mOrderPayMethod},
+			#{mOrderPayOrdererHp},
+			#{mOrderCardCompanyName},
+			#{mOrderCardPayMonth},
+			#{mOrderDeliveryMessage},
+			'배송 준비중',
+			#{mOrderZipcode},
+			#{mOrderRoadAddress},
+			#{mOrderJibunAddress},
+			#{mOrderNamujiAddress},
+			NOW()
+		)
+	
 	</insert>
 	
 	

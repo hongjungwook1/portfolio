@@ -97,8 +97,13 @@ public class MorderServiceImpl implements MorderService {
 	}
 
 	@Override
-	public void addOrder(Map<String, String> goodsList) throws Exception {
-		mOrderDao.insertOrderGoods(goodsList);
+	public GoodsDto getGoodsDetail(String goodsCd) throws Exception {
+		return mOrderDao.selectOneGoodsDetail(goodsCd);
+	}
+
+	@Override
+	public void addOrder(MorderDto mOrderDto) throws Exception {
+		mOrderDao.insertOrderGoods(mOrderDto);
 	}
 
 	

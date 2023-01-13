@@ -17,6 +17,6 @@ public interface MemberDao {
 	public List<Map<String, Object>> selectListMyOrder (String memberId) throws Exception;
 	public Map<String, Object> selectOneGetMyOrder (Map<String, Object> orderDetailMap) throws Exception;
 	public int selectOneGetMyCartCnt(String memberId) throws Exception;
-	public int selectOneGetMyCartPrice(String memberId) throws Exception;
+	public int selectOneGetMyOrderCnt(String memberId) throws Exception;
 	 
 }

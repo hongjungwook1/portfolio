@@ -94,7 +94,7 @@ public class MemberController {
 			session.setAttribute("memberId", memberDto.getMemberId());
 			session.setAttribute("role", "client");
 			session.setAttribute("cartCnt", memberService.getMyCartCnt(memberDto.getMemberId()));
-			session.setAttribute("orderCnt", memberService.getMyCartPrice(memberDto.getMemberId()));
+			session.setAttribute("orderCnt", memberService.getMyOrderCnt(memberDto.getMemberId()));
 			
 			jsScript = "<script>";
 			jsScript += "alert('로그인 되었습니다');";

@@ -8,6 +8,98 @@
 <title>insertGoods</title>
 </head>
 <body>
+	 <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+              <h2>상품 추가</h2>
+              	<p>
+				<form action="${contextPath }/admin/goods/insertGoods " method="post" enctype="multipart/form-data">
+					<div class="row">
+                        <div class="col-lg-8 ">
+                           <div class="col-lg-12">
+                               <div class="checkout__input">
+                                   <p>상품 이미지<span>*</span></p>
+                                   <input type="file" name="goodsFileName" id="goodsFileName" >
+                               </div>
+                           </div>
+                           <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>상품 이름<span>*</span></p>
+                                    <input type="text" name="goodsName" id="goodsName">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>상품 수량<span>*</span></p>
+                                    <input type="text" id="goodsCnt">
+                                </div>
+                            </div>
+                           <div class="col-lg-12">
+                               <div class="checkout__input">
+                                   <p>할인율<span>*</span></p>
+                                   <input type="text" name="discountRate" id="discountRate" >
+                               </div>
+                           </div>
+                           <div class="col-lg-12">
+                              	<div class="checkout__input">
+                                   <p>금액 <span style="color:red;">*</span></p>
+								<input type="text" name="price" id="price"/>
+                               </div>
+                           </div>
+                           <div class="col-lg-12">
+                               <div class="checkout__input">
+                                   <p>상품 분류<span>*</span></p>
+                                   <input type="text" name="goodsCategory" id="goodsCategory" >
+                               </div>
+                           </div>
+                        	 <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>원산지<span>*</span></p>
+                                    <input type="text" name="goodsOrigin" id="goodsOrigin">
+                                </div>
+                            </div>
+                             <div class="col-lg-12">
+                               <div class="checkout__input">
+                                   <p>상품 설명 <span>*</span></p>
+								   <textarea  rows="10" cols="50" name="goodsInfo" ></textarea>
+								   <script>CKEDITOR.replace("intro");</script>
+                               </div>
+                           </div>
+                           <div align="center">
+                       	   <button type="submit" class="site-btn"><span class="icon_plus"></span>상품 추가하기</button>
+                        </div>
+                     </div>
+		           </div>
+                </form>
+            </div>
+           </div>
+    </section>
+    <!-- Checkout Section End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
 <div align="center" style="padding-top: 100px">
 		<form action="${contextPath }/admin/goods/insertGoods " method="post" enctype="multipart/form-data">
 			<div  align="center">
@@ -60,6 +152,6 @@
 			</table>
 		</form>
 	</div>
-
+ -->
 </body>
 </html>

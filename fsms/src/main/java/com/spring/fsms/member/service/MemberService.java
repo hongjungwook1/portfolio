@@ -16,5 +16,5 @@ public interface MemberService {
 	public List<Map<String,Object>> getMyOrderList(String memberId) throws Exception;
 	public Map<String,Object> getMyOrderDetail(Map<String,Object> orderDetailMap) throws Exception;
 	public int getMyCartCnt(String memberId) throws Exception;
-	public int getMyCartPrice(String memberId) throws Exception;
+	public int getMyOrderCnt(String memberId) throws Exception;
 }

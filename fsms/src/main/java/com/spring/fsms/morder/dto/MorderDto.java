@@ -27,6 +27,7 @@ public class MorderDto {
 	private	String mOrderJibunAddress;
 	private	String mOrderNamujiAddress;
 	private Date mOrderPayOrderTime;
+	
 	public int getmOrderCd() {
 		return mOrderCd;
 	}

@@ -96,6 +96,10 @@
 		<put-attribute name="title" value="myOrderDetail" />
 	</definition>
 	
+	<definition name="/client/order/orderGoods" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/client/order/orderGoods.jsp"/>
+		<put-attribute name="title" value="orderGoods" />
+	</definition>
 	
 	
 </tiles-definitions>
