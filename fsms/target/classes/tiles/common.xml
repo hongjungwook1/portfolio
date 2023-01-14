@@ -40,10 +40,24 @@
 		<put-attribute name="title" value="adminGoodsInfo" />
 	</definition>
 	
+	<definition name="/admin/member/memberList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/member/memberList.jsp" />
+		<put-attribute name="title" value="adminMemberList" />
+	</definition>
+	
+	<definition name="/admin/member/memberInfo" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/member/memberInfo.jsp" />
+		<put-attribute name="title" value="adminMemberInfo" />
+	</definition>
 	
 	<definition name="/admin/goods/updateGoods" extends="baselayout">
 		<put-attribute name="body" value="/WEB-INF/views/admin/goods/updateGoods.jsp" />
 		<put-attribute name="title" value="adminUpdateGoods" />
+	</definition>
+	
+	<definition name="/admin/goods/deleteGoods" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/goods/deleteGoods.jsp" />
+		<put-attribute name="title" value="adminDeleteGoods" />
 	</definition>
 	
 	<definition name="/client/join" extends="baselayout">

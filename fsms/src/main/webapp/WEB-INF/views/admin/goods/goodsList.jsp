@@ -8,6 +8,57 @@
 <title>goodsList</title>
 </head>
 <body>
+
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-7">
+                    
+                    <div class="row">
+                    
+                    	<c:choose>
+                    		<c:when test="${empty goodsList}">
+                    			<div class="product__item">
+	                    			<h3>등록된 상품이 없습니다.</h3>
+	                            </div>
+                    		</c:when>
+                    		<c:otherwise>
+                    			<c:forEach var="goodsDto" items="${goodsList }">
+			                        <div class="col-lg-4 col-md-6 col-sm-6">
+			                            <div class="product__item">
+			                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">
+			                                    <ul class="product__item__pic__hover">
+			                                    </ul>
+			                                </div>
+			                                <div class="product__item__text">
+			                                    <h6><a href="${contextPath }/admin/goods/goodsInfo?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsName }</a></h6>
+			                                </div>
+			                            </div>
+			                        </div>
+                    			</c:forEach>
+                    		</c:otherwise>
+                    	</c:choose>
+                    	
+                    </div>
+                    
+                    <div class="product__pagination">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- 
 	<div align="center">
 		<table border="1" >
 			<tr>
@@ -33,6 +84,7 @@
 			</tr>
 		</table>
 	</div>
+ -->
 
 </body>
 </html>

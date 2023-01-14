@@ -363,7 +363,9 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
+                    
                     	<c:choose>
                     		<c:when test="${empty goodsList}">
                     			<div class="product__item">
@@ -391,8 +393,8 @@
                     		</c:otherwise>
                     	</c:choose>
                     	
-                    	
                     </div>
+                    
                     <div class="product__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>

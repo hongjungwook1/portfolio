@@ -9,49 +9,75 @@
 </head>
 <body>
 
-	<div align="center">
-		<table border="1">
-			<tr>
-				<td>상품 명</td>
-				<td>${goodsDto.goodsName }</td>
-			</tr>
-			<tr>
-				<td>상품 수량</td>
-				<td>${goodsDto.goodsCnt }</td>
-			</tr>
-			<tr>
-				<td>상품 할인율</td>
-				<td>${goodsDto.discountRate }</td>
-			</tr>
-			<tr>
-				<td>상품 금액</td>
-				<td>${goodsDto.price }</td>
-			</tr>
-			<tr>
-				<td>상품 이미지 파일명</td>
-				<td>${goodsDto.goodsFileName }</td>
-			</tr>
-			<tr>
-				<td>상품 정보</td>
-				<td>${goodsDto.goodsInfo }</td>
-			</tr>
-			<tr>
-				<td>원산지</td>
-				<td>${goodsDto.goodsOrigin }</td>
-			</tr>
-			<tr>
-				<td>상품 분류</td>
-				<td>${goodsDto.goodsCategory }</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<input type="button" value="수정하기" onclick="location.href='${contextPath}/admin/goods/updateGoods?goodsCd=${goodsDto.goodsCd }'">
-					<input type="button" value="삭제하기" onclick="location.href='${contextPath}/admin/goods/deleteGoods?goodsCd=${goodsDto.goodsCd }'">
-					<input type="button" value="목록보기" onclick="location.href='${contextPath}/admin/goods/goodsList'">
-				</td>
-			</tr>
-		</table>
-	</div>
-
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+              <h2>상품 상세 보기</h2>
+              	<p>
+				<form action="${contextPath}/admin/goods/updateGoods?goodsCd=${goodsDto.goodsCd }" method="get">
+					<div class="row">
+                        <div class="col-lg-8 ">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>상품 명<span>*</span></p>
+                                    <input type="text" value="${goodsDto.goodsName }" readonly>
+                                    <input type="hidden" name="goodsCd" value="${goodsDto.goodsCd }">
+                                </div>
+                            </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>상품 수량<span>*</span></p>
+                                     <input type="text" value="${goodsDto.goodsCnt }개" readonly>
+                                 </div>
+                             </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>상품 할인율<span>*</span></p>
+                                     <input type="text" value="${goodsDto.discountRate }%" readonly>
+                                 </div>
+                             </div>
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>상품 금액<span>*</span></p>
+                                    <input type="text" value="${goodsDto.price }원" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                               <div class="checkout__input">
+                                    <p>상품 이미지 파일명 <span style="color:red;">*</span></p>
+                                    <input type="text" value="${goodsDto.goodsFileName }" readonly>
+                                </div>
+                            </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>상품 정보<span>*</span></p>
+                                     <input type="text" value="${goodsDto.goodsInfo }" readonly>
+                                 </div>
+                             </div>
+                              <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>원산지<span>*</span></p>
+									 <input type="text" value="${goodsDto.goodsOrigin }" readonly>
+                                 </div>
+                             </div>
+                         	 <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>상품 분류<span>*</span></p>
+                                     <input type="text" value="${goodsDto.goodsCategory }" readonly>
+                                 </div>
+                             </div>
+                             
+                             <div align="center">
+	                        	<button type="submit" class="site-btn"> 수정하기</button>
+	                        	<button type="button" class="site-btn" onclick="location.href='${contextPath}/admin/goods/deleteGoods?goodsCd=${goodsDto.goodsCd }'"> 삭제하기</button>
+	                        	<button type="button" class="site-btn" onclick="location.href='${contextPath}/admin/goods/goodsList'"> 목록보기</button>
+	                        </div>
+                     </div>
+		           </div>
+                </form>
+            </div>
+           </div>
+    </section>
+    
 </body>
 </html>

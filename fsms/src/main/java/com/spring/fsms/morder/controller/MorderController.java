@@ -64,7 +64,7 @@ public class MorderController {
 
 		HttpSession session = request.getSession();
 		String memberId = (String) session.getAttribute("memberId");
-		session.setAttribute("myOrderCnt", memberService.getMyCartPrice(memberId));
+		session.setAttribute("myOrderCnt", memberService.getMyOrderCnt(memberId));
 		
 		
 		String jsScript = "";

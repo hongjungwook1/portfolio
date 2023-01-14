@@ -10,6 +10,90 @@
 </head>
 <body>
 
+	  <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                        	<colgroup>
+                        		<col width="16%">
+                        		<col width="16%">
+                        		<col width="16%">
+                        		<col width="16%">
+                        		<col width="16%">
+                        		<col width="16%">
+                        	</colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">회원 아이디</th>
+                                    <th>회원 이름</th>
+                                    <th>회원 전화번호</th>
+                                    <th>회원 생년월일</th>
+                                    <th>회원 이메일</th>
+                                    <th>회원 가입일</th>
+                                </tr><tr>
+                            </thead>
+                            <tbody>
+                            	<c:choose>
+                            		<c:when test="${empty memberList}">
+                            			<tr align="center" >
+                            				<td colspan="5">등록된 회원이 없습니다!</td>
+                            			</tr>
+                            		</c:when>
+                            		<c:otherwise>
+                            		
+	                            		<c:forEach var="memberDto" items="${memberList }">
+			                                <tr>
+			                                    <td class="shoping__cart__item"><a href="${contextPath }/admin/memberInfo?memberId=${memberDto.memberId}">${memberDto.memberId }</a></td>
+			                                    <td class="shoping__cart__price">
+			                                      <div class="product__price" >
+			                                	 	 ${memberDto.memberName }			                                    
+			                                   	  </div>
+			                                    </td>
+			                                    <td class="shoping__cart__price">
+			                                      <div class="product__price" >
+			                                	 	 ${memberDto.hp }			                                    
+			                                   	  </div>
+			                                    </td>
+			                                    <td class="shoping__cart__price">
+			                                      <div class="product__price" >
+			                                	 	 ${memberDto.dateBirth }			                                    
+			                                   	  </div>
+			                                    </td>
+			                                    <td class="shoping__cart__price">
+			                                      <div class="product__price" >
+			                                	 	 ${memberDto.email }			                                    
+			                                   	  </div>
+			                                    </td>
+			                                    <td class="shoping__cart__price">
+			                                      <div class="product__price" >
+			                                	 	 <fmt:formatDate value="${memberDto.joinDt }" pattern="yyyy-MM-dd"></fmt:formatDate>			                                    
+			                                   	  </div>
+			                                    </td>
+			                                </tr>
+		                                </c:forEach>
+		                                
+                            		</c:otherwise>
+                            	</c:choose>
+                            	
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shoping Cart Section End -->
+
+
+
+
+
+
+<!-- 
+
 	<div align="center">
 		<table border="1">
 			<tr>
@@ -35,6 +119,7 @@
 		</table>
 	</div>
 
+ -->
 
 </body>
 </html>

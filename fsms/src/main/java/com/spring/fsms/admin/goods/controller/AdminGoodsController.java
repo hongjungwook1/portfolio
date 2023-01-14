@@ -79,7 +79,6 @@ public class AdminGoodsController {
 				goodsDto.setGoodsFileName(uploadFileName);
 			}
 			
-			
 		}
 		
 		adminGoodsService.addGoods(goodsDto);
@@ -135,7 +134,7 @@ public class AdminGoodsController {
 		request.setCharacterEncoding("utf-8");
 		
 		GoodsDto goodsDto = new GoodsDto();
-		
+		goodsDto.setGoodsCd(request.getParameter("goodsCd"));
 		goodsDto.setGoodsName(request.getParameter("goodsName"));
 		goodsDto.setGoodsCnt(Integer.parseInt(request.getParameter("goodsCnt")));
 		goodsDto.setDiscountRate(Integer.parseInt(request.getParameter("discountRate")));

@@ -27,6 +27,7 @@
 		)
 	</insert>
 	
+	<!-- 
 	<update id="updateGoods" parameterType="GoodsDto">
 		UPDATE
 				GOODS
@@ -41,8 +42,49 @@
     			GOODS_CATEGORY = #{goodsCategory}
     	WHERE
     			GOODS_CD = #{goodsCd}
-				
 	</update>
+	 -->
+	 
+	<update id="updateGoods" parameterType="GoodsDto" >
+	   UPDATE 
+	   			GOODS
+	   <set> 
+	      <if test='goodsName != null and goodsName != ""'>
+	        GOODS_NAME = #{goodsName},
+	      </if>
+	      <if test='goodsCnt != null and goodsCnt != ""'>
+	        GOODS_CNT = #{goodsCnt},
+	      </if>
+	      <if test='price != null and price != ""'>
+	        PRICE = #{price},
+	      </if>
+	      <if test='discountRate != null and discountRate != ""'>
+	        DISCOUNT_RATE = #{discountRate},
+	      </if>
+	      <if test='goodsFileName != null and goodsFileName != ""'>
+	        GOODS_FILE_NAME = #{goodsFileName},
+	      </if>
+	      <if test='goodsInfo != null and goodsInfo != ""'>
+	        GOODS_INFO = #{goodsInfo},
+	      </if>
+	      <if test='goodsOrigin != null and goodsOrigin != ""'>
+	        GOODS_ORIGIN = #{goodsOrigin},
+	      </if>
+	      <if test='goodsCategory != null and goodsCategory != ""'>
+	        GOODS_CATEGORY = #{goodsCategory},
+	      </if>
+	    </set>
+		WHERE 
+				GOODS_CD = #{goodsCd}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<select id="selectGoodsList" resultType="GoodsDto" parameterType="GoodsDto">
 		SELECT
