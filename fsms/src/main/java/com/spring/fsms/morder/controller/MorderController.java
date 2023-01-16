@@ -47,11 +47,12 @@ public class MorderController {
 		HttpSession session = request.getSession();
 		String memberId = (String) session.getAttribute("memberId");
 		
+		int mOrder = Integer.parseInt(mOrderGoodsQty);
+		
 		mv.setViewName("/client/order/orderGoods");
 		mv.addObject("orderer", mOrderService.getOrderDetail(memberId));
 		mv.addObject("goodsDto", mOrderService.getGoodsDetail(goodsCd));
-		mv.addObject("mOrderGoodsQty", mOrderGoodsQty);
-		
+		mv.addObject("mOrderGoodsQty", mOrder);
 		
 		return mv;
 	}

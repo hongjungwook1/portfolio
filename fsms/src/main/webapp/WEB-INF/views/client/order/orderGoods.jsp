@@ -2,11 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}" />
+<c:set var="mOrderGoodsQty" value="${mOrderGoodsQty }"/>
 <!DOCTYPE html>
 <html>
 <head>
 <script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 <script>
+	
+	
+	
+	document.writeln(typeof ${goodsDto.price } );
+	document.writeln(typeof 3000);
+	
 	
 	
 	function setPayMethod() {
@@ -162,7 +169,7 @@
                                 <div class="checkout__order__products">Products <span>Total</span></div>
                                 <ul>
                                		<li>
-                               			01. ${goodsDto.goodsName } (${mOrderGoodsQty }개) <span><fmt:formatNumber value="Number(${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100}) * Number(${mOrderGoodsQty })"/>원</span>
+                               			01. ${goodsDto.goodsName } (${mOrderGoodsQty }개) <span id="price"><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * (goodsDto.discountRate / 100))) * mOrderGoodsQty} "/>원</span>
                                			<input type="hidden" id="price" value="${goodsDto.price }">
                                			<input type="hidden" id="discountRate" value="${goodsDto.discountRate }">
                                			<input type="hidden" id="mOrderGoodsQty">
@@ -173,12 +180,12 @@
                                 <input type="hidden" name="memberId" value="${orderer.memberId }">
                                 <div class="checkout__order__subtotal">Delivery Price 
                                 	<span id="deliveryPrice">
-                                		<c:if test="Number(${goodsDto.price }) > 30000">
+                                		<c:if test="${goodsDto.price } > Number(30000)">
                                 			무 료
                                 		</c:if>
 											3,000원                                
                                 	</span></div>
-                                <div class="checkout__order__total">Total <span><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100}"/>원</span></div>
+                                <div class="checkout__order__total">Total <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * (goodsDto.discountRate / 100))) * mOrderGoodsQty} "/>원</span>
                                 <button type="submit" class="site-btn">PLACE ORDER</button>
                             </div>
                         </div>
