@@ -161,17 +161,15 @@
                     	<c:choose>
                     		<c:when test="${sessionScope.role == 'client' }">
 		                        <ul>
-	                             	<li><a href="#"><i class="fa fa-heart"></i> <span>${sessionS }</span></a></li>
 		                            <li><a href="${contextPath }/cart/myCartList"><i class="fa fa-shopping-bag"></i> <span>${sessionScope.cartCnt }</span></a></li>
 		                        </ul>
 		                        <div class="header__cart__price">Order: <span>${sessionScope.orderCnt }</span></div>
                     		</c:when>
                     		<c:otherwise>
 		                        <ul>
-		                            <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
 		                            <li><a href="${contextPath }/cart/myCartList"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
 		                        </ul>
-		                        <div class="header__cart__price">item: <span>0</span></div>
+		                        <div class="header__cart__price">Order: <span>0</span></div>
                     		</c:otherwise>
                     	</c:choose>
                     </div>

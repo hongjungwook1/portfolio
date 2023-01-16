@@ -13,6 +13,7 @@
 		
 		var totalPrice = 0;
 		var orderGoodsQtyList = "${orderGoodsQtyList}".split(",");
+		var deliveryPrice = 3000;
 		
 		for (var i = 0; i < orderGoodsQtyList.length -1; i++) {
 			
@@ -22,20 +23,19 @@
 			var price = Number($("#price"+i).val());
 			var discountRate = Number($("#discountRate"+i).val());
 			var orderGoodsQty = Number($("#orderGoodsQty"+i).val());
-		
 			
 			totalPrice += (price - parseInt(price * (discountRate / 100))) * orderGoodsQty;
+		}
 		
+		if (totalPrice > 50000) {
+			$("#deliveryPrice").html("무료");
+		}
+		else {
+			$("#deliveryPrice").html("3000원");
+			totalPrice += deliveryPrice;
 		}
 		
 		$("#totalPrice").html(totalPrice);
-		
-		if ($("#totalPrice") >=  Number(30000)) {
-			$("#deliveryPrice").html(0);
-		}
-		else {
-			$("#deliveryPrice").html(3000 + "원");
-		}
 		
 		
 	});
@@ -43,7 +43,7 @@
 	
 	function setPayMethod() {
 		
-		var method = $("[name='mOrderPayMethod']").val;
+		var method = $("[name='mOrderPayMethod']").val();
 		
 		if (method == 'card') {
 			$("#mOrderCardPayMonth,#mOrderCardCompanyName").show();
@@ -65,24 +65,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Checkout</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Checkout</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
 
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
@@ -221,9 +203,9 @@
                                 <ul>
                                 	<c:forEach var="goodsDto" items="${goodsList }" varStatus="i">
                                 		<li>
-                                			${i.index + 1 }. ${goodsDto.goodsName }
-                                			<span id="qty${i.index }"></span>
-                                			<span><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100}"/>원 &emsp;</span>
+                                			${i.index + 1 }. ${goodsDto.goodsName } 
+                                			<span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * (goodsDto.discountRate / 100)))}"/>원 </span>&emsp;
+                                			<span id="qty${i.index }">()</span>
                                 			<input type="hidden" id="price${i.index }" value="${goodsDto.price }">
                                 			<input type="hidden" id="discountRate${i.index }" value="${goodsDto.discountRate }">
                                 			<input type="hidden" id="orderGoodsQty${i.index }">
@@ -236,29 +218,6 @@
                                 <input type="hidden" name="memberId" value="${orderer.memberId }">
                                 <div class="checkout__order__subtotal">Delivery Price <span id="deliveryPrice"></span></div>
                                 <div class="checkout__order__total">Total <span id="totalPrice"></span></div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
                                 <button type="submit" class="site-btn">PLACE ORDER</button>
                             </div>
                         </div>

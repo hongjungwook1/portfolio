@@ -8,17 +8,38 @@
 <head>
 <script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
 <script>
+
+	$().ready(function () {
+		
+		var totalPrice = 0;
+		var deliveryPrice = 3000;
+		
+		var price = Number($("#price").val());
+		var discountRate = Number($("#discountRate").val());
+		
+		
+		totalPrice += (price - parseInt(price * (discountRate / 100))) * "${mOrderGoodsQty}";
+		
+		if (totalPrice > 50000) {
+			$("#deliveryPrice").html("무료");
+		}
+		else {
+			$("#deliveryPrice").html("3000원");
+			totalPrice += deliveryPrice;
+		}
+		
+		$("#totalPrice").html(totalPrice);
+		
+		
+	});
+
 	
 	
-	
-	document.writeln(typeof ${goodsDto.price } );
-	document.writeln(typeof 3000);
-	
-	
-	
+	O
+
 	function setPayMethod() {
 		
-		var method = $("[name='mOrderPayMethod']").val;
+		var method = $("[name='mOrderPayMethod']").val();
 		
 		if (method == "card") {
 			$("#mOrderCardPayMonth,#mOrderCardCompanyName").show();
@@ -169,7 +190,7 @@
                                 <div class="checkout__order__products">Products <span>Total</span></div>
                                 <ul>
                                		<li>
-                               			01. ${goodsDto.goodsName } (${mOrderGoodsQty }개) <span id="price"><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * (goodsDto.discountRate / 100))) * mOrderGoodsQty} "/>원</span>
+                               			01. ${goodsDto.goodsName } (${mOrderGoodsQty }개) <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * (goodsDto.discountRate / 100))) * mOrderGoodsQty} "/>원</span>
                                			<input type="hidden" id="price" value="${goodsDto.price }">
                                			<input type="hidden" id="discountRate" value="${goodsDto.discountRate }">
                                			<input type="hidden" id="mOrderGoodsQty">
@@ -179,15 +200,9 @@
                                 <input type="hidden" name="mOrderGoodsQty" value="${mOrderGoodsQty }">
                                 <input type="hidden" name="memberId" value="${orderer.memberId }">
                                 <div class="checkout__order__subtotal">Delivery Price 
-                                	<span id="deliveryPrice">
-                                		<c:if test="${goodsDto.price } > Number(30000)">
-                                			무 료
-                                		</c:if>
-											3,000원                                
-                                	</span></div>
-                                <div class="checkout__order__total">Total <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * (goodsDto.discountRate / 100))) * mOrderGoodsQty} "/>원</span>
+                                	<span id="deliveryPrice"></span></div>
+                                <div class="checkout__order__total">Total <span id="totalPrice"></span></div>
                                 <button type="submit" class="site-btn">PLACE ORDER</button>
-                            </div>
                         </div>
                     </div>
                 </form>
