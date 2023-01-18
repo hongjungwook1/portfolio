@@ -181,7 +181,6 @@
                                     <input type="date" name="dateBirth" id="dateBirth"/>
                                 </div>
                             </div>
-                            <br>
                              <div class="col-lg-12">
                                  <div class="checkout__input">
                                      <p>핸드폰 번호<span>*</span></p>
