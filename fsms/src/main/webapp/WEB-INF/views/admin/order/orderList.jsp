@@ -44,7 +44,7 @@
 			                                <tr>
 			                                    <td class="shoping__cart__item">
 			                                    <img src="${contextPath }/thumbnails?goodsFileName=${orderDto.goodsFileName }" width="70" height="70">
-			                                    <a href="${contextPath }/client/myPage/myOrderDetail?mOrderCd=${orderDto.mOrderCd}&memberId=${orderDto.memberId}">
+			                                    <a href="${contextPath }/member/myOrderDetail?mOrderCd=${orderDto.mOrderCd}&memberId=${orderDto.memberId}">
 			                                    상품명 : ${orderDto.goodsName } / 상품가격 : <fmt:formatNumber value="${orderDto.price }"/> 원 / 주문수량 : ${orderDto.mOrderGoodsQty }개 
 			                                    </a>
 			                                    </td>

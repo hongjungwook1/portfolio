@@ -108,15 +108,15 @@
                             </div>
                             <div class="checkout__input">
                                 <p>도로명 주소 <span>*</span></p>
-                                <input type="text" id="roadAddress" name="mOrderRoadAddress" value="${myOrder.mOrderRoadAddress }">
+                                <input type="text" id="roadAddress" name="mOrderRoadAddress" value="${myOrder.mOrderRoadAddress }" disabled>
                             </div>
                             <div class="checkout__input">
                                 <p>지번 주소 <span>*</span></p>
-                                <input type="text" id="jibunAddress" name="mOrderJibunAddress" value="${myOrder.mOrderJibunAddress }">
+                                <input type="text" id="jibunAddress" name="mOrderJibunAddress" value="${myOrder.mOrderJibunAddress }" disabled>
                             </div>
                             <div class="checkout__input">
                                 <p>나머지 주소 <span>*</span></p>
-                                <input type="text" id="namujiAddress" name="mOrderNamujiAddress" value="${myOrder.mOrderNamujiAddress }">
+                                <input type="text" id="namujiAddress" name="mOrderNamujiAddress" value="${myOrder.mOrderNamujiAddress }" disabled>
                             </div>
                         </div>
                     </div>

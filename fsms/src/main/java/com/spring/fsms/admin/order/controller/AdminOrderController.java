@@ -19,8 +19,8 @@ public class AdminOrderController {
 	public ModelAndView adminOrderList() throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("orderList", adminOrderService.getOrderList());
 		mv.setViewName("/admin/order/orderList");
+		mv.addObject("orderList", adminOrderService.getOrderList());
 		
 		return mv;
 	}

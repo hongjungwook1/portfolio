@@ -119,7 +119,7 @@
 	</delete>
 	
 	<resultMap type="hashmap" id="myOrderListMap">
-		<result column="M_ORDER_CD" 			 property="orderCd"/>
+		<result column="M_ORDER_CD" 			 property="mOrderCd"/>
 		<result column="MEMBER_ID" 				 property="memberId"/>
 		<result column="M_ORDER_GOODS_QTY"  	 property="mOrderGoodsQty"/>
 		<result column="M_ORDER_PAY_ORDER_TIME"  property="mOrderPayOrderTime"/>
@@ -204,7 +204,7 @@
 					AND M.MEMBER_ID = #{memberId}
 			 JOIN GOODS G
 			 		 ON G.GOODS_CD = O.GOODS_CD
-			 		AND O.M_ORDER_CD = #{orderCd}
+			 		AND O.M_ORDER_CD = #{mOrderCd}
 	</select>
 	
 	

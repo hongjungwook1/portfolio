@@ -75,7 +75,7 @@
                                     <td class="shoping__cart__item">
                                         <img src="${contextPath }/thumbnails?goodsFileName=${myOrder.goodsFileName }" width="85" height="85">
                                         <div class="cart__product__item__title">
-                                            <h6><a href="${contextPath }/member/myOrderDetail?orderCd=${myOrder.orderCd}&memberId=${myOrder.memberId}">${myOrder.goodsName }</a></h6>
+                                            <h6><a href="${contextPath }/member/myOrderDetail?mOrderCd=${myOrder.mOrderCd}&memberId=${myOrder.memberId}">${myOrder.goodsName }</a></h6>
                                         </div>
                                     </td>
                                     <td class="shoping__cart__price">
