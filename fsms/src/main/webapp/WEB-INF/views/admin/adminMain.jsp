@@ -26,7 +26,7 @@
                             <li><a href="#">Fastfood</a></li>
                             <li><a href="#">Fresh Onion</a></li>
                             <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">주문 내역</a></li>
+                            <li><a href="${contextPath }/admin/order/orderList">주문 내역</a></li>
                             <li><a href="#">Oatmeal</a></li>
                             <li><a href="#">Fresh Bananas</a></li>
                         </ul>

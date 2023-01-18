@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	  <!-- Shoping Cart Section Begin -->
+ <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
         <div class="container">
             <div class="row">

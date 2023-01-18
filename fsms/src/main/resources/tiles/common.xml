@@ -115,5 +115,10 @@
 		<put-attribute name="title" value="orderGoods" />
 	</definition>
 	
+	<definition name="/admin/order/orderList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/order/orderList.jsp"/>
+		<put-attribute name="title" value="orderList" />
+	</definition>
+	
 	
 </tiles-definitions>
