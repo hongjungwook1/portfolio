@@ -28,11 +28,11 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	
-	//private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
-	//private final String SEPERATOR = "\\";											// window
+//	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+//	private final String SEPERATOR = "\\";											// window
 
-	private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
-	private final String SEPERATOR = "/";											// linux
+	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
+	//private final String SEPERATOR = "/";											// linux
 	
 	
 	
@@ -66,21 +66,21 @@ public class GoodsController {
 	
 	
 	
-	@RequestMapping("/thumbnails")
-	public void thumbnails(@RequestParam("goodsFileName") String goodsFileName , HttpServletResponse response) throws Exception {
-	
-		OutputStream out = response.getOutputStream();
-		String filePath = CURR_IMAGE_REPO_PATH + SEPERATOR + goodsFileName;
-		
-		File image = new File(filePath);
-		if (image.exists()) { 
-			Thumbnails.of(image).size(800,800).outputFormat("jpg").toOutputStream(out);
-		}
-		byte[] buffer = new byte[1024 * 8];
-		out.write(buffer);
-		out.close();
-		
-	}
+//	@RequestMapping("/thumbnails")
+//	public void thumbnails(@RequestParam("goodsFileName") String goodsFileName , HttpServletResponse response) throws Exception {
+//	
+//		OutputStream out = response.getOutputStream();
+//		String filePath = CURR_IMAGE_REPO_PATH + SEPERATOR + goodsFileName;
+//		
+//		File image = new File(filePath);
+//		if (image.exists()) { 
+//			Thumbnails.of(image).size(800,800).outputFormat("jpg").toOutputStream(out);
+//		}
+//		byte[] buffer = new byte[1024 * 8];
+//		out.write(buffer);
+//		out.close();
+//		
+//	}
 	
 	
 	
