@@ -50,15 +50,16 @@ public class CommonController {
 	
 	
 	@RequestMapping(value="/" , method=RequestMethod.GET)
-	public ModelAndView home () {
+	public ModelAndView home ()throws Exception{
 		
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView("/member/main");
 		
 		Map<String, String> goodsListMap = new HashMap<String, String>();
 		goodsListMap.put("goodsOrigin", "all");
 		goodsListMap.put("goodsCategory", "all");
-		
-		
+
+		mv.addObject("beefCnt", commonService.getBeefCnt());
+		mv.addObject("goodsList", commonService.getGoodsMainInfo());
 		
 		return mv;
 	}
