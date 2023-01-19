@@ -3,6 +3,8 @@ package com.spring.fsms.common.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,17 +48,20 @@ public class CommonController {
 	}
 	
 	
-//	
-//	@RequestMapping(value="/" , method=RequestMethod.GET)
-//	public ModelAndView home () {
-//		
-//		ModelAndView mv = new ModelAndView();
-//		
-//		
-//		
-//		
-//		return mv;
-//	}
-//	
+	
+	@RequestMapping(value="/" , method=RequestMethod.GET)
+	public ModelAndView home () {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		Map<String, String> goodsListMap = new HashMap<String, String>();
+		goodsListMap.put("goodsOrigin", "all");
+		goodsListMap.put("goodsCategory", "all");
+		
+		
+		
+		return mv;
+	}
+	
 	
 }
