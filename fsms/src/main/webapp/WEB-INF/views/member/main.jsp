@@ -2,9 +2,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath"  value="${pageContext.request.contextPath}" />
+<c:set var="sessionId" value="${sessionScope.memberId }"/>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
+<script>
+	
+function processToCart(goodsCd) {
+	
+	if ("${sessionId == null}" == "true") {
+		alert("로그인 후 가능합니다.");
+		location.href="${contextPath}/member/login";
+	}
+	else {
+		
+		$.ajax({
+			
+			url : "${contextPath}/cart/addCart",
+			method : "get",
+			data : {"goodsCd" : goodsCd , "cartQty" : 1},
+			success : function (result) {
+				
+				if (result == 'duple') {
+					alert("이미 추가된 상품 입니다.");
+				}
+				else {
+					alert("장바구니에 추가 되었습니다.");
+				}
+			}
+			
+		})
+	}
+	
+}
+	
+</script>
 <meta charset="UTF-8">
 <title>main</title>
 </head>
@@ -209,192 +242,96 @@
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                <c:forEach var="latestGoods" items="${latestList }">
+	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${latestGoods.goodsCd}" class="latest-product__item">
+	                                    <div class="latest-product__item__pic">
+	                                        <img src="${contextPath }/thumbnails?goodsFileName=${latestGoods.goodsFileName}" style="width:120px; height:120px;">
+	                                    </div>
+	                                    <div class="latest-product__item__text">
+	                                        <h6>${latestGoods.goodsName }</h6>
+	                                        <span>${latestGoods.price }</span>
+	                                    </div>
+	                                </a>
+                                </c:forEach>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                              <c:forEach var="latestGoods" items="${latestList }">
+	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${latestGoods.goodsCd}" class="latest-product__item">
+	                                    <div class="latest-product__item__pic">
+	                                        <img src="${contextPath }/thumbnails?goodsFileName=${latestGoods.goodsFileName}" style="width:120px; height:120px;">
+	                                    </div>
+	                                    <div class="latest-product__item__text">
+	                                        <h6>${latestGoods.goodsName }</h6>
+	                                        <span>${latestGoods.price }</span>
+	                                    </div>
+	                                </a>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
+                        <h4>Top Price Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                                <c:forEach var="topPrice" items="${topPriceList }">
+	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${topPrice.goodsCd}" class="latest-product__item">
+	                                    <div class="latest-product__item__pic">
+	                                        <img src="${contextPath }/thumbnails?goodsFileName=${topPrice.goodsFileName}" style="width:120px; height:120px;">
+	                                    </div>
+	                                    <div class="latest-product__item__text">
+	                                       <h6>${topPrice.goodsName }</h6>
+	                                       <span>${topPrice.price }</span>
+	                                    </div>
+	                                </a>
+                                </c:forEach>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                               <c:forEach var="topPrice" items="${topPriceList }">
+	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${topPrice.goodsCd}" class="latest-product__item">
+	                                    <div class="latest-product__item__pic">
+	                                        <img src="${contextPath }/thumbnails?goodsFileName=${topPrice.goodsFileName}" style="width:120px; height:120px;">
+	                                    </div>
+	                                    <div class="latest-product__item__text">
+	                                       <h6>${topPrice.goodsName }</h6>
+	                                       <span>${topPrice.price }</span>
+	                                    </div>
+	                                </a>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="latest-product__text">
-                        <h4>Review Products</h4>
+                        <h4>Lowest Price Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                               <c:forEach var="lowestPrice" items="${lowestPriceList }">
+                                 <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${lowestPrice.goodsCd}" class="latest-product__item">
+	                                    <div class="latest-product__item__pic">
+	                                        <img src="${contextPath }/thumbnails?goodsFileName=${lowestPrice.goodsFileName}" style="width:120px; height:120px;">
+	                                    </div>
+	                                    <div class="latest-product__item__text">
+	                                       <h6>${lowestPrice.goodsName }</h6>
+	                                       <span>${lowestPrice.price }</span>
+	                                    </div>
+	                                </a>
+                               </c:forEach>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="${contextPath }/resources/bootstrap/img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
+                               <c:forEach var="lowestPrice" items="${lowestPriceList }">
+                                 <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${lowestPrice.goodsCd}" class="latest-product__item">
+	                                    <div class="latest-product__item__pic">
+	                                        <img src="${contextPath }/thumbnails?goodsFileName=${lowestPrice.goodsFileName}" style="width:120px; height:120px;">
+	                                    </div>
+	                                    <div class="latest-product__item__text">
+	                                       <h6>${lowestPrice.goodsName }</h6>
+	                                       <span>${lowestPrice.price }</span>
+	                                    </div>
+	                                </a>
+                               </c:forEach>
                             </div>
                         </div>
                     </div>

@@ -60,6 +60,9 @@ public class CommonController {
 
 		mv.addObject("beefCnt", commonService.getBeefCnt());
 		mv.addObject("goodsList", commonService.getGoodsMainInfo());
+		mv.addObject("latestList", commonService.getlatestGoodsInfo());
+		mv.addObject("topPriceList", commonService.getTopPriceGoodsInfo());
+		mv.addObject("lowestPriceList", commonService.getlowestPriceGoodsInfo());
 		
 		return mv;
 	}

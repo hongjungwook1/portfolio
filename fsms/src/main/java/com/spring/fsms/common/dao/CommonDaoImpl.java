@@ -22,5 +22,20 @@ public class CommonDaoImpl implements CommonDao {
 	public List<Map<String, Object>> selectListGoodsMain() throws Exception {
 		return sqlSession.selectList("commonMapper.selectListGoodsMain");
 	}
+
+	@Override
+	public List<Map<String, Object>> selectListLatestGoods() throws Exception {
+		return sqlSession.selectList("commonMapper.selectListLatestGoods");
+	}
+
+	@Override
+	public List<Map<String, Object>> selectListTopPriceGoods() throws Exception {
+		return sqlSession.selectList("commonMapper.selectListTopPriceGoods");
+	}
+
+	@Override
+	public List<Map<String, Object>> selectListLowestPriceGoods() throws Exception {
+		return sqlSession.selectList("commonMapper.selectListLowestPriceGoods");
+	}
 	
 }
