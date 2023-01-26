@@ -64,4 +64,47 @@
 				3		
 	</select>
 	
+	<insert id="insertContact" parameterType="CommonDto">
+		INSERT INTO CONTACT(
+			NAME,
+			EMAIL,
+			CONTENT,
+			REG_DT
+		)
+		VALUES (
+			#{name},
+			#{email},
+			#{content},
+			NOW()
+		)
+	</insert>
+	
+	<select id="selectListGetContactList" resultType="CommonDto">
+		SELECT
+				*
+		FROM
+				CONTACT
+	</select>
+	
+	<select id="selectOneGetContact" resultType="CommonDto">
+		SELECT
+				*
+		FROM
+				CONTACT
+		WHERE
+				CONTACT_CD = #{contactCd}	
+	</select>
+	
+	<delete id="deleteContact">
+		DELETE FROM
+				CONTACT
+		WHERE
+				CONTACT_CD IN
+		<foreach collection="array" item="contactCd" open="(" close=")" separator=",">
+				#{contactCd}
+		</foreach>
+	</delete>
+	
+	
+	
 </mapper>

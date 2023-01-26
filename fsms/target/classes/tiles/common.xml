@@ -120,5 +120,19 @@
 		<put-attribute name="title" value="orderList" />
 	</definition>
 	
+	<definition name="/common/contact/contact" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/common/contact/contact.jsp"/>
+		<put-attribute name="title" value="contact" />
+	</definition>
+	
+	<definition name="/common/contact/contactList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/common/contact/contactList.jsp"/>
+		<put-attribute name="title" value="contactList" />
+	</definition>
+	
+	<definition name="/common/contact/contactDetail" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/common/contact/contactDetail.jsp"/>
+		<put-attribute name="title" value="contactDetail" />
+	</definition>
 	
 </tiles-definitions>

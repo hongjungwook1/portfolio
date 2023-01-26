@@ -31,13 +31,6 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	@RequestMapping(value="/main" , method=RequestMethod.GET)
-	public ModelAndView main () {
-		return new ModelAndView("/member/main");
-	}
-	
-	
-	
 	@RequestMapping(value="/join" , method=RequestMethod.GET)
 	public ModelAndView join () throws Exception {
 		return new ModelAndView("/client/join");
@@ -98,7 +91,7 @@ public class MemberController {
 			
 			jsScript = "<script>";
 			jsScript += "alert('로그인 되었습니다');";
-			jsScript += "location.href='" + request.getContextPath() + "/member/main'";
+			jsScript += "location.href='" + request.getContextPath() + "/'";
 			jsScript += "</script>";
 			
 		}

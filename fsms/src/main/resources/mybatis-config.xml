@@ -13,6 +13,7 @@
 		<typeAlias type="com.spring.fsms.member.dto.MemberDto" alias="MemberDto"/>
 		<typeAlias type="com.spring.fsms.morder.dto.MorderDto" alias="MorderDto"/>
 		<typeAlias type="com.spring.fsms.cart.dto.CartDto" alias="CartDto"/>
+		<typeAlias type="com.spring.fsms.common.dto.CommonDto" alias="CommonDto" />
 	</typeAliases>
 	
 

@@ -83,7 +83,6 @@
 	
 	function removeCart(cartCd) {
 		
-		var cartCdList = "";
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			
 			location.href = "${contextPath}/cart/removeCart?cartCd=" + cartCd;
@@ -170,7 +169,6 @@
                     <div class="shoping__cart__table">
                         <table>
                         	<colgroup>
-                        		<col width="8%">
                         		<col width="25%">
                         		<col width="15%">
                         		<col width="22%">
@@ -178,7 +176,6 @@
                         	</colgroup>
                             <thead>
                                 <tr>
-                                    <th>전체선택 <input type="checkbox" id="selectAllCart" onchange="selectAllCart()"></th>
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -197,7 +194,6 @@
                             		
 	                            		<c:forEach var="myCart" items="${myCartList }">
 			                                <tr>
-			                                	<td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
 			                                    <td class="shoping__cart__item">
 			                                        <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="85" height="85">
 			                                        <a href="${contextPath }/goods/goodsDetails?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>

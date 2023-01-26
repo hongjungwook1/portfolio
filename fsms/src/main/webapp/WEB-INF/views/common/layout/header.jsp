@@ -102,7 +102,7 @@
 		                             </ul>
 		                         </li>
 		                         <li><a href="./blog.html">Blog</a></li>
-		                         <li><a href="./contact.html">Contact</a></li>
+		                         <li><a href="${contextPath }/contactList">Contact</a></li>
 		                     </ul>
 		                  </nav>
 			             </div>
@@ -124,7 +124,7 @@
 		                             </ul>
 		                         </li>
 		                         <li><a href="./blog.html">Blog</a></li>
-		                         <li><a href="./contact.html">Contact</a></li>
+		                         <li><a href="${contextPath }/contact">Contact</a></li>
 		                     </ul>
 		                  </nav>
 			             </div>

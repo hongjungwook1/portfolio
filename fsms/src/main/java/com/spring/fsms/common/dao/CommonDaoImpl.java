@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.fsms.common.dto.CommonDto;
+
 @Repository
 public class CommonDaoImpl implements CommonDao {
 
@@ -36,6 +38,26 @@ public class CommonDaoImpl implements CommonDao {
 	@Override
 	public List<Map<String, Object>> selectListLowestPriceGoods() throws Exception {
 		return sqlSession.selectList("commonMapper.selectListLowestPriceGoods");
+	}
+
+	@Override
+	public void insertContact(CommonDto commonDto) throws Exception {
+		sqlSession.insert("commonMapper.insertContact" , commonDto);
+	}
+
+	@Override
+	public List<CommonDto> selectListGetContactList() throws Exception {
+		return sqlSession.selectList("commonMapper.selectListGetContactList");
+	}
+
+	@Override
+	public CommonDto selectOneGetContact(int contactCd) throws Exception {
+		return sqlSession.selectOne("commonMapper.selectOneGetContact" , contactCd);
+	}
+
+	@Override
+	public void deleteContact(int[] deleteContactCdList) throws Exception {
+		sqlSession.delete("commonMapper.deleteContact" , deleteContactCdList);
 	}
 	
 }
