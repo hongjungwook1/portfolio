@@ -30,5 +30,11 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDao.selectGetGoodsCnt();
 	}
 
+	@Override
+	public List<GoodsDto> getByPrice() throws Exception {
+		return goodsDao.selectGetByPrice();
+	}
+
+
 	
 }

@@ -35,5 +35,14 @@
 				GOODS
 	</select>
 	
+	<select id="selectGetByPrice" resultType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS
+		ORDER BY
+				PRICE DESC
+	</select>
+	
 	
 </mapper>

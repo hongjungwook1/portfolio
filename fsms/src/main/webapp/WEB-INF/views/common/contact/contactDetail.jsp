@@ -31,7 +31,6 @@
                     </div>
                     <div class="col-lg-12 text-center">
                         <textarea>${contactDto.content }</textarea>
-                        <button type="submit" class="site-btn">REMOVE MESSAGE</button>
                     </div>
                 </div>
             </form>

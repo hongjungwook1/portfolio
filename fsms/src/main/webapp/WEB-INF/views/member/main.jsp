@@ -242,7 +242,7 @@ function processToCart(goodsCd) {
                         <h4>Latest Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <c:forEach var="latestGoods" items="${latestList }">
+                                <c:forEach var="latestGoods" items="${latestList }" begin="0" end="2">
 	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${latestGoods.goodsCd}" class="latest-product__item">
 	                                    <div class="latest-product__item__pic">
 	                                        <img src="${contextPath }/thumbnails?goodsFileName=${latestGoods.goodsFileName}" style="width:120px; height:120px;">
@@ -255,7 +255,7 @@ function processToCart(goodsCd) {
                                 </c:forEach>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                              <c:forEach var="latestGoods" items="${latestList }">
+                              <c:forEach var="latestGoods" items="${latestList }" begin="3" end="5">
 	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${latestGoods.goodsCd}" class="latest-product__item">
 	                                    <div class="latest-product__item__pic">
 	                                        <img src="${contextPath }/thumbnails?goodsFileName=${latestGoods.goodsFileName}" style="width:120px; height:120px;">
@@ -275,7 +275,7 @@ function processToCart(goodsCd) {
                         <h4>Top Price Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                                <c:forEach var="topPrice" items="${topPriceList }">
+                                <c:forEach var="topPrice" items="${topPriceList }" begin="0" end="2">
 	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${topPrice.goodsCd}" class="latest-product__item">
 	                                    <div class="latest-product__item__pic">
 	                                        <img src="${contextPath }/thumbnails?goodsFileName=${topPrice.goodsFileName}" style="width:120px; height:120px;">
@@ -288,7 +288,7 @@ function processToCart(goodsCd) {
                                 </c:forEach>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                               <c:forEach var="topPrice" items="${topPriceList }">
+                               <c:forEach var="topPrice" items="${topPriceList }" begin="3" end="5">
 	                                <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${topPrice.goodsCd}" class="latest-product__item">
 	                                    <div class="latest-product__item__pic">
 	                                        <img src="${contextPath }/thumbnails?goodsFileName=${topPrice.goodsFileName}" style="width:120px; height:120px;">
@@ -308,7 +308,7 @@ function processToCart(goodsCd) {
                         <h4>Lowest Price Products</h4>
                         <div class="latest-product__slider owl-carousel">
                             <div class="latest-prdouct__slider__item">
-                               <c:forEach var="lowestPrice" items="${lowestPriceList }">
+                               <c:forEach var="lowestPrice" items="${lowestPriceList }" begin="0" end="2">
                                  <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${lowestPrice.goodsCd}" class="latest-product__item">
 	                                    <div class="latest-product__item__pic">
 	                                        <img src="${contextPath }/thumbnails?goodsFileName=${lowestPrice.goodsFileName}" style="width:120px; height:120px;">
@@ -321,7 +321,7 @@ function processToCart(goodsCd) {
                                </c:forEach>
                             </div>
                             <div class="latest-prdouct__slider__item">
-                               <c:forEach var="lowestPrice" items="${lowestPriceList }">
+                               <c:forEach var="lowestPrice" items="${lowestPriceList }" begin="3" end="5">
                                  <a href=" ${contextPath }/goods/goodsDetails?goodsCd=${lowestPrice.goodsCd}" class="latest-product__item">
 	                                    <div class="latest-product__item__pic">
 	                                        <img src="${contextPath }/thumbnails?goodsFileName=${lowestPrice.goodsFileName}" style="width:120px; height:120px;">

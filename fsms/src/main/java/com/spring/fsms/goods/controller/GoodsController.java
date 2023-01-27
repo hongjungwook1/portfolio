@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.fsms.common.service.CommonService;
 import com.spring.fsms.goods.dto.GoodsDto;
 import com.spring.fsms.goods.service.GoodsService;
 
@@ -27,6 +28,8 @@ public class GoodsController {
 	@Autowired
 	private GoodsService goodsService;
 	
+	@Autowired
+	private CommonService commonService;
 	
 	@RequestMapping(value="/goodsList" , method=RequestMethod.GET)
 	public ModelAndView goodsList(@RequestParam Map<String,String> goodsListMap) throws Exception {
@@ -36,6 +39,9 @@ public class GoodsController {
 		mv.setViewName("/goods/goodsList");
 		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
 		mv.addObject("goodsCnt", goodsService.getGoodCnt());
+		mv.addObject("byPrice", goodsService.getByPrice());
+		mv.addObject("latestList", commonService.getlatestGoodsInfo());
+		
 		return mv;
 	}
 	

@@ -39,7 +39,7 @@
 		ORDER BY 
 				REG_DATE DESC
 		LIMIT 
-				3
+				6
 	</select>
 	
 	<select id="selectListTopPriceGoods" resultMap="mainGoodsMap">
@@ -50,7 +50,7 @@
 		ORDER BY
 				PRICE DESC
 		LIMIT 
-				3
+				6
 	</select>
 	
 	<select id="selectListLowestPriceGoods" resultMap="mainGoodsMap">
@@ -61,7 +61,7 @@
 		ORDER BY
 				PRICE ASC
 		LIMIT 
-				3		
+				6
 	</select>
 	
 	<insert id="insertContact" parameterType="CommonDto">
