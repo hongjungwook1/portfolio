@@ -35,13 +35,47 @@
 				GOODS
 	</select>
 	
-	<select id="selectGetByPrice" resultType="GoodsDto">
-		SELECT
-				*
-		FROM
-				GOODS
-		ORDER BY
-				PRICE DESC
+	
+	<select id="selectGetSearchGoods" resultType="GoodsDto" parameterType="hashmap">
+
+		<if test='method == "price"'>
+			SELECT 
+		   			*
+		    FROM 
+					GOODS
+			WHERE
+					PRICE BETWEEN #{min} AND #{max} 
+			ORDER BY
+					PRICE
+		</if>
+		<if test='method == "keyword"'>
+			SELECT 
+		   			*
+		    FROM 
+					GOODS
+			ORDER BY
+				<if test='keyword == "regDate"'>
+					REG_DATE DESC
+				</if>
+				<if test='keyword == "highPrice"'>
+					PRICE DESC
+				</if>
+				<if test='keyword == "lowPrice"'>
+					PRICE ASC
+				</if>
+		</if>
+		<if test='method == "search"'>
+			SELECT
+					*
+			FROM
+					GOODS
+			WHERE
+					GOODS_NAME 		LIKE CONCAT ('%' , #{word} , '%') OR
+					GOODS_INFO 	 	LIKE CONCAT ('%' , #{word} , '%') OR
+					GOODS_ORIGIN	LIKE CONCAT ('%' , #{word} , '%') OR
+					GOODS_CATEGORY  LIKE CONCAT ('%' , #{word} , '%') 
+		</if>
+				
 	</select>
 	
 	

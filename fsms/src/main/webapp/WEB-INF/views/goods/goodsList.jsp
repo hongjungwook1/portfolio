@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="contextPath"  value="${pageContext.request.contextPath}" />
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="sessionId" value="${sessionScope.memberId }"/>
 <!DOCTYPE html>
 <html>
@@ -37,6 +37,10 @@
 		
 	}
 	
+	function getGoodsListByPrice(){
+		location.href =  "${contextPath }/goods/searchGoods?method=price&min="+$("#minamount").val() + "&max=" + $("#maxamount").val();
+	}
+	
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -51,33 +55,28 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>Sort By</h4>
                             <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
-                                <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
+                                <li><a href="${contextPath }/goods/searchGoods?method=keyword&keyword=regDt">등록순</a></li>
+                                <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=highPrice">최고 금액순</a></li>
+                                <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=lowPrice">최저 금액순</a></li>
                             </ul>
                         </div>
                         <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
+                                    data-min="0" data-max="150000" onmouseup="getGoodsListByPrice()">
                                     <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                     <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                                 </div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
+                                 <div class="range-slider">
+                                    <div>
+                                        <p></p>
+                                        <span></span>
+                                        <input type="text" id="minamount" style="border:none;" size="7" > ~ 
+                                        <input type="text" id="maxamount" style="border:none;" size="7">
                                     </div>
                                 </div>
                             </div>
@@ -123,12 +122,11 @@
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
                                     <span>Sort By</span>
-                                    <input type="radio" name="sort" value=""> 등록순
-                                    <input type="radio" name="sort" value="${byPrice }"> 금액순
                                     <!-- 
                                     <select>
-                                        <option value="0">등록순</option>
-                                        <option value="byPrice">금액순</option>
+                                        <option value="${contaxtPath }/goods/searchGoods?method=keyword&keyword=regDt">등록순</option>
+                                        <option value="${contaxtPath }/goods/searchGoods?method=keyword&keyword=highPrice">최고 금액순</option>
+                                        <option value="${contaxtPath }/goods/searchGoods?method=keyword&keyword=lowPrice">최저 금액순</option>
                                     </select>
                                      -->
                                 </div>

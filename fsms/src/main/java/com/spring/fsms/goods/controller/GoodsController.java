@@ -39,7 +39,6 @@ public class GoodsController {
 		mv.setViewName("/goods/goodsList");
 		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
 		mv.addObject("goodsCnt", goodsService.getGoodCnt());
-		mv.addObject("byPrice", goodsService.getByPrice());
 		mv.addObject("latestList", commonService.getlatestGoodsInfo());
 		
 		return mv;
@@ -54,6 +53,17 @@ public class GoodsController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/searchGoods" , method=RequestMethod.GET)
+	public ModelAndView goodsDetails (@RequestParam Map<String,Object> searchMap) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/goods/goodsList");
+		mv.addObject("goodsList", goodsService.getSearchGoods(searchMap));
+		mv.addObject("latestList", commonService.getlatestGoodsInfo());
+		
+		return mv;
+	}
 	
 	
 	

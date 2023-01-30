@@ -10,6 +10,6 @@ public interface GoodsService {
 	public List<GoodsDto> getGoodsList(Map<String,String> goodsList) throws Exception;
 	public GoodsDto getOneGoods(int goodsCd) throws Exception;
 	public int getGoodCnt() throws Exception;
-	public List<GoodsDto> getByPrice () throws Exception;
+	public List<GoodsDto> getSearchGoods(Map<String,Object> searchMap) throws Exception;
 	
 }

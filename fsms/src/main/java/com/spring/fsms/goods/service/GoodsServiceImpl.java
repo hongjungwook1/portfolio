@@ -31,10 +31,9 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public List<GoodsDto> getByPrice() throws Exception {
-		return goodsDao.selectGetByPrice();
+	public List<GoodsDto> getSearchGoods(Map<String, Object> searchMap) throws Exception {
+		return goodsDao.selectSearchGoods(searchMap);
 	}
-
 
 	
 }
