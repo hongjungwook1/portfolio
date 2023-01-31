@@ -89,12 +89,12 @@ function processToCart(goodsCd) {
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form action="${contaxtPath }/fsms/goods/searchGoods" method="get">
                                 <div class="hero__search__categories">
                                     All Categories
-                                    <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do yo u need?" name="word">
+                                <input type="hidden" name="method" value="search">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -103,12 +103,12 @@ function processToCart(goodsCd) {
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>+82 010-5129-1633</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/321.jpg">
+                    <div class="hero__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/메인고기.jpg" style="width:750px; height:450px;">
                         <div class="hero__text">
                             <span>FRUIT MEAT</span>
                             <h2>Food Stuffs <br />100% Organic</h2>
@@ -164,43 +164,10 @@ function processToCart(goodsCd) {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter="${goodsDto.goodsCategory == 'beef' }">Beef</li>
-                            <li data-filter=".fresh-meat">Lamb</li>
-                            <li data-filter=".vegetables">Pork</li>
-                            <li data-filter=".fastfood">Chicken</li>
-                            <li data-filter=".fastfood">Duck Meat</li>
-                        </ul>
+                        <h2>ALL Product</h2>
                     </div>
                 </div>
             </div>
-            
-            
-            
-            <!-- 
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="${contextPath }/resources/bootstrap/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                
-             -->
-                
-                
          <div class="row featured__filter">
              <c:choose>
              	<c:when test="${empty goodsList }">
@@ -209,7 +176,7 @@ function processToCart(goodsCd) {
                    </div>
              	</c:when>
              	<c:otherwise>
-             		<c:forEach var="goodsDto" items="${goodsList }">
+             		<c:forEach var="goodsDto" items="${goodsList }" begin="0" end="11">
              			<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
 		                    <div class="featured__item">
 		                        <div class="featured__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">

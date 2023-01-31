@@ -54,9 +54,6 @@
 		    FROM 
 					GOODS
 			ORDER BY
-				<if test='keyword == "regDate"'>
-					REG_DATE DESC
-				</if>
 				<if test='keyword == "highPrice"'>
 					PRICE DESC
 				</if>

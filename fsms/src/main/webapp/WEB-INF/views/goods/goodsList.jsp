@@ -55,9 +55,13 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Sort By</h4>
+                            <h4>Category & Sort By</h4>
                             <ul>
-                                <li><a href="${contextPath }/goods/searchGoods?method=keyword&keyword=regDt">등록순</a></li>
+                                <li><a href="${contextPath }/goods/goodsList?goodsCategory=beef">소 고기</a></li>
+                                <li><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">양 고기</a></li>
+                                <li><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">닭 고기</a></li>
+                                <li><a href="${contextPath }/goods/goodsList?goodsCategory=pork">돼지 고기</a></li>
+                                <li><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">오리 고기</a></li>
                                 <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=highPrice">최고 금액순</a></li>
                                 <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=lowPrice">최저 금액순</a></li>
                             </ul>
@@ -121,14 +125,6 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
                                 <div class="filter__sort">
-                                    <span>Sort By</span>
-                                    <!-- 
-                                    <select>
-                                        <option value="${contaxtPath }/goods/searchGoods?method=keyword&keyword=regDt">등록순</option>
-                                        <option value="${contaxtPath }/goods/searchGoods?method=keyword&keyword=highPrice">최고 금액순</option>
-                                        <option value="${contaxtPath }/goods/searchGoods?method=keyword&keyword=lowPrice">최저 금액순</option>
-                                    </select>
-                                     -->
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4">
