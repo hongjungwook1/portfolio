@@ -93,15 +93,8 @@
 		                     <ul>
 		                         <li class="active"><a href="${contextPath }/admin/adminMain">Home</a></li>
 		                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
-		                         <li><a href="#">Pages</a>
-		                             <ul class="header__menu__dropdown">
-		                                 <li><a href="./shop-details.html">Shop Details</a></li>
-		                                 <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-		                                 <li><a href="./checkout.html">Check Out</a></li>
-		                                 <li><a href="./blog-details.html">Blog Details</a></li>
-		                             </ul>
-		                         </li>
-		                         <li><a href="./blog.html">Blog</a></li>
+		                         <li><a href="#">CartList</a></li>
+		                         <li><a href="${contaxtPath }/fsms/admin/order/orderList">OrderList</a></li>
 		                         <li><a href="${contextPath }/contactList">Contact</a></li>
 		                     </ul>
 		                  </nav>
@@ -115,15 +108,8 @@
 		                     <ul>
 		                         <li class="active"><a href="${contextPath }/">Home</a></li>
 		                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
-		                         <li><a href="#">Pages</a>
-		                             <ul class="header__menu__dropdown">
-		                                 <li><a href="./shop-details.html">Shop Details</a></li>
-		                                 <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-		                                 <li><a href="./checkout.html">Check Out</a></li>
-		                                 <li><a href="./blog-details.html">Blog Details</a></li>
-		                             </ul>
-		                         </li>
-		                         <li><a href="./blog.html">Blog</a></li>
+		                         <li><a href="${contaxtPath }/fsms/cart/myCartList">My Cart</a></li>
+		                         <li><a href="${contaxtPath }/fsms/member/myOrderList">My Order</a></li>
 		                         <li><a href="${contextPath }/contact">Contact</a></li>
 		                     </ul>
 		                  </nav>
