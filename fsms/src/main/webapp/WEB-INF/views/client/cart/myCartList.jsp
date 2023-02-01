@@ -169,13 +169,15 @@
                     <div class="shoping__cart__table">
                         <table>
                         	<colgroup>
-                        		<col width="25%">
+                        		<col width="5%">
+                        		<col width="20%">
                         		<col width="15%">
                         		<col width="22%">
                         		<col width="30%">
                         	</colgroup>
                             <thead>
                                 <tr>
+                                	<th></th>
                                     <th class="shoping__product">Products</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -194,6 +196,7 @@
                             		
 	                            		<c:forEach var="myCart" items="${myCartList }">
 			                                <tr>
+			                                	<td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
 			                                    <td class="shoping__cart__item">
 			                                        <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="85" height="85">
 			                                        <a href="${contextPath }/goods/goodsDetails?goodsCd=${myCart.goodsCd}"><h5>${myCart.goodsName }</h5></a>
@@ -233,20 +236,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="shoping__cart__btns">
                         <a href="${contextPath }/goods/goodsList?goodsCategory=all" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">

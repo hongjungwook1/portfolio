@@ -31,7 +31,7 @@
                                  </div>
                              </div>
                              <div align="center">
-								<button type="submit" class="site-btn"><span class="icon_plus"></span>로그인</button>
+								<button type="submit" class="site-btn"><span></span>로그인</button>
 							</div>
 	                        <p><div align="center">
 								회원이 아니시라면 

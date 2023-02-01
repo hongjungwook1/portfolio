@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                              <div align="center">
-	                        	<button type="submit" class="site-btn"><span class="icon_plus"></span>수정하기</button>
+	                        	<button type="submit" class="site-btn"><span></span>수정하기</button>
 	                        	<input type="hidden" value="${memberDto.memberId }" name="memberId">
 	                        </div>
                         </div>

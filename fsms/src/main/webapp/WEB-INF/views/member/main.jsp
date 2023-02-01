@@ -187,7 +187,7 @@ function processToCart(goodsCd) {
 		                            </ul>
 		                        </div>
 		                        <div class="featured__item__text">
-		                            <h6><a href="#">${goodsDto.goodsName }</a></h6>
+		                            <h6><a href="${contextPath }/goods/goodsDetails?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsName }</a></h6>
 		                            <h5><fmt:formatNumber value="${goodsDto.price }" /></h5>
 		                        </div>
 		                    </div>
