@@ -25,48 +25,44 @@
                         	</colgroup>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">컨텐트 번호</th>
-                                    <th>작성자</th>
-                                    <th>작성자 이메일</th>
-                                    <th>내용</th>
-                                    <th>작성일</th>
-                                    <th></th>
+                                    <th class="shoping__product">번호</th>
+                                    <th>주문자</th>
+                                    <th>상품 코드</th>
+                                    <th>주문 갯수</th>
+                                    <th>장바구니 등록일</th>
                                 </tr><tr>
                             </thead>
                             <tbody>
                             	<c:choose>
-                            		<c:when test="${empty contactList}">
+                            		<c:when test="${empty cartList}">
                             			<tr align="center" >
-                            				<td colspan="5">등록된 컨텐트가 없습니다!</td>
+                            				<td colspan="5">등록 된 장바구니가 없습니다!</td>
                             			</tr>
                             		</c:when>
                             		<c:otherwise>
                             		
-	                            		<c:forEach var="contactDto" items="${contactList }">
+	                            		<c:forEach var="cartDto" items="${cartList }">
 			                                <tr>
-			                                    <td class="shoping__cart__item"><a href="${contextPath }/contactDetail?contactCd=${contactDto.contactCd}">${contactDto.contactCd }</a></td>
+			                                    <td class="shoping__cart__item"><a href="#">${cartDto.cartCd }</a></td>
 			                                    <td class="shoping__cart__price">
 			                                      <div class="product__price" >
-			                                	 	 ${contactDto.name }			                                    
+			                                	 	 ${cartDto.memberId }			                                    
 			                                   	  </div>
 			                                    </td>
 			                                    <td class="shoping__cart__price">
 			                                      <div class="product__price" >
-			                                	 	 ${contactDto.email }			                                    
+			                                	 	 ${cartDto.goodsCd }			                                    
 			                                   	  </div>
 			                                    </td>
 			                                    <td class="shoping__cart__price">
 			                                      <div class="product__price" >
-			                                	 	 ${contactDto.content }			                                    
+			                                	 	 ${cartDto.cartQty }			                                    
 			                                   	  </div>
 			                                    </td>
 			                                    <td class="shoping__cart__price">
 			                                      <div class="product__price" >
-			                                	 	 <fmt:formatDate value="${contactDto.regDt }" pattern="yyyy-MM-dd"></fmt:formatDate>			                                    
+			                                	 	 <fmt:formatDate value="${cartDto.cartDate }" pattern="yyyy-MM-dd"></fmt:formatDate>			                                    
 			                                   	  </div>
-			                                    </td>
-			                                    <td class="shoping__cart__item__close">
-			                                        <a href="javascript:removeContact(${contactDto.contactCd});"><span class="icon_close" id="remove"></span></a>
 			                                    </td>
 			                                </tr>
 		                                </c:forEach>

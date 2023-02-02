@@ -16,11 +16,13 @@ public class AdminCartController {
 	private AdminCartService adminCartService;
 	
 	@RequestMapping(value="/cartList" , method=RequestMethod.GET)
-	public ModelAndView adminCartList () {
+	public ModelAndView adminCartList () throws Exception {
 		
-		return new ModelAndView("/admin/cart/cartList");
+		ModelAndView mv = new ModelAndView();
 		
-		
+		mv.setViewName("/admin/cart/cartList");
+		mv.addObject("cartList", adminCartService.getCartList());
+		return mv;
 	}
 	
 
