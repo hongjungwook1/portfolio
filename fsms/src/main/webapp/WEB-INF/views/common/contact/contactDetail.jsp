@@ -24,13 +24,13 @@
             <form action="${contextPath}/removeContact" method="get">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" value=${contactDto.name } >
+                        <input type="text" value=${contactDto.name } readonly>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" value=${contactDto.email }>
+                        <input type="text" value=${contactDto.email } readonly>
                     </div>
                     <div class="col-lg-12 text-center">
-                        <textarea>${contactDto.content }</textarea>
+                        <textarea readonly>${contactDto.content }</textarea>
                     </div>
                 </div>
             </form>

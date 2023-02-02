@@ -7,22 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-<script>
-
-	function removeContact(contactCd) {
-		
-		if (confirm("정말로 삭제하시겠습니까?")) {
-			location.href = "${contextPath}/removeContact?contactCd=" + contactCd;
-		}
-		
-	}
-
-</script>
 </head>
 <body>
 
-    <section class="shoping-cart spad">
+	 <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

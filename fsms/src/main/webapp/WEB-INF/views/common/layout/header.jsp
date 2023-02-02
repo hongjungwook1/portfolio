@@ -93,7 +93,7 @@
 		                     <ul>
 		                         <li class="active"><a href="${contextPath }/admin/adminMain">Home</a></li>
 		                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
-		                         <li><a href="#">CartList</a></li>
+		                         <li><a href="${contextPath }/admin/cartList">CartList</a></li>
 		                         <li><a href="${contaxtPath }/fsms/admin/order/orderList">OrderList</a></li>
 		                         <li><a href="${contextPath }/contactList">Contact</a></li>
 		                     </ul>

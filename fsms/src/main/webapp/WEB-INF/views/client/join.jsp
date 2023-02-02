@@ -209,9 +209,6 @@
                                  </div>
                              </div>
                              <br>
-                            
-                            
-                            
                               <div class="col-lg-12">
                                 <div class="checkout__input">
                                     <p>우편번호 <span>*</span></p>

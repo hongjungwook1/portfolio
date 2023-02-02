@@ -4,59 +4,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="${contextPath }/resources/bootstrap/js/jquery-3.3.1.min.js"></script>
-<script>
-	/*
-	
-	$().ready(function () {
-		
-		$("form").click(function () {
-		
-			var deleteMe = $("#deleteme").val();
-			var searchWord = "Deleteme";
-			
-			
-			if (deleteMe != searchWord) {
-				alert("Deleteme를 다시 적어주세요");
-			}
-			else {
-				alert("삭제 되었습니다");
-				location.href="${contextPath}/member/main";
-			}
-			
-		});
-		
-	});
-	*/
-	
-</script>
 <meta charset="UTF-8">
 <title>delete</title>
 </head>
 <body>
 
-	<div align="center">
-		<form action="${contextPath }/member/delete?memberId=${memberDto.memberId}" method="post">
-			<table border="1">
-				<tr>
-					<td>아이디</td>
-					<td>${memberDto.memberId }</td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td>${memberDto.memberName }</td>
-				</tr>
-				<tr>
-					<td>hp</td>
-					<td>${memberDto.hp }</td>
-				</tr>
-			</table>
-			<div align="center">
-				<input type="text" name="deleteMe" id="deleteMe" placeholder="DeleteMe를 따라 치세요."> DeleteMe를 따라 치세요.
-				<input type="submit" value="삭제하기">
-			</div>
-		</form>
-	</div>
-
+	<section class="checkout spad">
+        <div class="container">
+            <div class="row">
+            </div>
+            <div class="checkout__form">
+              <h2>회 원 탈 퇴</h2>
+				<form action="${contextPath }/member/delete?memberId=${memberDto.memberId}" method="post">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>아이디<span>*</span></p>
+                                    <input type="text" value="${memberDto.memberId }" readonly="readonly">
+                                </div>
+                            </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>이름<span>*</span></p>
+                                     <input type="text" value="${memberDto.memberName }" readonly="readonly">
+                                 </div>
+                             </div>
+                              <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__input">
+                                    <p>생년월일 <span>*</span></p>
+                                    <input type="date"  value="${memberDto.dateBirth }" readonly="readonly"/>
+                                </div>
+                            </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>핸드폰 번호<span>*</span></p>
+                                     <input type="text" value="${memberDto.hp }" readonly="readonly">
+                                 </div>
+                             </div>
+                             <div class="col-lg-12">
+                                 <div class="checkout__input">
+                                     <p>이메일<span>*</span></p>
+                                     <input type="email" value="${memberDto.email }" readonly="readonly">
+                                 </div>
+                             </div>
+                             <div align="center">
+								<button type="submit" class="site-btn">탈퇴하기</button>
+							</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
 </body>
 </html>

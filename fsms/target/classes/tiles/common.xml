@@ -60,6 +60,11 @@
 		<put-attribute name="title" value="adminDeleteGoods" />
 	</definition>
 	
+	<definition name="/admin/cart/cartList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/cart/cartList.jsp" />
+		<put-attribute name="title" value="adminCartList" />
+	</definition>
+	
 	<definition name="/client/join" extends="baselayout">
 		<put-attribute name="body" value="/WEB-INF/views/client/join.jsp" />
 		<put-attribute name="title" value="Join" />
