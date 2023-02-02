@@ -30,8 +30,10 @@
 		                                <div>관리자 로그인 중</div>
 		                                <span class="arrow_carrot-down"></span>
 		                                <ul>
-		                                    <li><a href="#">회원 정보 보기</a></li>
-		                                    <li><a href="#">상품 정보 보기</a></li>
+		                                    <li><a href="${contextPath }/admin/memberList">MemberList</a></li>
+		                                    <li><a href="${contextPath }/admin/cartList">CartList</a></li>
+		                                    <li><a href="${contaxtPath }/fsms/admin/order/orderList">OrderList</a></li>
+		                                    <li><a href="${contextPath }/contactList">ContactList</a></li>
 		                                </ul>
                         		  	 </div>
                             		<div class="header__top__right__auth">
@@ -60,8 +62,9 @@
 											<div>${memberId }님 환영합니다</div>
 											<span class="arrow_carrot-down"></span>
 											<ul>
-												<li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">정보 수정하기</a></li>
-												<li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">내 장바구니</a></li>
+												<li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
+												<li><a href="${contextPath }/cart/myCartList">My Cart</a></li>
+												<li><a href="${contextPath }/member/myOrderList">My Order</a></li>
 											</ul>
 										</div>
 										<div class="header__top__right__auth">
@@ -118,30 +121,6 @@
                 	</c:otherwise>
                 </c:choose>
                 
-               <!-- 
-       		    <div class="col-lg-6">
-                 <nav class="header__menu">
-                     <ul>
-                         <li class="active"><a href="${contextPath }/">Home</a></li>
-                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
-                         <li><a href="#">Pages</a>
-                             <ul class="header__menu__dropdown">
-                                 <li><a href="./shop-details.html">Shop Details</a></li>
-                                 <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                 <li><a href="./checkout.html">Check Out</a></li>
-                                 <li><a href="./blog-details.html">Blog Details</a></li>
-                             </ul>
-                         </li>
-                         <li><a href="./blog.html">Blog</a></li>
-                         <li><a href="./contact.html">Contact</a></li>
-                     </ul>
-                  </nav>
-	             </div>
-       		 
-                --> 
-       		 
-                
-                
                 <div class="col-lg-3">
                     <div class="header__cart">
                     	<c:choose>
@@ -166,8 +145,6 @@
             </div>
         </div>
     </header>
-
-
 
 </body>
 </html>
