@@ -66,6 +66,7 @@
                                 <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=lowPrice">최저 금액순</a></li>
                             </ul>
                         </div>
+                       
                         <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
@@ -77,7 +78,7 @@
                                 </div>
                                  <div class="range-slider">
                                     <div>
-                                        <p></p>
+                                     	<p></p>
                                         <span></span>
                                         <input type="text" id="minamount" style="border:none;" size="7" > ~ 
                                         <input type="text" id="maxamount" style="border:none;" size="7">
@@ -85,6 +86,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="sidebar__item">
                             <div class="latest-product__text">
                                 <h4>Latest Products</h4>

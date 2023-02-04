@@ -18,6 +18,6 @@ public class AdminCartDaoOImpl implements AdminCartDao {
 	public List<CartDto> selectCartList() throws Exception {
 		return sqlSession.selectList("adminCartMapper.selectCartList");
 	}
-	
+
 
 }

@@ -55,32 +55,31 @@ function processToCart(goodsCd) {
 	                        <c:choose>
 	                        	<c:when test="${sessionScope.memberId eq null }">
 			                        <ul>
-			                            <li><a href="${contextPath }/member/join">회원가입</a></li>
-			                            <li><a href="${contextPath }/member/login">로그인</a></li>
-			                            <li><a href="#">Fruit & Nut Gifts</a></li>
-			                            <li><a href="#">Fresh Berries</a></li>
-			                            <li><a href="#">Ocean Foods</a></li>
-			                            <li><a href="#">Butter & Eggs</a></li>
-			                            <li><a href="#">Fastfood</a></li>
-			                            <li><a href="#">Fresh Onion</a></li>
-			                            <li><a href="#">Papayaya & Crisps</a></li>
-			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">장바구니</a></li>
-			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">개인정보 수정</a></li>
+			                            <li><a href="${contextPath }/member/join">Sign Up</a></li>
+			                            <li><a href="${contextPath }/member/login">Login</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=beef">Beef</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">Lamb</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=pork">Pork</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">Chicken</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">Duck Meat</a></li>
+			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
+			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
+			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
+			                            <li><a href="${contextPath }/contact">Contact</a></li>
 			                        </ul>
 	                        	</c:when>
 	                        	<c:otherwise>
 			                        <ul>
-			                            <li><a href="#">Fresh Meat</a></li>
-			                            <li><a href="#">Vegetables</a></li>
-			                            <li><a href="#">Fruit & Nut Gifts</a></li>
-			                            <li><a href="#">Fresh Berries</a></li>
-			                            <li><a href="#">Ocean Foods</a></li>
-		                                <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">장바구니</a></li>
-			                            <li><a href="#">Fastfood</a></li>
-			                            <li><a href="#">Fresh Onion</a></li>
-			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">주문 내역</a></li>
-			                            <li><a href="${contextPath }/member/delete?memberId=${sessionScope.memberId}">회원 탈퇴</a></li>
-			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">개인정보 수정</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=beef">Beef</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">Lamb</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=pork">Pork</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">Chicken</a></li>
+			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">Duck Meat</a></li>
+			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
+			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
+			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
+			                        	<li><a href="${contextPath }/contact">Contact</a></li>
+			                            <li><a href="${contextPath }/member/delete?memberId=${sessionScope.memberId}">WithDraw</a></li>
 			                        </ul>
 	                        	</c:otherwise>
 	                        </c:choose>

@@ -43,7 +43,7 @@
                             		
 	                            		<c:forEach var="cartDto" items="${cartList }">
 			                                <tr>
-			                                    <td class="shoping__cart__item"><a href="#">${cartDto.cartCd }</a></td>
+			                                    <td class="shoping__cart__item">${cartDto.cartCd }</td>
 			                                    <td class="shoping__cart__price">
 			                                      <div class="product__price" >
 			                                	 	 ${cartDto.memberId }			                                    
