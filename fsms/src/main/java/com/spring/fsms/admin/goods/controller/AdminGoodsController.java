@@ -33,12 +33,12 @@ public class AdminGoodsController {
 	@Autowired
 	private GoodsService goodsService;
 	
-	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
-	private final String SEPERATOR = "\\";
+	//private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+	//private final String SEPERATOR = "\\";
 	
-	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
-//	private final String SEPERATOR = "//";
-	
+	private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
+	private final String SEPERATOR = "//";
+
 	
 	@RequestMapping(value="adminMain" , method=RequestMethod.GET)
 	public ModelAndView adminMain () throws Exception{
