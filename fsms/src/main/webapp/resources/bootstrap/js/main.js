@@ -175,7 +175,7 @@
         slide: function (event, ui) {
             minamount.val(ui.values[0] + "원");
             maxamount.val(ui.values[1] + "원");
-        }
+        } 
     });
     minamount.val(rangeSlider.slider("values", 0) + '원');
     maxamount.val(rangeSlider.slider("values", 1) + '원');
