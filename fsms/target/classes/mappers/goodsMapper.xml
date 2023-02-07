@@ -3,6 +3,53 @@
 
 <mapper namespace="goodsMapper">
 		
+	<select id="selectViewCnt" parameterType="hashmap" resultType="int">
+		<choose>
+					<when test='searchWord != null &amp;&amp; searchWord.equals("")'>
+						SELECT
+								COUNT(*)
+						FROM
+								GOODS
+					</when>
+					<otherwise>
+						SELECT
+								COUNT(*)
+						FROM
+								GOODS
+						WHERE
+								GOODS_NAME 		LIKE CONCAT ('%' , #{word} , '%') OR
+								GOODS_INFO 	 	LIKE CONCAT ('%' , #{word} , '%') OR
+								GOODS_ORIGIN	LIKE CONCAT ('%' , #{word} , '%') OR
+								GOODS_CATEGORY  LIKE CONCAT ('%' , #{word} , '%') 
+					</otherwise>
+		</choose>
+	</select>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	<select id="selectListGoods" parameterType="GoodsDto" resultType="GoodsDto">
 		SELECT
 				*
@@ -15,7 +62,7 @@
 			<if test='goodsCategory.equals("all")'>
 				GOODS_CATEGORY IN ('beef' , 'lamb' , 'pork' , 'chicken' , 'duckMeat');
 			</if>
-		</where>				
+		</where>
 	</select>
 	
 	

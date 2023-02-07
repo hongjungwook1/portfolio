@@ -35,5 +35,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDao.selectSearchGoods(searchMap);
 	}
 
+	@Override
+	public int getTotalViewCount(Map<String, Object> searchMap) throws Exception {
+		return goodsDao.selectViewCnt(searchMap);
+	}
+
 	
 }

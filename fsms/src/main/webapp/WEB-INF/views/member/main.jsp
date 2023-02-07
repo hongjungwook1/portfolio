@@ -93,7 +93,7 @@ function processToCart(goodsCd) {
                                     All Categories
                                 </div>
                                 <input type="text" placeholder="What do yo u need?" name="word">
-                                <input type="hidden" name="method" value="search">
+                                <input type="hidden" name="searchKeyword" value="searchWord">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -112,7 +112,7 @@ function processToCart(goodsCd) {
                             <span>FRUIT MEAT</span>
                             <h2>Food Stuffs <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="${contextPath }/goods/goodsList?goodsCategory=all" class="primary-btn">SHOP NOW</a>
+                            <a href="${contextPath }/goods/goodsList" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
                 </div>

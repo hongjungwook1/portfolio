@@ -175,9 +175,9 @@
                     </div>
                     
                     <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
+                        <c:forEach var="i" begin="${startPage}" end="${endPage }" >
+	          				<a href="${contextPath }/goods/goodsList?currentPageNumber=${i}&onePageViewCount=${onePageViewCount}&searchKeyword=${searchKeyword}&searchWord=${searchWord}">${i} </a>
+	          			</c:forEach>
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>

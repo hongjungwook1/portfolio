@@ -35,5 +35,10 @@ public class GoodsDaoImpl implements GoodsDao {
 		return sqlSession.selectList("goodsMapper.selectGetSearchGoods" , searchMap);
 	}
 
+	@Override
+	public int selectViewCnt(Map<String, Object> searchMap) throws Exception {
+		return sqlSession.selectOne("goodsMapper.selectViewCnt" , searchMap);
+	}
+
 	
 }
