@@ -16,7 +16,7 @@ public class GoodsServiceImpl implements GoodsService {
 	private GoodsDao goodsDao;
 
 	@Override
-	public List<GoodsDto> getGoodsList(Map<String, String> goodsList) throws Exception {
+	public List<GoodsDto> getGoodsList(Map<String, Object> goodsList) throws Exception {
 		return goodsDao.selectGoodsList(goodsList);
 	}
 
@@ -33,11 +33,6 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public List<GoodsDto> getSearchGoods(Map<String, Object> searchMap) throws Exception {
 		return goodsDao.selectSearchGoods(searchMap);
-	}
-
-	@Override
-	public int getTotalViewCount(Map<String, Object> searchMap) throws Exception {
-		return goodsDao.selectViewCnt(searchMap);
 	}
 
 	

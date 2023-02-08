@@ -92,9 +92,12 @@ function processToCart(goodsCd) {
                                 <div class="hero__search__categories">
                                     All Categories
                                 </div>
+                                <!-- 
+                                
                                 <input type="text" placeholder="What do yo u need?" name="word">
                                 <input type="hidden" name="searchKeyword" value="searchWord">
                                 <button type="submit" class="site-btn">SEARCH</button>
+                                 -->
                             </form>
                         </div>
                         <div class="hero__search__phone">

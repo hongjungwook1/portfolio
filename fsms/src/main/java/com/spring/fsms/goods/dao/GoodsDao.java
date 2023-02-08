@@ -7,8 +7,7 @@ import com.spring.fsms.goods.dto.GoodsDto;
 
 public interface GoodsDao {
 
-	public List<GoodsDto> selectGoodsList (Map<String,String> goodsList) throws Exception;
-	public int selectViewCnt (Map<String, Object> searchMap) throws Exception;
+	public List<GoodsDto> selectGoodsList (Map<String,Object> goodsList) throws Exception;
 	public GoodsDto selectGetOneGoods(int goodsCd) throws Exception;
 	public int selectGetGoodsCnt() throws Exception;
 	public List<GoodsDto> selectSearchGoods (Map<String,Object> searchMap) throws Exception;
