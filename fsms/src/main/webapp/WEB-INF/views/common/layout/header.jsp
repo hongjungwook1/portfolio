@@ -111,8 +111,8 @@
 		                     <ul>
 		                         <li class="active"><a href="${contextPath }/">Home</a></li>
 		                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
-		                         <li><a href="${contaxtPath }/fsms/cart/myCartList">My Cart</a></li>
-		                         <li><a href="${contaxtPath }/fsms/member/myOrderList">My Order</a></li>
+		                         <li><a href="${contaxtPath }/fsms/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
+		                         <li><a href="${contaxtPath }/fsms/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 		                         <li><a href="${contextPath }/contact">Contact</a></li>
 		                     </ul>
 		                  </nav>
