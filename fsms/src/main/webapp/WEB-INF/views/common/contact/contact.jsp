@@ -24,7 +24,7 @@
                     <div class="contact__widget">
                         <span class="icon_pin_alt"></span>
                         <h4>Address</h4>
-                        <p>60-49 Road 11378 New York</p>
+                        <p>서울 특별시 강동구 천호대로 1077 래미안 강동 팰리스</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
@@ -46,25 +46,22 @@
     </section>
     <!-- Contact Section End -->
 
-    <!-- Map Begin -->
-    <div class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
-            height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        <div class="map-inside">
-            <i class="icon_pin"></i>
-            <div class="inside-widget">
-                <h4>New York</h4>
-                <ul>
-                    <li>Phone: +12-345-6789</li>
-                    <li>Add: 16 Creek Ave. Farmingdale, NY</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Map End -->
-
-    <!-- Contact Form Begin -->
+	 <div class="map" align="center">
+		<div id="daumRoughmapContainer1676093151473" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+		
+		<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+		
+		<!-- 3. 실행 스크립트 -->
+		<script charset="UTF-8">
+			new daum.roughmap.Lander({
+				"timestamp" : "1676093151473",
+				"key" : "2dpp9",
+				"mapWidth" : "1000",
+				"mapHeight" : "500"
+			}).render();
+		</script>
+	 </div>
+	 
     <div class="contact-form spad">
         <div class="container">
             <div class="row">

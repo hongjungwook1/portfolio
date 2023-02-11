@@ -17,7 +17,7 @@
                             <a href="./index.html"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>서울 특별시 강동구 천호대로 1077</li>
                             <li>Phone: +82 010.5129.1633</li>
                             <li>Email: wjddnr0208@naver.com</li>
                         </ul>
@@ -32,8 +32,8 @@
                         </ul>
                         <ul>
                             <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
-                            <li><a href="${contextPath }/cart/myCartList">My Cart</a></li>
-                            <li><a href="${contextPath }/member/myOrderList">My Order</a></li>
+                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
+                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
                         </ul>
                     </div>
                 </div>
