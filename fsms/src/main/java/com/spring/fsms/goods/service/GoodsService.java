@@ -7,9 +7,9 @@ import com.spring.fsms.goods.dto.GoodsDto;
 
 public interface GoodsService {
 	
-	public List<GoodsDto> getGoodsList(Map<String,Object> goodsList) throws Exception;
+	public List<GoodsDto> getGoodsList(Map<String,Object> searchInfo) throws Exception;
+	public int getTotalGoodsCount(Map<String, String> searchCountInfo) throws Exception;
 	public GoodsDto getOneGoods(int goodsCd) throws Exception;
-	public int getGoodCnt() throws Exception;
 	public List<GoodsDto> getSearchGoods(Map<String,Object> searchMap) throws Exception;
 	
 }

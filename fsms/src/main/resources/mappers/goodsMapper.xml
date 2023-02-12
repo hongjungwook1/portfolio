@@ -2,8 +2,128 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="goodsMapper">
-		
-	<select id="selectListGoods" parameterType="GoodsDto" resultType="GoodsDto">
+
+	<select id="selectGoodsCount" parameterType="hashmap" resultType="int">
+		<choose>
+			<when test='searchKeyword.equals("total")'>
+				<choose>
+					<when test='searchWord.equals("")'>
+						SELECT 
+								COUNT(*) 
+						FROM 
+								GOODS
+					</when>
+					<otherwise>
+						SELECT 
+								COUNT(*) 
+						FROM 
+								GOODS
+						WHERE
+								GOODS_NAME 		LIKE CONCAT ('%' , #{searchWord} , '%') OR
+								GOODS_INFO 	 	LIKE CONCAT ('%' , #{searchWord} , '%') OR
+								GOODS_ORIGIN	LIKE CONCAT ('%' , #{searchWord} , '%') OR
+								GOODS_CATEGORY  LIKE CONCAT ('%' , #{searchWord} , '%')
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				SELECT 
+						COUNT(*) 
+				FROM 
+						GOODS
+			</otherwise>
+		</choose>	
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<select id="selectListGoods" parameterType="hashmap" resultType="GoodsDto">
+		<choose>
+			<when test='searchKeyword.equals("total")'>
+				<choose>
+					<when test='searchWord.equals("")'>
+						SELECT
+								*
+						FROM
+								GOODS
+						LIMIT 
+								#{startGoodsIdx} , #{onePageViewCount}
+					</when>
+					<otherwise>
+						SELECT 
+								*
+						FROM
+								GOODS
+						WHERE
+								GOODS_NAME 		LIKE CONCAT ('%' , #{searchWord} , '%') OR
+								GOODS_INFO 	 	LIKE CONCAT ('%' , #{searchWord} , '%') OR
+								GOODS_ORIGIN	LIKE CONCAT ('%' , #{searchWord} , '%') OR
+								GOODS_CATEGORY  LIKE CONCAT ('%' , #{searchWord} , '%')
+						LIMIT 
+								#{startGoodsIdx},#{onePageViewCount}
+					</otherwise>
+				</choose>
+			</when>
+			<otherwise>
+				SELECT
+						*
+				FROM
+						GOODS
+				<where>
+					<if test='!goodsCategory.equals("all")'>
+						GOODS_CATEGORY = #{goodsCategory}
+					</if>
+					<if test='goodsCategory.equals("all")'>
+						GOODS_CATEGORY IN ('beef' , 'lamb' , 'pork' , 'chicken' , 'duckMeat');
+					</if>
+				</where>		
+				LIMIT
+						#{startGoodsIdx} , #{onePageViewCount}
+			</otherwise>
+		</choose>
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- 
+	<select id="selectListByCategoryGoods" parameterType="GoodsDto" resultType="GoodsDto">
 		SELECT
 				*
 		FROM
@@ -18,6 +138,7 @@
 		</where>
 	</select>
 	
+	 -->
 	
 	<select id="selectGetOneGoods" parameterType="int" resultType="GoodsDto">
 		SELECT
@@ -27,14 +148,6 @@
 		WHERE
 				GOODS_CD = #{goodsCd}
 	</select>
-	
-	<select id="selectGetGoodsCnt" resultType="int" parameterType="int">
-		SELECT 
-				COUNT(*) 
-		FROM 
-				GOODS
-	</select>
-	
 	
 	<select id="selectGetSearchGoods" resultType="GoodsDto" parameterType="hashmap">
 
@@ -61,18 +174,6 @@
 					PRICE ASC
 				</if>
 		</if>
-		<if test='method == "search"'>
-			SELECT
-					*
-			FROM
-					GOODS
-			WHERE
-					GOODS_NAME 		LIKE CONCAT ('%' , #{word} , '%') OR
-					GOODS_INFO 	 	LIKE CONCAT ('%' , #{word} , '%') OR
-					GOODS_ORIGIN	LIKE CONCAT ('%' , #{word} , '%') OR
-					GOODS_CATEGORY  LIKE CONCAT ('%' , #{word} , '%') 
-		</if>
-				
 	</select>
 	
 	

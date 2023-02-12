@@ -16,8 +16,8 @@ public class GoodsDaoImpl implements GoodsDao {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<GoodsDto> selectGoodsList(Map<String, Object> goodsList) throws Exception {
-		return sqlSession.selectList("goodsMapper.selectListGoods", goodsList);
+	public List<GoodsDto> selectGoodsList(Map<String, Object> searchInfo) throws Exception {
+		return sqlSession.selectList("goodsMapper.selectListGoods", searchInfo);
 	}
 
 	@Override
@@ -26,13 +26,13 @@ public class GoodsDaoImpl implements GoodsDao {
 	}
 
 	@Override
-	public int selectGetGoodsCnt() throws Exception {
-		return sqlSession.selectOne("goodsMapper.selectGetGoodsCnt");
+	public List<GoodsDto> selectSearchGoods(Map<String, Object> searchMap) throws Exception {
+		return sqlSession.selectList("goodsMapper.selectGetSearchGoods" , searchMap);
 	}
 
 	@Override
-	public List<GoodsDto> selectSearchGoods(Map<String, Object> searchMap) throws Exception {
-		return sqlSession.selectList("goodsMapper.selectGetSearchGoods" , searchMap);
+	public int selectGoodsCount(Map<String, String> searchCountInfo) throws Exception {
+		return sqlSession.selectOne("goodsMapper.selectGoodsCount" , searchCountInfo);
 	}
 
 }

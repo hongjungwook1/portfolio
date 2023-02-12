@@ -47,7 +47,6 @@
 </head>
 <body>
 
-
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
@@ -131,7 +130,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>${totalViewCount }</span> Products found</h6>
+                                    <h6><span>${totalGoodsCnt }</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">

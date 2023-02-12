@@ -88,18 +88,18 @@ function processToCart(goodsCd) {
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="${contaxtPath }/fsms/goods/searchGoods" method="get">
+                            <form action="${contaxtPath }/fsms/goods/goodsList" method="get">
                                 <div class="hero__search__categories">
                                     All Categories
                                 </div>
-                                <!-- 
-                                
-                                <input type="text" placeholder="What do yo u need?" name="word">
-                                <input type="hidden" name="searchKeyword" value="searchWord">
+                                <input type="text" placeholder="What do yo u need?" id="searchWord" name="searchWord" value="${searchWord}" >
                                 <button type="submit" class="site-btn">SEARCH</button>
-                                 -->
                             </form>
                         </div>
+                        
+                        
+                        
+                        
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>

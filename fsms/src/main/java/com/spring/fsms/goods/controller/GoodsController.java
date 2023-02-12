@@ -27,19 +27,120 @@ public class GoodsController {
 	@Autowired
 	private CommonService commonService;
 	
-	
 	@RequestMapping(value="/goodsList" , method=RequestMethod.GET)
-	public ModelAndView goodsList(@RequestParam Map<String,Object> goodsListMap) throws Exception {
+	public ModelAndView goodsList(@RequestParam(name = "onePageViewCount"  , defaultValue = "9")    int onePageViewCount,
+								  @RequestParam(name = "currentPageNumber" , defaultValue = "1")     int currentPageNumber,
+								  @RequestParam(name = "searchKeyword"     , defaultValue = "total") String searchKeyword,
+								  @RequestParam(name = "searchWord"        , defaultValue = "")      String searchWord) throws Exception {
+		
 		
 		ModelAndView mv = new ModelAndView();
-		
 		mv.setViewName("/goods/goodsList");
-		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
-		mv.addObject("goodsCnt", goodsService.getGoodCnt());
+		
+		int startGoodsIdx =  (currentPageNumber -1) * onePageViewCount + 1;
+		if (currentPageNumber == 1) startGoodsIdx = 0;
+		
+		Map<String, Object> searchInfo = new HashMap<String, Object>();
+		searchInfo.put("onePageViewCount" , onePageViewCount);
+		searchInfo.put("startGoodsIdx"    , startGoodsIdx);
+		searchInfo.put("searchKeyword"    , searchKeyword);
+		searchInfo.put("searchWord"       , searchWord);
+		List<GoodsDto> goodsList = goodsService.getGoodsList(searchInfo);
+		
+		Map<String, String> searchCountInfo = new HashMap<String, String>();
+		searchCountInfo.put("searchKeyword", searchKeyword);
+		searchCountInfo.put("searchWord", searchWord);
+		
+		int totalGoodsCnt = goodsService.getTotalGoodsCount(searchCountInfo);
+		int addPage = totalGoodsCnt % onePageViewCount == 0 ? 0 : 1; 	
+		int totalPageCount = totalGoodsCnt / onePageViewCount + addPage;
+		
+		
+		int startPage = 1;
+		
+		if (currentPageNumber % 10 == 0) startPage = (currentPageNumber / 10 - 1) * 10 + 1;
+		else 							 startPage = (currentPageNumber / 10) * 10 + 1;							
+		
+		int endPage = startPage + 9;
+			
+		if (endPage > totalPageCount) {
+			endPage = totalPageCount;
+		}
+		
+		if (onePageViewCount > totalGoodsCnt) {
+			startPage = 1;
+			endPage = 0;
+		}
+		
+				
+		mv.addObject("startPage"         , startPage);
+		mv.addObject("endPage"           , endPage);
+		mv.addObject("totalGoodsCnt"     , totalGoodsCnt);
+		mv.addObject("onePageViewCount"  , onePageViewCount);
+		mv.addObject("currentPageNumber" , currentPageNumber);
+		mv.addObject("searchKeyword"     , searchKeyword);
+		mv.addObject("searchWord"        , searchWord);
+		mv.addObject("goodsList"         , goodsList);		
 		mv.addObject("latestList", commonService.getlatestGoodsInfo());
 		
+		
 		return mv;
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	@RequestMapping(value="/goodsList" , method=RequestMethod.GET)
+//	public ModelAndView goodsList(@RequestParam Map<String,Object> goodsListMap) throws Exception {
+//		
+//		ModelAndView mv = new ModelAndView();
+//		
+//		mv.setViewName("/goods/goodsList");
+//		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
+//		mv.addObject("goodsCnt", goodsService.getGoodCnt());
+//		mv.addObject("latestList", commonService.getlatestGoodsInfo());
+//		
+//		return mv;
+//	}
 	
 	@RequestMapping(value="/goodsDetails" , method=RequestMethod.GET)
 	public ModelAndView goodsDetails(@RequestParam("goodsCd") int goodsCd) throws Exception {
