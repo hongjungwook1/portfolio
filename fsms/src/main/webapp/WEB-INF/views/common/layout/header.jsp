@@ -95,7 +95,7 @@
 		                 <nav class="header__menu">
 		                     <ul>
 		                         <li class="active"><a href="${contextPath }/admin/adminMain">Home</a></li>
-		                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
+		                         <li><a href="${contextPath }/goods/goodsList">Shop</a></li>
 		                         <li><a href="${contextPath }/admin/cartList">CartList</a></li>
 		                         <li><a href="${contaxtPath }/fsms/admin/order/orderList">OrderList</a></li>
 		                         <li><a href="${contextPath }/contactList">Contact</a></li>
@@ -110,7 +110,7 @@
 		                 <nav class="header__menu">
 		                     <ul>
 		                         <li class="active"><a href="${contextPath }/">Home</a></li>
-		                         <li><a href="${contextPath }/goods/goodsList?goodsCategory=all">Shop</a></li>
+		                         <li><a href="${contextPath }/goods/goodsList">Shop</a></li>
 		                         <li><a href="${contaxtPath }/fsms/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
 		                         <li><a href="${contaxtPath }/fsms/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 		                         <li><a href="${contextPath }/contact">Contact</a></li>

@@ -83,64 +83,21 @@ public class GoodsController {
 		mv.addObject("goodsList"         , goodsList);		
 		mv.addObject("latestList", commonService.getlatestGoodsInfo());
 		
-		
 		return mv;
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	@RequestMapping(value="/goodsList" , method=RequestMethod.GET)
-//	public ModelAndView goodsList(@RequestParam Map<String,Object> goodsListMap) throws Exception {
-//		
-//		ModelAndView mv = new ModelAndView();
-//		
-//		mv.setViewName("/goods/goodsList");
-//		mv.addObject("goodsList", goodsService.getGoodsList(goodsListMap));
-//		mv.addObject("goodsCnt", goodsService.getGoodCnt());
-//		mv.addObject("latestList", commonService.getlatestGoodsInfo());
-//		
-//		return mv;
-//	}
+	@RequestMapping(value="/goodsCategory" , method=RequestMethod.GET)
+	public ModelAndView goodsList(@RequestParam Map<String,Object> goodsListMap) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/goods/goodsCategoryList");
+		mv.addObject("goodsList", goodsService.getGoodsCategoryList(goodsListMap));
+		mv.addObject("latestList", commonService.getlatestGoodsInfo());
+		
+		return mv;
+	}
 	
 	@RequestMapping(value="/goodsDetails" , method=RequestMethod.GET)
 	public ModelAndView goodsDetails(@RequestParam("goodsCd") int goodsCd) throws Exception {

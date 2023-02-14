@@ -90,6 +90,11 @@
 		<put-attribute name="title" value="goodsList"/>
 	</definition>
 	
+	<definition name="/goods/goodsCategory" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/goods/goodsCategoryList.jsp"/>
+		<put-attribute name="title" value="goodsCategoryList"/>
+	</definition>
+	
 	<definition name="/goods/goodsDetails" extends="baselayout">
 		<put-attribute name="body" value="/WEB-INF/views/goods/goodsDetails.jsp"/>
 		<put-attribute name="title" value="goodsDetail" />

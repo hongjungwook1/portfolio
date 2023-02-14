@@ -57,11 +57,7 @@ function processToCart(goodsCd) {
 			                        <ul>
 			                            <li><a href="${contextPath }/member/join">Sign Up</a></li>
 			                            <li><a href="${contextPath }/member/login">Login</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=beef">Beef</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">Lamb</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=pork">Pork</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">Chicken</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">Duck Meat</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=beef">Beef</a></li>
 			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
 			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
@@ -70,11 +66,6 @@ function processToCart(goodsCd) {
 	                        	</c:when>
 	                        	<c:otherwise>
 			                        <ul>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=beef">Beef</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">Lamb</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=pork">Pork</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">Chicken</a></li>
-			                            <li><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">Duck Meat</a></li>
 			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
 			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
@@ -96,10 +87,6 @@ function processToCart(goodsCd) {
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        
-                        
-                        
-                        
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
                                 <i class="fa fa-phone"></i>

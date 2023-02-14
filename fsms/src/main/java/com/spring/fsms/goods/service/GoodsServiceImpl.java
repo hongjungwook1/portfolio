@@ -35,5 +35,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDao.selectGoodsCount(searchCountInfo);
 	}
 
+	@Override
+	public List<GoodsDto> getGoodsCategoryList(Map<String, Object> goodsListMap) throws Exception {
+		return goodsDao.selectGetGoodsCategory(goodsListMap);
+	}
+
 	
 }

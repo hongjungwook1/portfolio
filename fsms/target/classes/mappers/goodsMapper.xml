@@ -35,20 +35,6 @@
 		</choose>	
 	</select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<select id="selectListGoods" parameterType="hashmap" resultType="GoodsDto">
 		<choose>
 			<when test='searchKeyword.equals("total")'>
@@ -96,34 +82,7 @@
 	</select>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- 
-	<select id="selectListByCategoryGoods" parameterType="GoodsDto" resultType="GoodsDto">
+	<select id="selectGetGoodsCategory" parameterType="GoodsDto" resultType="GoodsDto">
 		SELECT
 				*
 		FROM
@@ -137,8 +96,6 @@
 			</if>
 		</where>
 	</select>
-	
-	 -->
 	
 	<select id="selectGetOneGoods" parameterType="int" resultType="GoodsDto">
 		SELECT
