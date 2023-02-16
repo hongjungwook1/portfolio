@@ -12,5 +12,6 @@ public interface GoodsService {
 	public GoodsDto getOneGoods(int goodsCd) throws Exception;
 	public List<GoodsDto> getSearchGoods(Map<String,Object> searchMap) throws Exception;
 	public List<GoodsDto> getGoodsCategoryList (Map<String, Object> goodsListMap) throws Exception;
+	public int getTotalGoodsCnt(String goodsCategory) throws Exception;
 	
 }

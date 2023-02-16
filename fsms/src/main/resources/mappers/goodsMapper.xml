@@ -91,10 +91,16 @@
 			<if test='!goodsCategory.equals("all")'>
 				GOODS_CATEGORY = #{goodsCategory}
 			</if>
-			<if test='goodsCategory.equals("all")'>
-				GOODS_CATEGORY IN ('beef' , 'lamb' , 'pork' , 'chicken' , 'duckMeat');
-			</if>
 		</where>
+	</select>
+	
+	<select id="selectTotalGoodsCnt" resultType="int" parameterType="GoodsDto">
+		SELECT
+				COUNT(*)
+		FROM
+				GOODS
+		WHERE
+				GOODS_CATEGORY = #{goodsCategory}		
 	</select>
 	
 	<select id="selectGetOneGoods" parameterType="int" resultType="GoodsDto">

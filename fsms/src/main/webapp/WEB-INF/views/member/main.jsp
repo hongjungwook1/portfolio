@@ -58,6 +58,10 @@ function processToCart(goodsCd) {
 			                            <li><a href="${contextPath }/member/join">Sign Up</a></li>
 			                            <li><a href="${contextPath }/member/login">Login</a></li>
 			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=beef">Beef</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=lamb">Lamb</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=pork">Pork</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=chicken">Chicken</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=duckMeat">Duck Meat</a></li>
 			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
 			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
@@ -66,6 +70,11 @@ function processToCart(goodsCd) {
 	                        	</c:when>
 	                        	<c:otherwise>
 			                        <ul>
+			                         	<li><a href="${contextPath }/goods/goodsCategory?goodsCategory=beef">Beef</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=lamb">Lamb</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=pork">Pork</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=chicken">Chicken</a></li>
+			                            <li><a href="${contextPath }/goods/goodsCategory?goodsCategory=duckMeat">Duck Meat</a></li>
 			                            <li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
 			                            <li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 			                            <li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
@@ -118,27 +127,27 @@ function processToCart(goodsCd) {
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/한우-모듬.jpg">
-                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=beef">Beef</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsCategory?goodsCategory=beef">Beef</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/양고기-모듬.jpg">
-                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=lamb">Lamb</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsCategory?goodsCategory=lamb">Lamb</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/돼지고기메인.jpg">
-                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=pork">Pork</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsCategory?goodsCategory=pork">Pork</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/닭메인.jpg">
-                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=chicken">Chicken</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsCategory?goodsCategory=chicken">Chicken</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="${contextPath }/resources/bootstrap/img/categories/오리메인.jpg">
-                            <h5><a href="${contextPath }/goods/goodsList?goodsCategory=duckMeat">Duck Meat</a></h5>
+                            <h5><a href="${contextPath }/goods/goodsCategory?goodsCategory=duckMeat">Duck Meat</a></h5>
                         </div>
                     </div>
                 </div>

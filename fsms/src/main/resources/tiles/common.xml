@@ -92,7 +92,12 @@
 	
 	<definition name="/goods/goodsCategory" extends="baselayout">
 		<put-attribute name="body" value="/WEB-INF/views/goods/goodsCategoryList.jsp"/>
-		<put-attribute name="title" value="goodsCategoryList"/>
+		<put-attribute name="title" value="goodsCateogoryList"/>
+	</definition>
+	
+	<definition name="/goods/goodsSearchList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/goods/goodsSearchList.jsp"/>
+		<put-attribute name="title" value="goodsSearchList"/>
 	</definition>
 	
 	<definition name="/goods/goodsDetails" extends="baselayout">

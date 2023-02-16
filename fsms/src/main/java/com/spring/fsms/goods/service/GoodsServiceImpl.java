@@ -40,5 +40,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsDao.selectGetGoodsCategory(goodsListMap);
 	}
 
+	@Override
+	public int getTotalGoodsCnt(String goodsCategory) throws Exception {
+		return goodsDao.selectTotalGoodsCnt(goodsCategory);
+	}
+
 	
 }

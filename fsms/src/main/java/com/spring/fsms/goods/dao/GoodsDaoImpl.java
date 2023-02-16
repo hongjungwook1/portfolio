@@ -40,4 +40,9 @@ public class GoodsDaoImpl implements GoodsDao {
 		return sqlSession.selectList("goodsMapper.selectGetGoodsCategory" , goodsListMap);
 	}
 
+	@Override
+	public int selectTotalGoodsCnt(String goodsCategory) throws Exception {
+		return sqlSession.selectOne("goodsMapper.selectTotalGoodsCnt" ,goodsCategory);
+	}
+
 }

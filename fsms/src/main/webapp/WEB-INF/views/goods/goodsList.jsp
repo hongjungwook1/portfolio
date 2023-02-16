@@ -54,8 +54,13 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Sort By</h4>
+                            <h4>Category & Sort By</h4>
                             <ul>
+                                <li><a href="${contaxtPath }/fsms/goods/goodsCategory?goodsCategory=beef">소 고기</a></li>
+                                <li><a href="${contaxtPath }/fsms/goods/goodsCategory?goodsCategory=lamb">양 고기</a></li>
+                                <li><a href="${contaxtPath }/fsms/goods/goodsCategory?goodsCategory=chicken">닭 고기</a></li>
+                                <li><a href="${contaxtPath }/fsms/goods/goodsCategory?goodsCategory=pork">돼지 고기</a></li>
+                                <li><a href="${contaxtPath }/fsms/goods/goodsCategory?goodsCategory=duckMeat">오리 고기</a></li>
                                 <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=highPrice">최고 금액순</a></li>
                                 <li><a href="${contaxtPath }/fsms/goods/searchGoods?method=keyword&keyword=lowPrice">최저 금액순</a></li>
                             </ul>

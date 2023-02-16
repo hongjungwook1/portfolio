@@ -12,5 +12,6 @@ public interface GoodsDao {
 	public GoodsDto selectGetOneGoods(int goodsCd) throws Exception;
 	public List<GoodsDto> selectSearchGoods (Map<String,Object> searchMap) throws Exception;
 	public List<GoodsDto> selectGetGoodsCategory (Map<String,Object> goodsListMap) throws Exception;
+	public int selectTotalGoodsCnt(String goodsCategory) throws Exception;
 	
 }
