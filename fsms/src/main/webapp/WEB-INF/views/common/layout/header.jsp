@@ -63,8 +63,8 @@
 											<span class="arrow_carrot-down"></span>
 											<ul>
 												<li><a href="${contextPath }/member/update?memberId=${sessionScope.memberId}">My Info</a></li>
-												<li><a href="${contextPath }/cart/myCartList">My Cart</a></li>
-												<li><a href="${contextPath }/member/myOrderList">My Order</a></li>
+												<li><a href="${contextPath }/cart/myCartList?memberId=${sessionScope.memberId}">My Cart</a></li>
+												<li><a href="${contextPath }/member/myOrderList?memberId=${sessionScope.memberId}">My Order</a></li>
 											</ul>
 										</div>
 										<div class="header__top__right__auth">

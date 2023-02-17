@@ -247,7 +247,7 @@
                         <ul>
                             <li>Total <span id="totalPrice"></span></li>
                         </ul>
-                        <a href="javascript:processOrderCart()" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="javascript:processOrderCart()" class="primary-btn">ORDER NOW</a>
                     </div>
                 </div>
             </div>
