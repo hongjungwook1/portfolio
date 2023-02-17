@@ -96,7 +96,6 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
                         </div>
                         <div class="product__details__price"><fmt:formatNumber value="${goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100) }" /></div>
                         <p>${goodsDto.goodsInfo }</p>
@@ -120,13 +119,8 @@
                         	</c:choose>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
                             <li><b>Weight</b> <span>0.6 kg</span></li>
-                            <li><b>Share on</b>
-                                <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </div>
+                            <li><b>Origin</b>
+                            	<span>${goodsDto.goodsOrigin }산</span>
                             </li>
                         </ul>
                     </div>
@@ -143,7 +137,6 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
                                     <h6>Products Description & Infomation</h6>
-                                    <h3>${goodsDto.goodsOrigin }산</h3>
                                     <br><br>
                                     <p>${goodsDto.goodsInfo }</p>
                                 </div>
