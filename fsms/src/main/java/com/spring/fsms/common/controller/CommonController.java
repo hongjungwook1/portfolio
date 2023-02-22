@@ -30,11 +30,11 @@ public class CommonController {
 	@Autowired
 	private CommonService commonService;
 	
-	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
- 	private final String SEPERATOR = "\\";											// window
+	//private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo";
+ 	//private final String SEPERATOR = "\\";											// window
 
-	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
-	//private final String SEPERATOR = "/";											// linux
+	private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo";
+	private final String SEPERATOR = "/";											// linux
 	
 	@RequestMapping("/thumbnails")
 	public void thumbnails (@RequestParam("goodsFileName") String goodsFileName , HttpServletResponse response) throws Exception {
